@@ -4,11 +4,9 @@ export interface SiteSettingsData {
   id?: number;
   companyName?: string;
   logoUrl?: string;
-  faviconUrl?: string;
+  footerLogoUrl?: string;
   email?: string;
-  supportEmail?: string;
   phone?: string;
-  altPhone?: string;
   address?: string;
   cityLocation?: string;
   facebookUrl?: string;

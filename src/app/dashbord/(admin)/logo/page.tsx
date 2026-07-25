@@ -6,7 +6,6 @@ import {
   Mail,
   Phone,
   MapPin,
-  Globe,
   Upload,
   Save,
   RefreshCw,
@@ -14,7 +13,6 @@ import {
   Share2,
   MessageSquare,
   Sparkles,
-  CheckCircle2,
 } from "lucide-react";
 import { useAppSelector } from "@/redux/hooks";
 import { toast } from "sonner";
@@ -27,16 +25,15 @@ export default function CompanyBrandingPage() {
 
   const { data: settingsRes, isLoading: isFetching, refetch } = useGetSiteSettingsQuery();
   const [updateSettings, { isLoading: isSaving }] = useUpdateSiteSettingsMutation();
-  const [isUploading, setIsUploading] = useState<boolean>(false);
+  const [isUploadingHeader, setIsUploadingHeader] = useState<boolean>(false);
+  const [isUploadingFooter, setIsUploadingFooter] = useState<boolean>(false);
 
   const [formData, setFormData] = useState({
     companyName: "",
     logoUrl: "",
-    faviconUrl: "",
+    footerLogoUrl: "",
     email: "",
-    supportEmail: "",
     phone: "",
-    altPhone: "",
     address: "",
     cityLocation: "",
     facebookUrl: "",
@@ -62,15 +59,31 @@ export default function CompanyBrandingPage() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>, fieldName: "logoUrl" | "faviconUrl") => {
+  const handleFileUpload = async (
+    e: React.ChangeEvent<HTMLInputElement>,
+    fieldName: "logoUrl" | "footerLogoUrl"
+  ) => {
     const file = e.target.files?.[0];
     if (!file) return;
+
+    // Validate maximum file size (6MB = 6 * 1024 * 1024 bytes)
+    const MAX_SIZE_MB = 6;
+    if (file.size > MAX_SIZE_MB * 1024 * 1024) {
+      toast.error(
+        lang === "bn"
+          ? `ফাইল সাইজ খুব বড়! সর্বোচ্চ ${MAX_SIZE_MB}MB ফাইল আপলোড করা যাবে।`
+          : `File size too large! Maximum allowed size is ${MAX_SIZE_MB}MB.`
+      );
+      return;
+    }
 
     // Instant local preview
     const localPreviewUrl = URL.createObjectURL(file);
     setFormData((prev) => ({ ...prev, [fieldName]: localPreviewUrl }));
 
-    setIsUploading(true);
+    if (fieldName === "logoUrl") setIsUploadingHeader(true);
+    else setIsUploadingFooter(true);
+
     try {
       const cloudUrl = await uploadImage(file);
       if (cloudUrl) {
@@ -80,7 +93,8 @@ export default function CompanyBrandingPage() {
     } catch (err: any) {
       toast.error(err?.message || "Error uploading image.");
     } finally {
-      setIsUploading(false);
+      if (fieldName === "logoUrl") setIsUploadingHeader(false);
+      else setIsUploadingFooter(false);
     }
   };
 
@@ -120,8 +134,8 @@ export default function CompanyBrandingPage() {
             </h1>
             <p className="text-sm font-medium text-slate-500 mt-1">
               {lang === "bn"
-                ? "কোম্পানির পরিচয়, লোগো, ইমেইল, ফোন নম্বর, ঠিকানা ও সোশ্যাল মিডিয়া লিঙ্ক ম্যানেজ করুন।"
-                : "Manage global company identity, logo assets, contacts, physical address, and social links."}
+                ? "নেভবার লোগো, ফুটার লোগো, ইমেইল, ফোন নম্বর, ঠিকানা ও সোশ্যাল মিডিয়া লিঙ্ক ম্যানেজ করুন।"
+                : "Manage Navbar Logo, Footer Logo, Email, Phone Number, Address, and Social Links."}
             </p>
           </div>
         </div>
@@ -137,7 +151,7 @@ export default function CompanyBrandingPage() {
           </button>
           <button
             type="submit"
-            disabled={isSaving || isUploading}
+            disabled={isSaving || isUploadingHeader || isUploadingFooter}
             className="px-8 py-3.5 bg-[#1E4E8C] hover:bg-[#123C73] text-white rounded-2xl text-sm font-black tracking-wide transition-all shadow-lg shadow-[#1E4E8C]/25 flex items-center gap-2.5 active:scale-95 disabled:opacity-50 cursor-pointer"
           >
             <Save className="w-5 h-5" />
@@ -148,55 +162,127 @@ export default function CompanyBrandingPage() {
 
       {/* Main Responsive Grid Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        {/* Left Column: Branding Assets & Identity (4 Cols) */}
-        <div className="lg:col-span-4 space-y-6">
-          {/* Logo Card */}
-          <div className="bg-white border border-slate-200/80 p-6 sm:p-7 rounded-3xl shadow-sm space-y-6">
-            <h3 className="text-sm font-black text-slate-900 uppercase tracking-widest flex items-center gap-2.5">
-              <Sparkles className="w-4 h-4 text-[#1E4E8C]" />
-              {lang === "bn" ? "কোম্পানি লোগো ও ব্র্যান্ডিং" : "Logo & Brand Assets"}
-            </h3>
+        {/* Left Column: Navbar Logo & Footer Logo Cards (5 Cols) */}
+        <div className="lg:col-span-5 space-y-6">
+          {/* 1. Header / Navbar Logo Card */}
+          <div className="bg-white border border-slate-200/80 p-6 sm:p-7 rounded-3xl shadow-sm space-y-5">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
+              <h3 className="text-sm font-black text-slate-900 uppercase tracking-widest flex items-center gap-2.5">
+                <Sparkles className="w-4 h-4 text-[#1E4E8C]" />
+                {lang === "bn" ? "নেভবার লোগো" : "Navbar / Header Logo"}
+              </h3>
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <span className="px-2.5 py-1 bg-[#E6F0FA] text-[#1E4E8C] text-[11px] font-black rounded-lg border border-[#1E4E8C]/15">
+                  Width: 160px
+                </span>
+                <span className="px-2.5 py-1 bg-[#E6F0FA] text-[#1E4E8C] text-[11px] font-black rounded-lg border border-[#1E4E8C]/15">
+                  Height: 50px
+                </span>
+                <span className="px-2.5 py-1 bg-amber-50 text-amber-700 text-[11px] font-black rounded-lg border border-amber-200">
+                  Max: 6MB
+                </span>
+              </div>
+            </div>
 
-            {/* Logo Preview Container */}
-            <div className="bg-slate-50 border border-slate-200/70 rounded-2xl p-6 flex flex-col items-center justify-center min-h-[180px] relative group overflow-hidden">
+            {/* Header Logo Preview */}
+            <div className="bg-slate-50 border border-slate-200/70 rounded-2xl p-6 flex flex-col items-center justify-center min-h-[160px] relative group overflow-hidden">
               <img
                 src={formData.logoUrl || "/services.png"}
-                alt="Company Logo Preview"
-                className="max-h-24 w-auto object-contain transition-transform group-hover:scale-105 duration-300"
+                alt="Header Logo Preview"
+                className="max-h-20 w-auto object-contain transition-transform group-hover:scale-105 duration-300"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = "/services.png";
                 }}
               />
               <div className="absolute bottom-3 right-3 px-3 py-1 bg-slate-900/80 backdrop-blur-md rounded-lg text-xs text-white font-mono font-bold">
-                {formData.logoUrl ? "Custom Logo" : "Default Logo"}
+                Navbar Preview
               </div>
             </div>
 
             <div className="space-y-4">
               <div>
-                <label className="block text-xs font-black text-slate-800 uppercase tracking-wider mb-2">Logo Image URL</label>
+                <label className="block text-xs font-black text-slate-800 uppercase tracking-wider mb-2">Navbar Logo URL</label>
                 <input
                   type="text"
                   name="logoUrl"
                   value={formData.logoUrl}
                   onChange={handleChange}
-                  placeholder="https://example.com/logo.png"
+                  placeholder="https://example.com/navbar-logo.png"
                   className="w-full px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-2xl text-sm font-mono text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#1E4E8C] focus:bg-white focus:ring-4 focus:ring-[#1E4E8C]/10 transition-all"
                 />
               </div>
 
               <label className="flex items-center justify-center gap-2.5 px-4 py-3.5 bg-[#E6F0FA] hover:bg-[#E6F0FA]/80 text-[#1E4E8C] rounded-2xl cursor-pointer transition-all text-xs font-black uppercase tracking-wider border border-[#1E4E8C]/15 shadow-sm">
                 <Upload className="w-4 h-4" />
-                {isUploading ? "Uploading file..." : "Upload New Logo File"}
+                {isUploadingHeader ? "Uploading Navbar Logo..." : "Upload Navbar Logo"}
                 <input type="file" accept="image/*" onChange={(e) => handleFileUpload(e, "logoUrl")} className="hidden" />
               </label>
             </div>
           </div>
 
-          {/* General Information Card */}
-          <div className="bg-white border border-slate-200/80 p-6 sm:p-7 rounded-3xl shadow-sm space-y-6">
-            <h3 className="text-sm font-black text-slate-900 uppercase tracking-widest flex items-center gap-2.5">
-              <Building2 className="w-4 h-4 text-[#1E4E8C]" />
+          {/* 2. Footer Logo Card */}
+          <div className="bg-white border border-slate-200/80 p-6 sm:p-7 rounded-3xl shadow-sm space-y-5">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
+              <h3 className="text-sm font-black text-slate-900 uppercase tracking-widest flex items-center gap-2.5">
+                <Sparkles className="w-4 h-4 text-purple-600" />
+                {lang === "bn" ? "ফুটার লোগো" : "Footer Logo"}
+              </h3>
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <span className="px-2.5 py-1 bg-purple-50 text-purple-700 text-[11px] font-black rounded-lg border border-purple-200">
+                  Width: 160px
+                </span>
+                <span className="px-2.5 py-1 bg-purple-50 text-purple-700 text-[11px] font-black rounded-lg border border-purple-200">
+                  Height: 45px
+                </span>
+                <span className="px-2.5 py-1 bg-amber-50 text-amber-700 text-[11px] font-black rounded-lg border border-amber-200">
+                  Max: 6MB
+                </span>
+              </div>
+            </div>
+
+            {/* Footer Logo Preview */}
+            <div className="bg-slate-50 border border-slate-200/70 rounded-2xl p-6 flex flex-col items-center justify-center min-h-[160px] relative group overflow-hidden">
+              <img
+                src={formData.footerLogoUrl || formData.logoUrl || "/services.png"}
+                alt="Footer Logo Preview"
+                className="max-h-20 w-auto object-contain transition-transform group-hover:scale-105 duration-300"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = "/services.png";
+                }}
+              />
+              <div className="absolute bottom-3 right-3 px-3 py-1 bg-purple-900/80 backdrop-blur-md rounded-lg text-xs text-white font-mono font-bold">
+                Footer Preview
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <div>
+                <label className="block text-xs font-black text-slate-800 uppercase tracking-wider mb-2">Footer Logo URL</label>
+                <input
+                  type="text"
+                  name="footerLogoUrl"
+                  value={formData.footerLogoUrl}
+                  onChange={handleChange}
+                  placeholder="https://example.com/footer-logo.png"
+                  className="w-full px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-2xl text-sm font-mono text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#1E4E8C] focus:bg-white focus:ring-4 focus:ring-[#1E4E8C]/10 transition-all"
+                />
+              </div>
+
+              <label className="flex items-center justify-center gap-2.5 px-4 py-3.5 bg-purple-50 hover:bg-purple-100 text-purple-700 rounded-2xl cursor-pointer transition-all text-xs font-black uppercase tracking-wider border border-purple-200 shadow-sm">
+                <Upload className="w-4 h-4" />
+                {isUploadingFooter ? "Uploading Footer Logo..." : "Upload Footer Logo"}
+                <input type="file" accept="image/*" onChange={(e) => handleFileUpload(e, "footerLogoUrl")} className="hidden" />
+              </label>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Column: Company Info, Contacts, Locations & Socials (7 Cols) */}
+        <div className="lg:col-span-7 space-y-6">
+          {/* Company Identity */}
+          <div className="bg-white border border-slate-200/80 p-6 sm:p-8 rounded-3xl shadow-sm space-y-6">
+            <h3 className="text-sm font-black text-slate-900 uppercase tracking-widest flex items-center gap-2.5 border-b border-slate-100 pb-4">
+              <Building2 className="w-4.5 h-4.5 text-[#1E4E8C]" />
               {lang === "bn" ? "কোম্পানি পরিচিতি" : "Company Identity"}
             </h3>
 
@@ -217,7 +303,7 @@ export default function CompanyBrandingPage() {
                 <label className="block text-xs font-black text-slate-800 uppercase tracking-wider mb-2">Footer Description / Bio</label>
                 <textarea
                   name="footerDescription"
-                  rows={4}
+                  rows={3}
                   value={formData.footerDescription}
                   onChange={handleChange}
                   placeholder="Write a brief overview of your platform for the footer section..."
@@ -226,10 +312,7 @@ export default function CompanyBrandingPage() {
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Right Column: Detailed Contact & Locations & Socials (8 Cols) */}
-        <div className="lg:col-span-8 space-y-6">
           {/* Contact Details Card */}
           <div className="bg-white border border-slate-200/80 p-6 sm:p-8 rounded-3xl shadow-sm space-y-6">
             <h3 className="text-sm font-black text-slate-900 uppercase tracking-widest flex items-center gap-2.5 border-b border-slate-100 pb-4">
@@ -238,9 +321,9 @@ export default function CompanyBrandingPage() {
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div>
+              <div className="sm:col-span-2">
                 <label className="block text-xs font-black text-slate-800 uppercase tracking-wider mb-2 flex items-center gap-2">
-                  <Mail className="w-4 h-4 text-[#1E4E8C]" /> Primary Official Email
+                  <Mail className="w-4 h-4 text-[#1E4E8C]" /> Official Email Address
                 </label>
                 <input
                   type="email"
@@ -254,21 +337,7 @@ export default function CompanyBrandingPage() {
 
               <div>
                 <label className="block text-xs font-black text-slate-800 uppercase tracking-wider mb-2 flex items-center gap-2">
-                  <Mail className="w-4 h-4 text-[#1E4E8C]" /> Support Email
-                </label>
-                <input
-                  type="email"
-                  name="supportEmail"
-                  value={formData.supportEmail}
-                  onChange={handleChange}
-                  placeholder="support@jevxo.com"
-                  className="w-full px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-2xl text-sm font-semibold text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#1E4E8C] focus:bg-white focus:ring-4 focus:ring-[#1E4E8C]/10 transition-all"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-black text-slate-800 uppercase tracking-wider mb-2 flex items-center gap-2">
-                  <Phone className="w-4 h-4 text-[#1E4E8C]" /> Primary Hotline Phone
+                  <Phone className="w-4 h-4 text-[#1E4E8C]" /> Primary Phone Number
                 </label>
                 <input
                   type="text"
