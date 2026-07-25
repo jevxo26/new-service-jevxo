@@ -13,16 +13,18 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // 1. Fetch Categories, Services, and Districts from the Backend API to build fresh context
+    // 1. Fetch Categories, Services, Districts, and Site Branding Settings from Backend API to build fresh context
     let categoriesList = [];
     let servicesList = [];
     let districtsList = [];
+    let siteSettings: any = null;
 
     try {
-      const [categoriesRes, servicesRes, districtsRes] = await Promise.all([
+      const [categoriesRes, servicesRes, districtsRes, logoRes] = await Promise.all([
         fetch(`${API_BASE_URL}/category`, { next: { revalidate: 300 } }), // Cache for 5 mins
         fetch(`${API_BASE_URL}/services/public`, { next: { revalidate: 300 } }),
         fetch(`${API_BASE_URL}/district`, { next: { revalidate: 300 } }),
+        fetch(`${API_BASE_URL}/logo`, { next: { revalidate: 300 } }),
       ]);
 
       if (categoriesRes.ok) {
@@ -37,9 +39,25 @@ export async function POST(req: NextRequest) {
         const distData = await districtsRes.json();
         districtsList = distData.data || distData || [];
       }
+      if (logoRes.ok) {
+        const logoData = await logoRes.json();
+        siteSettings = logoData.data || logoData || null;
+      }
     } catch (fetchError) {
       console.error("Failed to fetch live context from Jevxo Services API:", fetchError);
     }
+
+    // Extract dynamic branding variables from siteSettings or fallback cleanly
+    const companyName = siteSettings?.companyName || "Jevxo Services";
+    const hotlinePhone = siteSettings?.phone || "01813-333373";
+    const supportEmail = siteSettings?.email || "info@jevxo.com";
+    const companyAddress = siteSettings?.address
+      ? `${siteSettings.address}${siteSettings.cityLocation ? `, ${siteSettings.cityLocation}` : ''}`
+      : "House #42, Road #11, Block-F, Banani, Dhaka-1213";
+    const footerDescription = siteSettings?.footerDescription || "";
+    const facebookUrl = siteSettings?.facebookUrl || "";
+    const instagramUrl = siteSettings?.instagramUrl || "";
+    const whatsappNumber = siteSettings?.whatsappNumber || siteSettings?.phone || "";
 
     // 2. Build a simplified, light-weight catalog and districts representation for AI context
     const simplifiedContext = categoriesList.map((cat: any) => {
@@ -95,11 +113,15 @@ Current Real-Time Info:
 Use this time context to answer time/date-related queries or reference today's date/day accurately.
 `;
 
-    const systemPrompt = `You are the official Jevxo Services AI Assistant, an intelligent customer support agent for Jevxo Services (www.jevxo.com). 
-Jevxo Services is Bangladesh's leading premium home service marketplace. 
-Our official hotline number is 01813-333373.
-Our official support email is info@jevxo.com.
-Our head office / location is Rajshahi High-tech Park, Rajshahi, Bangladesh.
+    const systemPrompt = `You are the official ${companyName} AI Assistant, an intelligent customer support agent for ${companyName} (www.jevxo.com). 
+${companyName} is Bangladesh's leading premium home service marketplace. 
+Our official hotline / phone number is: ${hotlinePhone}
+Our official support email is: ${supportEmail}
+Our official office address / location is: ${companyAddress}
+${footerDescription ? `About Company: ${footerDescription}` : ""}
+${facebookUrl ? `- Facebook: ${facebookUrl}` : ""}
+${instagramUrl ? `- Instagram: ${instagramUrl}` : ""}
+${whatsappNumber ? `- WhatsApp: ${whatsappNumber}` : ""}
 ${userContextPrompt}
 ${timePrompt}
 
