@@ -122,7 +122,7 @@ export default function AdminCustomRequestsPage() {
       {/* Top Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-slate-100 shadow-sm">
         <div>
-          <div className="flex items-center gap-2 text-xs font-bold text-[#FF6014] uppercase tracking-wider mb-1">
+          <div className="flex items-center gap-2 text-xs font-bold text-[#1E4E8C] uppercase tracking-wider mb-1">
             <FileText size={16} /> Operations Console
           </div>
           <h1 className="text-xl md:text-2xl font-black text-slate-900 tracking-tight">
@@ -195,7 +195,7 @@ export default function AdminCustomRequestsPage() {
               placeholder="Search by name, phone, title or description..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 pl-10 pr-4 text-xs font-bold text-slate-800 placeholder:text-slate-400 outline-none focus:border-[#FF6014] focus:ring-2 focus:ring-[#FF6014]/10 transition-all"
+              className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 pl-10 pr-4 text-xs font-bold text-slate-800 placeholder:text-slate-400 outline-none focus:border-[#1E4E8C] focus:ring-2 focus:ring-[#1E4E8C]/10 transition-all"
             />
           </div>
 
@@ -207,7 +207,7 @@ export default function AdminCustomRequestsPage() {
                 onClick={() => setStatusFilter(st)}
                 className={`px-3.5 py-2 rounded-xl text-xs font-black capitalize transition-all shrink-0 cursor-pointer ${
                   statusFilter === st
-                    ? "bg-[#FF6014] text-white shadow-sm"
+                    ? "bg-[#1E4E8C] text-white shadow-sm"
                     : "bg-slate-50 text-slate-500 hover:bg-slate-100 border border-slate-200/60"
                 }`}
               >
@@ -236,7 +236,7 @@ export default function AdminCustomRequestsPage() {
               {isLoading ? (
                 <tr>
                   <td colSpan={8} className="text-center py-12">
-                    <Loader2 className="w-8 h-8 animate-spin text-[#FF6014] mx-auto mb-2" />
+                    <Loader2 className="w-8 h-8 animate-spin text-[#1E4E8C] mx-auto mb-2" />
                     <p className="text-slate-400 text-xs font-bold">Loading custom requests...</p>
                   </td>
                 </tr>
@@ -256,7 +256,7 @@ export default function AdminCustomRequestsPage() {
                       {req.email && <div className="text-[10px] text-slate-400 font-medium">{req.email}</div>}
                     </td>
                     <td className="py-3.5 px-4">
-                      <a href={`tel:${req.phone}`} className="text-[#FF6014] font-extrabold hover:underline flex items-center gap-1">
+                      <a href={`tel:${req.phone}`} className="text-[#1E4E8C] font-extrabold hover:underline flex items-center gap-1">
                         <Phone size={12} /> {req.phone}
                       </a>
                     </td>
@@ -283,7 +283,7 @@ export default function AdminCustomRequestsPage() {
                         {/* View Details Link */}
                         <Link
                           href={`/dashbord/custom-requests/${req.id}`}
-                          className="p-1.5 rounded-lg bg-slate-100 hover:bg-[#FFF4EE] hover:text-[#FF6014] text-slate-600 transition-all flex items-center justify-center"
+                          className="p-1.5 rounded-lg bg-slate-100 hover:bg-[#E6F0FA] hover:text-[#1E4E8C] text-slate-600 transition-all flex items-center justify-center"
                           title="View Full Details Page"
                         >
                           <Eye size={15} />
@@ -293,7 +293,7 @@ export default function AdminCustomRequestsPage() {
                         <select
                           value={req.status || "pending"}
                           onChange={(e) => handleStatusChange(req.id, e.target.value)}
-                          className="bg-slate-50 border border-slate-200 rounded-lg text-[11px] font-bold text-slate-700 py-1 px-2 outline-none focus:border-[#FF6014]"
+                          className="bg-slate-50 border border-slate-200 rounded-lg text-[11px] font-bold text-slate-700 py-1 px-2 outline-none focus:border-[#1E4E8C]"
                         >
                           <option value="pending">Pending</option>
                           <option value="contacted">Contacted</option>

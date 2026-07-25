@@ -120,7 +120,7 @@ export function CategorizedHero({
           const isHighlighted = idx === highlightIndex;
           return (
             <React.Fragment key={idx}>
-              <span className={isHighlighted ? "text-[#FF6014]" : ""}>
+              <span className={isHighlighted ? "text-[#1E4E8C]" : ""}>
                 {word}
               </span>
               {idx < words.length - 1 ? " " : ""}
@@ -140,12 +140,12 @@ export function CategorizedHero({
           <div className="flex flex-col gap-5 min-w-0">
             {/* Badges */}
             <div className="flex flex-wrap gap-2">
-              <div className="inline-flex items-center gap-2 bg-[#fff0f0] text-[#FF6014] px-4 py-1.5 rounded-full text-xs font-semibold">
+              <div className="inline-flex items-center gap-2 bg-[#fff0f0] text-[#1E4E8C] px-4 py-1.5 rounded-full text-xs font-semibold">
                 <Zap className="w-3.5 h-3.5" />
                 Top Rated Services
               </div>
               {categoryName && (
-                <div className="inline-flex items-center gap-1.5 bg-[#FFF8F4] border border-[#FF6014]/20 text-[#FF6014] px-4 py-1.5 rounded-full text-xs font-medium">
+                <div className="inline-flex items-center gap-1.5 bg-[#E6F0FA] border border-[#1E4E8C]/20 text-[#1E4E8C] px-4 py-1.5 rounded-full text-xs font-medium">
                   <Sparkles className="w-3 h-3" />
                   {categoryName}
                 </div>
@@ -166,7 +166,7 @@ export function CategorizedHero({
               >
                 <Heart
                   size={20}
-                  className={isSaved ? "fill-[#FF6014] text-[#FF6014]" : "text-slate-300"}
+                  className={isSaved ? "fill-[#1E4E8C] text-[#1E4E8C]" : "text-slate-300"}
                 />
               </motion.button>
             </div>
@@ -210,7 +210,7 @@ export function CategorizedHero({
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={handleBookNow}
-                className="flex items-center justify-center gap-2 bg-[#FF6014] hover:bg-[#E0530A]
+                className="flex items-center justify-center gap-2 bg-[#1E4E8C] hover:bg-[#123C73]
                   text-white px-7 py-3.5 rounded-full font-semibold text-xs sm:text-sm
                   transition-all shadow-lg shadow-rose-100 cursor-pointer w-full sm:w-auto"
               >
@@ -273,7 +273,7 @@ export function CategorizedHero({
                     Verified Professional
                   </p>
                   <p className="text-[11px] text-slate-400 mt-0.5 leading-none">
-                    Rajseba Guarantee
+                    Jevxo Guarantee
                   </p>
                 </div>
               </motion.div>

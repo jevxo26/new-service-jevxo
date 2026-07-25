@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://rajseba.com";
+const BASE_URL = "https://jevxo.com";
 
 // Fetch all categories dynamically
 async function getCategories(): Promise<{ id: number; name: string; updatedAt?: string }[]> {

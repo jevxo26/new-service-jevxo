@@ -99,7 +99,7 @@ export const printBookingInvoice = (booking: any) => {
   const isPaid = booking.payment_status?.toLowerCase() === 'paid' || booking.status === 'completed';
   const badgeText = isPaid ? 'PAID' : 'DUE';
   const badgeColor = isPaid ? '#10b981' : '#ff6014';
-  const badgeBorder = isPaid ? 'rgba(16,185,129,0.2)' : 'rgba(255,96,20,0.2)';
+  const badgeBorder = isPaid ? 'rgba(16,185,129,0.2)' : 'rgba(30,78,140,0.2)';
 
   // Calculate prices
   const totalPayable = parseFloat(booking.total_price || booking.subtotal || 0);
@@ -214,7 +214,7 @@ export const printBookingInvoice = (booking: any) => {
             line-height: 1.6;
             max-width: 280px;
             position: relative;
-            box-shadow: 0 4px 12px rgba(255,96,20,0.2);
+            box-shadow: 0 4px 12px rgba(30,78,140,0.2);
           }
           .info-box p {
             margin: 3px 0;
@@ -425,7 +425,7 @@ export const printBookingInvoice = (booking: any) => {
             <!-- Header -->
             <div class="header">
               <div class="logo-container">
-                <img src="/rajshiblogo.png" alt="Rajseba Logo" style="height: 52px; width: auto; object-fit: contain;" />
+                <img src="/services.png" alt="Rajseba Logo" style="height: 52px; width: auto; object-fit: contain;" />
               </div>
               <div class="info-box">
                 <div class="stamp">${badgeText}</div>
@@ -630,7 +630,7 @@ export const printWithdrawInvoice = (withdraw: any) => {
             line-height: 1.6;
             max-width: 280px;
             position: relative;
-            box-shadow: 0 4px 12px rgba(255,96,20,0.2);
+            box-shadow: 0 4px 12px rgba(30,78,140,0.2);
           }
           .info-box p {
             margin: 3px 0;
@@ -814,7 +814,7 @@ export const printWithdrawInvoice = (withdraw: any) => {
             <!-- Header -->
             <div class="header">
               <div class="logo-container">
-                <img src="/rajshiblogo.png" alt="Rajseba Logo" style="height: 52px; width: auto; object-fit: contain;" />
+                <img src="/services.png" alt="Rajseba Logo" style="height: 52px; width: auto; object-fit: contain;" />
               </div>
               <div class="info-box">
                 <div class="stamp">${badgeText}</div>
@@ -1037,7 +1037,7 @@ export const printAllWithdrawsInvoice = (withdraws: any[], totalAmount: number) 
             line-height: 1.6;
             max-width: 280px;
             position: relative;
-            box-shadow: 0 4px 12px rgba(255,96,20,0.2);
+            box-shadow: 0 4px 12px rgba(30,78,140,0.2);
           }
           .info-box p {
             margin: 3px 0;
@@ -1221,7 +1221,7 @@ export const printAllWithdrawsInvoice = (withdraws: any[], totalAmount: number) 
             <!-- Header -->
             <div class="header">
               <div class="logo-container">
-                <img src="/rajshiblogo.png" alt="Rajseba Logo" style="height: 52px; width: auto; object-fit: contain;" />
+                <img src="/services.png" alt="Rajseba Logo" style="height: 52px; width: auto; object-fit: contain;" />
               </div>
               <div class="info-box">
                 <div class="stamp">REPORT</div>
@@ -1425,7 +1425,7 @@ export const printClientStatement = (bookings: any[], totalAmount: number) => {
             line-height: 1.6;
             max-width: 280px;
             position: relative;
-            box-shadow: 0 4px 12px rgba(255,96,20,0.2);
+            box-shadow: 0 4px 12px rgba(30,78,140,0.2);
           }
           .info-box p {
             margin: 3px 0;
@@ -1609,7 +1609,7 @@ export const printClientStatement = (bookings: any[], totalAmount: number) => {
             <!-- Header -->
             <div class="header">
               <div class="logo-container">
-                <img src="/rajshiblogo.png" alt="Rajseba Logo" style="height: 52px; width: auto; object-fit: contain;" />
+                <img src="/services.png" alt="Rajseba Logo" style="height: 52px; width: auto; object-fit: contain;" />
               </div>
               <div class="info-box">
                 <div class="stamp">STATEMENT</div>

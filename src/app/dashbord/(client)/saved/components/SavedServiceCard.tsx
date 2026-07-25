@@ -18,7 +18,7 @@ export default function SavedServiceCard({ service, handleUnsave }: SavedService
     <motion.div
       whileHover={{ y: -3, scale: 1.015 }}
       transition={{ duration: 0.3 }}
-      className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-slate-100/90 overflow-hidden shadow-sm hover:shadow-xl hover:shadow-[#FF6014]/5 hover:border-[#FF6014]/20 transition-all duration-300 flex flex-col group relative"
+      className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-slate-100/90 overflow-hidden shadow-sm hover:shadow-xl hover:shadow-[#1E4E8C]/5 hover:border-[#1E4E8C]/20 transition-all duration-300 flex flex-col group relative"
     >
       {/* Image Container */}
       <div className="relative aspect-[4/3] w-full bg-slate-50 overflow-hidden">
@@ -35,7 +35,7 @@ export default function SavedServiceCard({ service, handleUnsave }: SavedService
         {/* Category Badge */}
         {service.category?.name && (
           <span className="absolute top-3 left-3 py-1 px-3 bg-white/90 backdrop-blur-md text-[10px] font-black text-slate-800 rounded-full uppercase tracking-wider shadow-2xs border border-white/40 flex items-center gap-1">
-            <Tag size={10} className="text-[#FF6014]" />
+            <Tag size={10} className="text-[#1E4E8C]" />
             {service.category.name}
           </span>
         )}
@@ -45,7 +45,7 @@ export default function SavedServiceCard({ service, handleUnsave }: SavedService
           whileHover={{ scale: 1.15 }}
           whileTap={{ scale: 0.9 }}
           onClick={() => handleUnsave(service.id, service.name)}
-          className="absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center bg-[#FF6014] text-white shadow-md shadow-[#FF6014]/30 hover:bg-[#E0530A] transition-all cursor-pointer"
+          className="absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center bg-[#1E4E8C] text-white shadow-md shadow-[#1E4E8C]/30 hover:bg-[#123C73] transition-all cursor-pointer"
           aria-label="Remove from wishlist"
         >
           <Heart size={15} className="fill-white" />
@@ -80,7 +80,7 @@ export default function SavedServiceCard({ service, handleUnsave }: SavedService
           </Link>
           <Link
             href={`/categories/service/${service.slug || service.id}`}
-            className="flex-1 text-center bg-gradient-to-r from-[#FF6014] to-[#E0530A] hover:opacity-95 text-white text-xs font-black px-3 py-2.5 rounded-xl transition-all shadow-md shadow-[#FF6014]/20 flex items-center justify-center gap-1"
+            className="flex-1 text-center bg-gradient-to-r from-[#1E4E8C] to-[#123C73] hover:opacity-95 text-white text-xs font-black px-3 py-2.5 rounded-xl transition-all shadow-md shadow-[#1E4E8C]/20 flex items-center justify-center gap-1"
           >
             <span>{lang === "bn" ? "বুক করুন" : "Book Now"}</span>
             <ArrowRight size={12} />

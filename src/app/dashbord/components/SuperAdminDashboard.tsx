@@ -72,14 +72,14 @@ export default function SuperAdminDashboard() {
     {
       key: "id",
       header: "Booking ID",
-      render: (b: any) => <span className="font-extrabold text-[#FF6014]">#{b.id}</span>
+      render: (b: any) => <span className="font-extrabold text-[#1E4E8C]">#{b.id}</span>
     },
     {
       key: "customer",
       header: "Customer",
       render: (b: any) => (
         <span className="font-bold text-slate-800 flex items-center gap-1.5">
-          <User size={12} className="text-[#FF6014]" />
+          <User size={12} className="text-[#1E4E8C]" />
           {b.customer}
         </span>
       )
@@ -109,7 +109,7 @@ export default function SuperAdminDashboard() {
       header: "Amount",
       render: (b: any) => (
         <span className="font-black text-slate-900 flex items-center gap-0.5">
-          <Wallet size={12} className="text-[#FF6014]" />
+          <Wallet size={12} className="text-[#1E4E8C]" />
           {b.amount}
         </span>
       )
@@ -176,7 +176,7 @@ export default function SuperAdminDashboard() {
         whileHover={{ y: -2 }}
         className="relative overflow-hidden bg-white/90 backdrop-blur-xl rounded-3xl border border-slate-100/90 shadow-sm px-7 py-6 group"
       >
-        <div className="absolute -top-10 -right-10 w-56 h-56 bg-gradient-to-br from-[#FF6014]/15 to-[#FFB3AD]/10 rounded-full blur-3xl pointer-events-none group-hover:scale-110 transition-transform duration-500" />
+        <div className="absolute -top-10 -right-10 w-56 h-56 bg-gradient-to-br from-[#1E4E8C]/15 to-[#FFB3AD]/10 rounded-full blur-3xl pointer-events-none group-hover:scale-110 transition-transform duration-500" />
         <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-gradient-to-tr from-indigo-100/50 to-transparent rounded-full blur-2xl pointer-events-none" />
 
         <div className="relative flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -186,18 +186,18 @@ export default function SuperAdminDashboard() {
               Live System Overview
             </div>
             <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight leading-tight flex items-center gap-2">
-              Hello, <span className="text-[#FF6014]">{authUser?.name || "Admin"}</span>!
+              Hello, <span className="text-[#1E4E8C]">{authUser?.name || "Admin"}</span>!
             </h1>
             <p className="text-slate-400 mt-1.5 text-sm font-semibold flex items-center gap-1.5">
-              <Activity size={14} className="text-[#FF6014]" />
-              Real-time statistics and administrative insights for Rajseba.
+              <Activity size={14} className="text-[#1E4E8C]" />
+              Real-time statistics and administrative insights for Jevxo Services.
             </p>
           </div>
 
           <div className="flex items-center gap-3 shrink-0">
             <div className="hidden sm:flex flex-col items-end">
               <span className="text-xs font-extrabold text-slate-700 flex items-center gap-1">
-                <Calendar size={12} className="text-[#FF6014]" />
+                <Calendar size={12} className="text-[#1E4E8C]" />
                 {new Date().toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" })}
               </span>
               <span className="text-[10px] text-slate-400 font-bold mt-0.5 flex items-center gap-1">
@@ -208,7 +208,7 @@ export default function SuperAdminDashboard() {
             <div className="w-px h-8 bg-slate-100 hidden sm:block" />
             <motion.div
               whileHover={{ rotate: 15, scale: 1.1 }}
-              className="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#FF6014] to-[#E0530A] flex items-center justify-center shadow-lg shadow-[#FF6014]/25 cursor-pointer"
+              className="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#1E4E8C] to-[#123C73] flex items-center justify-center shadow-lg shadow-[#1E4E8C]/25 cursor-pointer"
             >
               <Sparkles size={18} className="text-white" />
             </motion.div>
@@ -219,7 +219,7 @@ export default function SuperAdminDashboard() {
       {/* ── Key Performance Metrics (Revenue & Withdrawals) ── */}
       <motion.div variants={itemVariants} className="flex items-center justify-between mt-2 px-1">
         <h2 className="text-base font-black text-slate-800 tracking-tight uppercase flex items-center gap-2">
-          <DollarSign size={18} className="text-[#FF6014]" />
+          <DollarSign size={18} className="text-[#1E4E8C]" />
           Financial Overview
         </h2>
       </motion.div>
@@ -238,13 +238,13 @@ export default function SuperAdminDashboard() {
         {/* Chart Column (2/3 width) */}
         <motion.div
           whileHover={{ y: -2 }}
-          className="lg:col-span-2 bg-white/90 backdrop-blur-xl rounded-3xl border border-slate-100/90 shadow-sm hover:border-[#FF6014]/20 hover:shadow-xl hover:shadow-[#FF6014]/5 transition-all duration-300 overflow-hidden flex flex-col justify-between"
+          className="lg:col-span-2 bg-white/90 backdrop-blur-xl rounded-3xl border border-slate-100/90 shadow-sm hover:border-[#1E4E8C]/20 hover:shadow-xl hover:shadow-[#1E4E8C]/5 transition-all duration-300 overflow-hidden flex flex-col justify-between"
         >
           <div>
             <div className="px-6 pt-6 pb-4 flex justify-between items-start border-b border-slate-100">
               <div>
                 <h3 className="text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
-                  <TrendingUp size={18} className="text-[#FF6014]" />
+                  <TrendingUp size={18} className="text-[#1E4E8C]" />
                   Revenue Trends
                 </h3>
                 <p className="text-xs text-slate-400 mt-0.5 font-semibold flex items-center gap-1">
@@ -254,7 +254,7 @@ export default function SuperAdminDashboard() {
               </div>
               <div className="flex items-center gap-2.5">
                 <div className="flex items-center gap-1.5 text-[11px] text-slate-500 font-extrabold bg-slate-50 px-3 py-1 rounded-full border border-slate-100">
-                  <span className="inline-block w-2.5 h-2.5 rounded-full bg-gradient-to-b from-[#FF6014] to-[#FFBAB4]" />
+                  <span className="inline-block w-2.5 h-2.5 rounded-full bg-gradient-to-b from-[#1E4E8C] to-[#FFBAB4]" />
                   Revenue
                 </div>
               </div>
@@ -265,7 +265,7 @@ export default function SuperAdminDashboard() {
           </div>
           <div className="mx-6 mb-6 mt-2 grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-slate-100 bg-slate-50/70 rounded-2xl border border-slate-100/90 overflow-hidden">
             {[
-              { label: "This Month Rev", value: `৳${overview.revenue.monthly.toLocaleString()}`, accent: "text-[#FF6014]", icon: Calendar },
+              { label: "This Month Rev", value: `৳${overview.revenue.monthly.toLocaleString()}`, accent: "text-[#1E4E8C]", icon: Calendar },
               { label: "This Week Rev", value: `৳${overview.revenue.weekly.toLocaleString()}`, accent: "text-indigo-500", icon: Clock },
               { label: "Month Withdraws", value: `৳${overview.withdraws.monthlyAmount.toLocaleString()}`, accent: "text-emerald-500", icon: Wallet },
               { label: "Week Withdraws", value: `৳${overview.withdraws.weeklyAmount.toLocaleString()}`, accent: "text-amber-500", icon: DollarSign },
@@ -296,10 +296,10 @@ export default function SuperAdminDashboard() {
       <motion.div variants={itemVariants} className="space-y-4">
         <div className="flex justify-between items-center bg-white p-4 rounded-2xl border border-slate-100 shadow-sm">
           <h3 className="text-lg font-extrabold text-slate-900 flex items-center gap-2">
-            <ListFilter size={18} className="text-[#FF6014]" />
+            <ListFilter size={18} className="text-[#1E4E8C]" />
             Recent Booking Log
           </h3>
-          <Link href="/dashbord/manage-bookings" className="text-xs font-bold text-[#FF6014] hover:underline flex items-center gap-1 bg-orange-50 px-3 py-1.5 rounded-xl border border-orange-200/60 transition-colors">
+          <Link href="/dashbord/manage-bookings" className="text-xs font-bold text-[#1E4E8C] hover:underline flex items-center gap-1 bg-orange-50 px-3 py-1.5 rounded-xl border border-orange-200/60 transition-colors">
             View All Bookings <ArrowUpRight size={14} />
           </Link>
         </div>

@@ -39,19 +39,19 @@ export default function SavedServicesPage() {
       <motion.div
         variants={itemVariants}
         whileHover={{ y: -2 }}
-        className="relative overflow-hidden rounded-[28px] sm:rounded-[32px] bg-white/90 backdrop-blur-xl border border-orange-100/90 p-5 sm:p-6 md:p-8 shadow-sm group hover:shadow-xl hover:shadow-[#FF6014]/5 transition-all duration-300"
+        className="relative overflow-hidden rounded-[28px] sm:rounded-[32px] bg-white/90 backdrop-blur-xl border border-orange-100/90 p-5 sm:p-6 md:p-8 shadow-sm group hover:shadow-xl hover:shadow-[#1E4E8C]/5 transition-all duration-300"
       >
-        <div className="absolute -right-16 -top-16 w-60 h-60 rounded-full bg-gradient-to-br from-[#FF6014]/15 to-[#FFB3AD]/10 blur-3xl pointer-events-none group-hover:scale-110 transition-transform duration-500" />
+        <div className="absolute -right-16 -top-16 w-60 h-60 rounded-full bg-gradient-to-br from-[#1E4E8C]/15 to-[#FFB3AD]/10 blur-3xl pointer-events-none group-hover:scale-110 transition-transform duration-500" />
         <div className="absolute -left-16 -bottom-16 w-52 h-52 rounded-full bg-orange-100/40 blur-3xl pointer-events-none" />
 
         <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div className="flex items-center gap-4">
-            <div className="p-3.5 bg-gradient-to-br from-orange-50 to-[#FFF0EB] border border-orange-200/60 text-[#FF6014] rounded-2xl shadow-2xs shrink-0">
-              <Heart className="w-6 h-6 fill-[#FF6014]/20 text-[#FF6014]" />
+            <div className="p-3.5 bg-gradient-to-br from-orange-50 to-[#FFF0EB] border border-orange-200/60 text-[#1E4E8C] rounded-2xl shadow-2xs shrink-0">
+              <Heart className="w-6 h-6 fill-[#1E4E8C]/20 text-[#1E4E8C]" />
             </div>
             <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50/90 border border-orange-200/60 text-[10px] font-black text-[#FF6014] uppercase tracking-widest shadow-2xs mb-2">
-                <Sparkles size={11} className="animate-pulse text-[#FF6014]" />
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50/90 border border-orange-200/60 text-[10px] font-black text-[#1E4E8C] uppercase tracking-widest shadow-2xs mb-2">
+                <Sparkles size={11} className="animate-pulse text-[#1E4E8C]" />
                 <span>{lang === "bn" ? "উইশলিস্ট হাব" : "Wishlist Hub"}</span>
               </div>
               <h1 className="text-2xl md:text-3xl font-black tracking-tight text-slate-900 leading-tight">
@@ -71,7 +71,7 @@ export default function SavedServicesPage() {
 
           <Link
             href="/services"
-            className="bg-gradient-to-r from-[#FF6014] to-[#E0530A] hover:opacity-95 text-white font-extrabold px-6 py-3.5 rounded-2xl shadow-lg shadow-[#FF6014]/20 text-xs transition-all active:scale-[0.985] text-center flex items-center justify-center gap-2 shrink-0 cursor-pointer self-start sm:self-auto"
+            className="bg-gradient-to-r from-[#1E4E8C] to-[#123C73] hover:opacity-95 text-white font-extrabold px-6 py-3.5 rounded-2xl shadow-lg shadow-[#1E4E8C]/20 text-xs transition-all active:scale-[0.985] text-center flex items-center justify-center gap-2 shrink-0 cursor-pointer self-start sm:self-auto"
           >
             <BookOpen size={15} />
             <span>{lang === "bn" ? "সার্ভিসসমূহ ব্রাউজ করুন" : "Explore Services"}</span>
@@ -91,7 +91,7 @@ export default function SavedServicesPage() {
               placeholder={
                 lang === "bn" ? "পছন্দের সার্ভিস অথবা ক্যাটাগরি দিয়ে খুঁজুন..." : "Filter saved items by service name..."
               }
-              className="w-full pl-11 pr-4 py-3 bg-white/90 backdrop-blur-xl border border-slate-200/80 rounded-2xl text-xs font-semibold text-slate-700 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-[#FF6014] focus:ring-4 focus:ring-[#FF6014]/5 transition-all shadow-2xs"
+              className="w-full pl-11 pr-4 py-3 bg-white/90 backdrop-blur-xl border border-slate-200/80 rounded-2xl text-xs font-semibold text-slate-700 placeholder-slate-400 focus:outline-none focus:bg-white focus:border-[#1E4E8C] focus:ring-4 focus:ring-[#1E4E8C]/5 transition-all shadow-2xs"
             />
           </div>
         </motion.div>
@@ -101,12 +101,12 @@ export default function SavedServicesPage() {
       <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {isLoading ? (
           <div className="col-span-full flex items-center justify-center py-16 bg-white/50 rounded-3xl">
-            <Loader2 className="w-8 h-8 animate-spin text-[#FF6014]" />
+            <Loader2 className="w-8 h-8 animate-spin text-[#1E4E8C]" />
           </div>
         ) : filteredSavedServices.length === 0 ? (
           <div className="col-span-full bg-white/90 backdrop-blur-xl p-12 rounded-[32px] border border-dashed border-slate-200 text-center shadow-sm space-y-3">
-            <div className="w-16 h-16 bg-orange-50 rounded-full flex items-center justify-center text-[#FF6014] mx-auto border border-orange-100 shadow-2xs">
-              <Heart size={28} className="fill-[#FF6014]/20 text-[#FF6014]" />
+            <div className="w-16 h-16 bg-orange-50 rounded-full flex items-center justify-center text-[#1E4E8C] mx-auto border border-orange-100 shadow-2xs">
+              <Heart size={28} className="fill-[#1E4E8C]/20 text-[#1E4E8C]" />
             </div>
             <h3 className="text-base font-black text-slate-800">
               {savedServices.length === 0
@@ -125,7 +125,7 @@ export default function SavedServicesPage() {
             <div className="pt-2">
               <Link
                 href="/services"
-                className="inline-flex items-center gap-2 bg-[#FF6014] hover:bg-[#E0530A] text-white text-xs font-extrabold px-6 py-3 rounded-2xl transition-all shadow-md shadow-[#FF6014]/20"
+                className="inline-flex items-center gap-2 bg-[#1E4E8C] hover:bg-[#123C73] text-white text-xs font-extrabold px-6 py-3 rounded-2xl transition-all shadow-md shadow-[#1E4E8C]/20"
               >
                 <BookOpen size={15} />
                 {lang === "bn" ? "সার্ভিসসমূহ ব্রাউজ করুন" : "Browse All Services"}

@@ -135,7 +135,7 @@ export default function EditVendorServicePage() {
   if (isServiceLoading) {
     return (
       <div className="flex items-center justify-center py-20 bg-white border border-slate-100 rounded-3xl shadow-sm">
-        <div className="w-8 h-8 border-4 border-[#FF6014] border-t-transparent rounded-full animate-spin" />
+        <div className="w-8 h-8 border-4 border-[#1E4E8C] border-t-transparent rounded-full animate-spin" />
       </div>
     );
   }
@@ -151,7 +151,7 @@ export default function EditVendorServicePage() {
         </Link>
         <div>
           <h1 className="text-xl font-extrabold text-slate-900 flex items-center gap-2">
-            <Sparkles className="text-[#FF6014]" size={20} /> সার্ভিস এডিট করুন
+            <Sparkles className="text-[#1E4E8C]" size={20} /> সার্ভিস এডিট করুন
           </h1>
           <p className="text-xs text-slate-400 mt-0.5">প্ল্যাটফর্মে আপনার সার্ভিস অফার আপডেট করুন।</p>
         </div>
@@ -205,7 +205,7 @@ export default function EditVendorServicePage() {
                   <label key={emp.id} className="flex items-center gap-2 cursor-pointer group">
                     <input
                       type="checkbox"
-                      className="w-4 h-4 rounded border-slate-300 text-[#FF6014] focus:ring-[#FF6014]/30"
+                      className="w-4 h-4 rounded border-slate-300 text-[#1E4E8C] focus:ring-[#1E4E8C]/30"
                       checked={employeeIds.includes(emp.id)}
                       onChange={(e) => {
                         if (e.target.checked) setEmployeeIds([...employeeIds, emp.id]);
@@ -261,7 +261,7 @@ export default function EditVendorServicePage() {
               <button
                 type="button"
                 onClick={() => setFaq([...faq, { question: "", answer: "" }])}
-                className="text-xs text-[#FF6014] font-bold hover:underline flex items-center gap-1"
+                className="text-xs text-[#1E4E8C] font-bold hover:underline flex items-center gap-1"
               >
                 <PlusCircle size={14} /> FAQ যোগ করুন
               </button>
@@ -275,7 +275,7 @@ export default function EditVendorServicePage() {
                   <button
                     type="button"
                     onClick={() => setFaq(faq.filter((_, idx) => idx !== i))}
-                    className="absolute -top-2 -right-2 bg-[#FFF0EB] text-[#FF6014] hover:bg-[#FF6014] hover:text-white rounded-full p-1.5 transition-colors"
+                    className="absolute -top-2 -right-2 bg-[#FFF0EB] text-[#1E4E8C] hover:bg-[#1E4E8C] hover:text-white rounded-full p-1.5 transition-colors"
                   >
                     <X size={14} />
                   </button>
@@ -326,7 +326,7 @@ export default function EditVendorServicePage() {
                 )}
               </div>
               <div className="flex flex-col gap-1">
-                <label className="cursor-pointer bg-[#FF6014] hover:bg-[#E0530A] text-white text-xs font-bold px-4 py-2.5 rounded-lg inline-flex items-center gap-2 transition-all active:scale-[0.98]">
+                <label className="cursor-pointer bg-[#1E4E8C] hover:bg-[#123C73] text-white text-xs font-bold px-4 py-2.5 rounded-lg inline-flex items-center gap-2 transition-all active:scale-[0.98]">
                   {isUploadingImage ? "আপলোড হচ্ছে..." : "ছবি বাছুন"}
                   <input
                     type="file"
@@ -352,7 +352,7 @@ export default function EditVendorServicePage() {
             <button
               type="submit"
               disabled={isUpdating || isUploadingImage}
-              className="bg-[#FF6014] hover:bg-[#E0530A] disabled:opacity-50 text-white font-bold px-8 py-3 rounded-xl text-sm transition-all active:scale-[0.98] shadow-md shadow-[#FF6014]/10"
+              className="bg-[#1E4E8C] hover:bg-[#123C73] disabled:opacity-50 text-white font-bold px-8 py-3 rounded-xl text-sm transition-all active:scale-[0.98] shadow-md shadow-[#1E4E8C]/10"
             >
               {isUpdating ? "আপডেট হচ্ছে..." : "আপডেট সার্ভিস"}
             </button>

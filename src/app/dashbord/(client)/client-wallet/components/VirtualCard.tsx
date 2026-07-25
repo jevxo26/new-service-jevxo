@@ -11,10 +11,10 @@ interface VirtualCardProps {
 
 export default function VirtualCard({ profileData, totalExpense, walletBalance, lang = "bn" }: VirtualCardProps) {
   return (
-    <div className="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-slate-900 via-slate-800 to-[#E0530A] p-6 sm:p-8 text-white shadow-xl shadow-slate-950/20 border border-slate-800 flex flex-col justify-between aspect-[1.75/1] w-full max-w-[420px] sm:max-w-[480px] lg:max-w-[520px] group hover:shadow-2xl hover:shadow-[#FF6014]/5 transition-all duration-300">
+    <div className="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-slate-900 via-slate-800 to-[#123C73] p-6 sm:p-8 text-white shadow-xl shadow-slate-950/20 border border-slate-800 flex flex-col justify-between aspect-[1.75/1] w-full max-w-[420px] sm:max-w-[480px] lg:max-w-[520px] group hover:shadow-2xl hover:shadow-[#1E4E8C]/5 transition-all duration-300">
       {/* Mesh/Grid Background Overlay */}
       <div className="absolute inset-0 bg-[radial-gradient(#ffffff08_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
-      <div className="absolute -right-10 -bottom-10 w-44 h-44 rounded-full bg-[#FF6014]/20 blur-3xl pointer-events-none" />
+      <div className="absolute -right-10 -bottom-10 w-44 h-44 rounded-full bg-[#1E4E8C]/20 blur-3xl pointer-events-none" />
 
       {/* Card Top Row */}
       <div className="relative z-10 flex items-center justify-between">
@@ -44,7 +44,7 @@ export default function VirtualCard({ profileData, totalExpense, walletBalance, 
           </svg>
         </div>
         <span className="text-[10px] font-extrabold tracking-widest uppercase bg-white/10 px-2.5 py-1 rounded-lg border border-white/10 backdrop-blur-sm">
-          Rajseba Pay
+          Jevxo Services Pay
         </span>
       </div>
 

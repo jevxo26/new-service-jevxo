@@ -46,7 +46,7 @@ export default function InvoiceModal({ isOpen, onClose, booking }: InvoiceModalP
           <div className="flex items-center gap-3">
             <button
               onClick={handlePrint}
-              className="flex items-center gap-2 bg-[#FF6014] hover:bg-[#E0530A] text-white px-4 py-2.5 rounded-xl text-sm font-bold transition-all shadow-sm shadow-[#FF6014]/20 cursor-pointer active:scale-95"
+              className="flex items-center gap-2 bg-[#1E4E8C] hover:bg-[#123C73] text-white px-4 py-2.5 rounded-xl text-sm font-bold transition-all shadow-sm shadow-[#1E4E8C]/20 cursor-pointer active:scale-95"
             >
               <Download size={16} /> Download PDF
             </button>
@@ -63,7 +63,7 @@ export default function InvoiceModal({ isOpen, onClose, booking }: InvoiceModalP
               {/* Header: Logo & Contact Info */}
               <div className="flex flex-col sm:flex-row justify-between items-start gap-6 border-b border-slate-100 pb-6">
                 <div>
-                  <img src="/rajshiblogo.png" alt="Rajseba Logo" className="h-14 w-auto object-contain" />
+                  <img src="/services.png" alt="Jevxo Logo" className="h-14 w-auto object-contain" />
                 </div>
                 
                 <div className="bg-gradient-to-br from-[#ff6014] to-[#e0530a] text-white p-5 rounded-2xl text-[11px] max-w-[280px] shadow-md shadow-[#ff6014]/20 space-y-2.5">
@@ -77,7 +77,7 @@ export default function InvoiceModal({ isOpen, onClose, booking }: InvoiceModalP
                     <svg className="w-3.5 h-3.5 text-white/80 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"></path>
                     </svg>
-                    <span className="font-semibold">info@rajseba.com</span>
+                    <span className="font-semibold">info@jevxo.com</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <svg className="w-3.5 h-3.5 text-white/80 shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -99,7 +99,7 @@ export default function InvoiceModal({ isOpen, onClose, booking }: InvoiceModalP
                 </div>
                 {/* Stamp */}
                 <div className={`absolute top-0 right-0 sm:right-4 border-2 rounded-lg px-3 py-1 text-xs font-black tracking-wider uppercase transform rotate-6 shadow-xs ${
-                  isPaid ? 'border-emerald-500 text-emerald-600 bg-emerald-50' : 'border-[#FF6014] text-[#FF6014] bg-[#FFF8F4]'
+                  isPaid ? 'border-emerald-500 text-emerald-600 bg-emerald-50' : 'border-[#1E4E8C] text-[#1E4E8C] bg-[#E6F0FA]'
                 }`}>
                   {badgeText}
                 </div>
@@ -181,7 +181,7 @@ export default function InvoiceModal({ isOpen, onClose, booking }: InvoiceModalP
                   <p className="font-extrabold text-slate-800 uppercase tracking-wider text-[10px]">Payment Summary</p>
                   <p>● Total Payable Amount: <span className="font-bold text-slate-800">৳{totalPayable.toLocaleString()}.00 BDT</span></p>
                   <p>● Paid Amount: <span className="font-bold text-slate-800">৳{paidAmount.toLocaleString()}.00 BDT</span></p>
-                  <p className={`font-bold ${dueAmount > 0 ? 'text-[#FF6014]' : 'text-slate-500'}`}>● Due Amount: ৳{dueAmount.toLocaleString()}.00 BDT</p>
+                  <p className={`font-bold ${dueAmount > 0 ? 'text-[#1E4E8C]' : 'text-slate-500'}`}>● Due Amount: ৳{dueAmount.toLocaleString()}.00 BDT</p>
                 </div>
                 
                 <div className="w-full sm:w-80 bg-slate-50 p-4 rounded-2xl border border-slate-100 space-y-2 text-xs">
@@ -199,7 +199,7 @@ export default function InvoiceModal({ isOpen, onClose, booking }: InvoiceModalP
                   </div>
                   <div className="flex justify-between border-t border-slate-200 pt-2 font-bold text-sm">
                     <span className="text-slate-800">Total Amount:</span>
-                    <span className="text-[#FF6014]">৳{totalPayable.toLocaleString()}.00</span>
+                    <span className="text-[#1E4E8C]">৳{totalPayable.toLocaleString()}.00</span>
                   </div>
                 </div>
               </div>
@@ -211,14 +211,14 @@ export default function InvoiceModal({ isOpen, onClose, booking }: InvoiceModalP
                 <div>
                   <p className="text-[10px] font-extrabold text-slate-800 uppercase tracking-wider mb-1">Terms & Conditions</p>
                   <p className="text-[10px] text-slate-400 max-w-xs leading-relaxed">
-                    Please make payments to Rajseba. For queries or help, please contact info@rajseba.com.
+                    Please make payments to Jevxo Services. For queries or help, please contact info@jevxo.com.
                   </p>
                 </div>
                 <div className="text-right">
                   <p className="text-slate-400 font-medium">Sincerely,</p>
                   <p className="font-serif italic text-lg text-slate-800 mt-1">Arif</p>
                   <p className="font-bold text-slate-900">Ariful Islam Arif</p>
-                  <p className="text-[10px] text-slate-400">CEO, Rajseba</p>
+                  <p className="text-[10px] text-slate-400">CEO, Jevxo Services</p>
                 </div>
               </div>
 

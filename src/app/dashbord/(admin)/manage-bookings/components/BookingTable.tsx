@@ -194,7 +194,7 @@ export default function BookingTable({ filteredBookings, setDeleteModalBookingId
               e.stopPropagation();
               printBookingInvoice(item);
             }}
-            className="p-2 rounded-xl border border-[#FF6014]/20 hover:border-[#FF6014] hover:text-white hover:bg-[#FF6014] text-[#FF6014] bg-[#FF6014]/5 transition-all shadow-sm cursor-pointer"
+            className="p-2 rounded-xl border border-[#1E4E8C]/20 hover:border-[#1E4E8C] hover:text-white hover:bg-[#1E4E8C] text-[#1E4E8C] bg-[#1E4E8C]/5 transition-all shadow-sm cursor-pointer"
             title="Download Invoice"
           >
             <Download size={16} />
@@ -249,7 +249,7 @@ export default function BookingTable({ filteredBookings, setDeleteModalBookingId
               <div className="md:col-span-2 pt-1">
                 <button 
                   onClick={() => printBookingInvoice(row)}
-                  className="w-full flex justify-center items-center gap-2 bg-[#FF6014] hover:bg-[#E0530A] text-white px-4 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-sm cursor-pointer"
+                  className="w-full flex justify-center items-center gap-2 bg-[#1E4E8C] hover:bg-[#123C73] text-white px-4 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-sm cursor-pointer"
                 >
                   <Download size={16} /> Download PDF
                 </button>

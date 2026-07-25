@@ -125,8 +125,8 @@ function createMarkerIcon(expert: Expert, isSelected: boolean) {
           align-items: center;
           justify-content: center;
           border: 2px solid ${isSelected ? "#ffffff" : "rgba(255,124,113,0.25)"};
-          background: ${isSelected ? "#FF6014" : "#ffffff"};
-          color: ${isSelected ? "#ffffff" : "#FF6014"};
+          background: ${isSelected ? "#1E4E8C" : "#ffffff"};
+          color: ${isSelected ? "#ffffff" : "#1E4E8C"};
           box-shadow: 0 8px 20px rgba(15, 23, 42, 0.18);
           transform: scale(${isSelected ? 1.15 : 1});
           transition: transform 0.2s ease;
@@ -202,14 +202,14 @@ function VendorMarker({
 
           <VendorCategoryTags categories={expert.categories} max={3} />
 
-          <p className="text-sm font-black text-[#FF6014]">
+          <p className="text-sm font-black text-[#1E4E8C]">
             ৳{expert.price.toLocaleString()}+
           </p>
 
           <button
             type="button"
             onClick={onViewDetails}
-            className="w-full rounded-lg bg-[#FF6014] hover:bg-[#E0530A] text-white text-xs font-bold py-2 transition-colors cursor-pointer"
+            className="w-full rounded-lg bg-[#1E4E8C] hover:bg-[#123C73] text-white text-xs font-bold py-2 transition-colors cursor-pointer"
           >
             View Details
           </button>
@@ -270,7 +270,7 @@ export default function DhakaMap({
             setResetToken((prev) => prev + 1);
             if (filteredExperts[0]) setSelectedExpertId(filteredExperts[0].id);
           }}
-          className="w-12 h-12 p-0 rounded-full bg-white border border-slate-100 flex items-center justify-center text-slate-700 hover:text-[#FF6014] shadow-lg hover:shadow-xl active:scale-95 transition-all cursor-pointer hover:bg-slate-50"
+          className="w-12 h-12 p-0 rounded-full bg-white border border-slate-100 flex items-center justify-center text-slate-700 hover:text-[#1E4E8C] shadow-lg hover:shadow-xl active:scale-95 transition-all cursor-pointer hover:bg-slate-50"
           title="Reset Map View"
         >
           <Compass className="w-5 h-5" />
@@ -281,10 +281,10 @@ export default function DhakaMap({
         <button
           type="button"
           onClick={() => onViewDetails?.(selectedExpert)}
-          className="absolute top-4 left-4 z-[500] bg-white/95 backdrop-blur-sm border border-slate-100 rounded-2xl px-4 py-3 shadow-md max-w-[280px] text-left hover:border-[#FF6014]/30 transition-colors cursor-pointer"
+          className="absolute top-4 left-4 z-[500] bg-white/95 backdrop-blur-sm border border-slate-100 rounded-2xl px-4 py-3 shadow-md max-w-[280px] text-left hover:border-[#1E4E8C]/30 transition-colors cursor-pointer"
         >
           <div className="flex items-start gap-2">
-            <div className="w-9 h-9 rounded-full bg-[#FFF8F4] text-[#FF6014] flex items-center justify-center shrink-0">
+            <div className="w-9 h-9 rounded-full bg-[#E6F0FA] text-[#1E4E8C] flex items-center justify-center shrink-0">
               {renderCategoryIcon(selectedExpert.icon, "w-4 h-4")}
             </div>
             <div className="min-w-0 flex-1">
@@ -292,7 +292,7 @@ export default function DhakaMap({
               <div className="mt-1">
                 <VendorLocationInfo expert={selectedExpert} compact />
               </div>
-              <p className="text-[10px] font-bold text-[#FF6014] mt-2 uppercase tracking-wide">
+              <p className="text-[10px] font-bold text-[#1E4E8C] mt-2 uppercase tracking-wide">
                 Tap for vendor details
               </p>
             </div>

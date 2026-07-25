@@ -14,8 +14,8 @@ import HomeMotionWrapper from "@/components/home/HomeMotionWrapper";
 import ScrollToTop from "@/components/home/ScrollToTop";
 import type { Metadata } from "next";
 
-const SITE_URL = "https://rajseba.com";
-const SITE_NAME = "Rajseba";
+const SITE_URL = "https://jevxo.com";
+const SITE_NAME = "services-jevxo-producat";
 const SITE_TAGLINE = "Expert Care for Your Premium Home";
 const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 
@@ -52,7 +52,7 @@ export async function generateMetadata(): Promise<Metadata> {
     "professional home care",
     "verified home experts",
     "book home services online",
-    "Rajseba",
+    "services-jevxo-producat",
   ];
   const allKeywords = [
     ...categoryKeywords,
@@ -110,8 +110,8 @@ export async function generateMetadata(): Promise<Metadata> {
       card: "summary_large_image",
       title,
       description,
-      site: "@rajseba",
-      creator: "@rajseba",
+      site: "@jevxo",
+      creator: "@jevxo",
       images: [OG_IMAGE],
     },
     verification: {
@@ -130,7 +130,7 @@ export default function Home() {
     <div className="min-h-screen bg-background font-sans">
       <div className="relative overflow-hidden">
         {/* Soft premium radial glows for depth and premium aesthetic */}
-        <div className="absolute top-[10%] left-[-10%] w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-[#FF6014]/4 blur-[130px] rounded-full pointer-events-none z-0" />
+        <div className="absolute top-[10%] left-[-10%] w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-[#1E4E8C]/4 blur-[130px] rounded-full pointer-events-none z-0" />
         <div className="absolute top-[40%] right-[-10%] w-[500px] md:w-[700px] h-[500px] md:h-[700px] bg-cyan-500/3 blur-[150px] rounded-full pointer-events-none z-0" />
         <div className="absolute bottom-[10%] left-[-5%] w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-emerald-500/3 blur-[130px] rounded-full pointer-events-none z-0" />
 

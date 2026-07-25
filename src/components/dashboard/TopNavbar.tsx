@@ -75,7 +75,7 @@ export function TopNavbar({ onMenuClick }: { onMenuClick?: () => void }) {
     
     if (normalizedType.includes('booking')) {
       iconElement = <Calendar size={18} />;
-      colorClasses = "text-[#FF6014] bg-[#FFF8F4] border border-[#FF6014]/15";
+      colorClasses = "text-[#1E4E8C] bg-[#E6F0FA] border border-[#1E4E8C]/15";
     } else if (normalizedType.includes('reminder')) {
       iconElement = <BellRing size={18} />;
       colorClasses = "text-blue-500 bg-blue-50 border border-blue-100";
@@ -167,7 +167,7 @@ export function TopNavbar({ onMenuClick }: { onMenuClick?: () => void }) {
   }, []);
 
   const rolesList: { value: UserRole; label: string; desc: string; icon: React.ComponentType<any>; color: string }[] = [
-    { value: "superadmin", label: "Super Admin", desc: "System control", icon: Shield, color: "text-[#FF6014] bg-[#FFF8F4]" },
+    { value: "superadmin", label: "Super Admin", desc: "System control", icon: Shield, color: "text-[#1E4E8C] bg-[#E6F0FA]" },
     { value: "agent", label: "Agent", desc: "Booking agent", icon: Briefcase, color: "text-emerald-500 bg-emerald-50" },
     { value: "vendor", label: "Vendor", desc: "Service professional", icon: HardHat, color: "text-teal-500 bg-teal-50" },
     { value: "client", label: "Client", desc: "Client profile", icon: CircleUser, color: "text-indigo-500 bg-indigo-50" },
@@ -183,14 +183,14 @@ export function TopNavbar({ onMenuClick }: { onMenuClick?: () => void }) {
     : rolesList[3];
 
   return (
-    <header className="bg-white/60 backdrop-blur-xl border-b border-[#FF6014]/15 px-4 sm:px-8 py-4 flex items-center justify-between z-30 sticky top-0 shadow-[0_4px_30px_rgba(255,96,20,0.03)]">
+    <header className="bg-white/60 backdrop-blur-xl border-b border-[#1E4E8C]/15 px-4 sm:px-8 py-4 flex items-center justify-between z-30 sticky top-0 shadow-[0_4px_30px_rgba(30,78,140,0.03)]">
       {/* Search Bar */}
       <div className="flex items-center gap-2 sm:gap-4 flex-1">
         <button onClick={onMenuClick} className="p-2 text-slate-500 hover:text-slate-700 hover:bg-slate-100 rounded-xl md:hidden shrink-0 focus:outline-none transition-colors">
           <Menu size={20} />
         </button>
         <div ref={searchContainerRef} className="relative w-full max-w-md hidden sm:block group">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-[#FF6014] transition-colors" size={16} />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-[#1E4E8C] transition-colors" size={16} />
           <input
             type="text"
             value={searchQuery}
@@ -200,7 +200,7 @@ export function TopNavbar({ onMenuClick }: { onMenuClick?: () => void }) {
             }}
             onFocus={() => setShowSearchResults(true)}
             placeholder={lang === "bn" ? "বুকিং আইডি, সার্ভিস, ক্লায়েন্ট খুঁজুন..." : "Search booking ID, service, client..."}
-            className="w-full bg-white/70 border border-slate-200/80 hover:border-[#FF6014]/30 rounded-2xl pl-11 pr-10 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:border-[#FF6014]/40 focus:ring-4 focus:ring-[#FF6014]/10 transition-all shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
+            className="w-full bg-white/70 border border-slate-200/80 hover:border-[#1E4E8C]/30 rounded-2xl pl-11 pr-10 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:border-[#1E4E8C]/40 focus:ring-4 focus:ring-[#1E4E8C]/10 transition-all shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
           />
           {searchQuery && (
             <button
@@ -241,7 +241,7 @@ export function TopNavbar({ onMenuClick }: { onMenuClick?: () => void }) {
                 </div>
                 {bookingsLoading ? (
                   <div className="p-8 text-center flex flex-col items-center justify-center gap-2">
-                    <div className="w-5 h-5 border-2 border-[#FF6014] border-t-transparent rounded-full animate-spin" />
+                    <div className="w-5 h-5 border-2 border-[#1E4E8C] border-t-transparent rounded-full animate-spin" />
                     <span className="text-xs text-slate-400 font-medium">
                       {lang === "bn" ? "বুকিং খোঁজা হচ্ছে..." : "Searching bookings..."}
                     </span>
@@ -266,11 +266,11 @@ export function TopNavbar({ onMenuClick }: { onMenuClick?: () => void }) {
                             setShowSearchResults(false);
                             router.push(`/dashbord/manage-bookings/${b.id}`);
                           }}
-                          className="w-full flex items-center justify-between p-2.5 rounded-xl hover:bg-[#FF6014]/5 transition-all text-left group"
+                          className="w-full flex items-center justify-between p-2.5 rounded-xl hover:bg-[#1E4E8C]/5 transition-all text-left group"
                         >
                           <div className="min-w-0 flex-1">
                             <div className="flex items-center gap-2 mb-0.5">
-                              <span className="text-xs font-black text-slate-800 truncate group-hover:text-[#FF6014] transition-colors">
+                              <span className="text-xs font-black text-slate-800 truncate group-hover:text-[#1E4E8C] transition-colors">
                                 {serviceName}
                               </span>
                               <span className="text-[10px] font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-full shrink-0">
@@ -311,7 +311,7 @@ export function TopNavbar({ onMenuClick }: { onMenuClick?: () => void }) {
         {/* Language Toggle Button */}
         <button
           onClick={() => dispatch(toggleLanguage())}
-          className="p-2 sm:p-2.5 hover:bg-[#FF6014]/5 rounded-xl sm:rounded-full relative text-slate-500 hover:text-slate-900 transition-all border border-transparent hover:border-white/40 hover:shadow-sm flex items-center gap-1.5 focus:outline-none"
+          className="p-2 sm:p-2.5 hover:bg-[#1E4E8C]/5 rounded-xl sm:rounded-full relative text-slate-500 hover:text-slate-900 transition-all border border-transparent hover:border-white/40 hover:shadow-sm flex items-center gap-1.5 focus:outline-none"
           title={lang === "bn" ? "Switch to English" : "বাংলায় পরিবর্তন করুন"}
         >
           <Languages size={18} />
@@ -324,9 +324,9 @@ export function TopNavbar({ onMenuClick }: { onMenuClick?: () => void }) {
         <div className="relative" ref={notificationDropdownRef}>
           <button 
             onClick={() => setNotificationDropdownOpen(!notificationDropdownOpen)}
-            className="p-2.5 hover:bg-[#FF6014]/5 rounded-full relative text-slate-500 hover:text-slate-900 transition-all border border-transparent hover:border-white/40 hover:shadow-sm"
+            className="p-2.5 hover:bg-[#1E4E8C]/5 rounded-full relative text-slate-500 hover:text-slate-900 transition-all border border-transparent hover:border-white/40 hover:shadow-sm"
           >
-            <Bell size={18} className={unreadCount > 0 ? "animate-bounce text-[#FF6014]" : ""} />
+            <Bell size={18} className={unreadCount > 0 ? "animate-bounce text-[#1E4E8C]" : ""} />
             {unreadCount > 0 && (
               <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white">
                 {unreadCount > 9 ? "9+" : unreadCount}
@@ -345,7 +345,7 @@ export function TopNavbar({ onMenuClick }: { onMenuClick?: () => void }) {
                   {unreadCount > 0 && (
                     <button
                       onClick={handleMarkAllAsRead}
-                      className="text-xs text-[#FF6014] hover:text-[#E0530A] font-extrabold transition-all"
+                      className="text-xs text-[#1E4E8C] hover:text-[#123C73] font-extrabold transition-all"
                     >
                       {lang === "bn" ? "সব পঠিত করুন" : "Mark all as read"}
                     </button>
@@ -374,7 +374,7 @@ export function TopNavbar({ onMenuClick }: { onMenuClick?: () => void }) {
                       onClick={() => setNotificationFilter(tab.value)}
                       className={`text-[11px] uppercase tracking-wider font-extrabold px-3.5 py-1.5 rounded-full transition-all shrink-0 active:scale-[0.97] ${
                         isActive
-                          ? "bg-[#FF6014] text-white shadow-xs"
+                          ? "bg-[#1E4E8C] text-white shadow-xs"
                           : "bg-white/40 hover:bg-white/60 text-slate-500 hover:text-slate-700"
                       }`}
                     >
@@ -459,7 +459,7 @@ export function TopNavbar({ onMenuClick }: { onMenuClick?: () => void }) {
               <p className="text-sm font-bold text-slate-800 leading-none">{name}</p>
               <p className="text-[11px] text-slate-400 mt-1.5 font-medium leading-none">{roleName}</p>
             </div>
-            <div className="w-10 h-10 bg-gradient-to-br from-[#FF6014] to-[#FF6014] text-white font-bold rounded-xl flex items-center justify-center overflow-hidden shadow-md shadow-[#FF6014]/20 select-none transition-transform hover:scale-105 shrink-0">
+            <div className="w-10 h-10 bg-gradient-to-br from-[#1E4E8C] to-[#1E4E8C] text-white font-bold rounded-xl flex items-center justify-center overflow-hidden shadow-md shadow-[#1E4E8C]/20 select-none transition-transform hover:scale-105 shrink-0">
               {profileImg ? (
                 <img src={profileImg} alt={name} className="w-full h-full object-cover" />
               ) : (
@@ -474,7 +474,7 @@ export function TopNavbar({ onMenuClick }: { onMenuClick?: () => void }) {
               {/* User Info Header */}
               <div className="px-4 py-3 border-b border-white/30">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-[#FF6014] to-[#FF6014] text-white font-bold rounded-xl flex items-center justify-center overflow-hidden shadow-md shadow-[#FF6014]/20 select-none shrink-0">
+                  <div className="w-10 h-10 bg-gradient-to-br from-[#1E4E8C] to-[#1E4E8C] text-white font-bold rounded-xl flex items-center justify-center overflow-hidden shadow-md shadow-[#1E4E8C]/20 select-none shrink-0">
                     {profileImg ? (
                       <img src={profileImg} alt={name} className="w-full h-full object-cover" />
                     ) : (
@@ -523,9 +523,9 @@ export function TopNavbar({ onMenuClick }: { onMenuClick?: () => void }) {
                     setProfileDropdownOpen(false);
                     logout();
                   }}
-                  className="w-full flex items-center gap-3 p-2 rounded-xl text-left text-sm text-[#E0530A] hover:bg-white/40 transition-all"
+                  className="w-full flex items-center gap-3 p-2 rounded-xl text-left text-sm text-[#123C73] hover:bg-white/40 transition-all"
                 >
-                  <div className="p-1.5 rounded-lg bg-white/50 text-[#FF6014]">
+                  <div className="p-1.5 rounded-lg bg-white/50 text-[#1E4E8C]">
                     <LogOut size={16} />
                   </div>
                   <span className="font-semibold">{lang === "bn" ? "লগআউট" : "Sign Out"}</span>

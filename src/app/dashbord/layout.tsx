@@ -11,7 +11,7 @@ function DashboardLoader() {
   return (
     <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#F8FAFC]">
       {/* Soft background blobs */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full bg-[#FF6014]/10 blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full bg-[#1E4E8C]/10 blur-[100px] pointer-events-none" />
       <div className="absolute bottom-1/4 left-1/3 w-[280px] h-[280px] rounded-full bg-rose-200/20 blur-[80px] pointer-events-none" />
 
       {/* Spinner stack */}
@@ -20,8 +20,8 @@ function DashboardLoader() {
         <span
           className="absolute w-24 h-24 rounded-full border-[3px] border-transparent"
           style={{
-            borderTopColor: "#FF6014",
-            borderRightColor: "#FF6014",
+            borderTopColor: "#1E4E8C",
+            borderRightColor: "#1E4E8C",
             animation: "spin 1.6s linear infinite",
             opacity: 0.25,
           }}
@@ -30,18 +30,18 @@ function DashboardLoader() {
         <span
           className="absolute w-16 h-16 rounded-full border-[3px] border-transparent"
           style={{
-            borderTopColor: "#FF6014",
-            borderLeftColor: "#FF6014",
+            borderTopColor: "#1E4E8C",
+            borderLeftColor: "#1E4E8C",
             animation: "spin 1s linear infinite reverse",
             opacity: 0.5,
           }}
         />
         {/* Inner solid dot */}
-        <span className="w-8 h-8 rounded-full bg-gradient-to-br from-[#FF6014] to-rose-500 shadow-lg shadow-rose-300/40" />
+        <span className="w-8 h-8 rounded-full bg-gradient-to-br from-[#1E4E8C] to-rose-500 shadow-lg shadow-rose-300/40" />
       </div>
 
       {/* Brand wordmark */}
-      <p className="text-base font-black text-slate-800 tracking-tight mb-1">Rajseba</p>
+      <p className="text-base font-black text-slate-800 tracking-tight mb-1">Jevxo Services</p>
       <p className="text-xs font-semibold text-slate-400 tracking-wide">Loading your dashboard…</p>
 
       {/* Keyframes via inline style */}

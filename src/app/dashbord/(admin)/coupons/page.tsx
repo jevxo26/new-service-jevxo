@@ -34,7 +34,7 @@ export default function CouponsManagementPage() {
   if (role !== "superadmin") {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center p-8 bg-white border border-slate-100 rounded-3xl shadow-sm text-center">
-        <ShieldAlert size={48} className="text-[#FF6014] mb-4" />
+        <ShieldAlert size={48} className="text-[#1E4E8C] mb-4" />
         <h3 className="text-xl font-bold text-slate-800">{lang === "bn" ? "অ্যাক্সেস অস্বীকৃত" : "Access Denied"}</h3>
         <p className="text-sm text-slate-500 mt-2">{lang === "bn" ? "শুধুমাত্র সুপার অ্যাডমিন কুপন ম্যানেজ করতে পারেন।" : "Only superadmin can manage coupons."}</p>
       </div>
@@ -45,7 +45,7 @@ export default function CouponsManagementPage() {
     <div className="space-y-8 animate-in fade-in duration-200">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-5">
         <div className="flex items-center gap-3">
-          <div className="p-2.5 bg-[#FFF8F4] text-[#FF6014] rounded-2xl">
+          <div className="p-2.5 bg-[#E6F0FA] text-[#1E4E8C] rounded-2xl">
             <Tag className="w-6 h-6" />
           </div>
           <div>
@@ -55,7 +55,7 @@ export default function CouponsManagementPage() {
         </div>
         <button
           onClick={openCreate}
-          className="bg-[#FF6014] hover:bg-[#E0530A] text-white font-bold px-5 py-2.5 rounded-xl text-sm transition-all shadow-md flex items-center gap-2"
+          className="bg-[#1E4E8C] hover:bg-[#123C73] text-white font-bold px-5 py-2.5 rounded-xl text-sm transition-all shadow-md flex items-center gap-2"
         >
           <PlusCircle size={18} />
           {lang === "bn" ? "কুপন তৈরি করুন" : "Create Coupon"}

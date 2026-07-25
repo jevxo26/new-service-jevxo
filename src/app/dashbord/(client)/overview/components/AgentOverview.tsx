@@ -44,7 +44,7 @@ export default function AgentOverview() {
       value: isLoading ? "—" : `${totalOrders}`,
       desc: lang === "bn" ? "সর্বকালের বুকিং" : "All time bookings",
       icon: Briefcase,
-      color: "text-[#FF6014] bg-orange-50 border-orange-100",
+      color: "text-[#1E4E8C] bg-orange-50 border-orange-100",
     },
     {
       label: lang === "bn" ? "আজকের বুকিং" : "Today's Bookings",
@@ -73,14 +73,14 @@ export default function AgentOverview() {
     {
       key: "id",
       header: lang === "bn" ? "বুকিং আইডি" : "Booking ID",
-      render: (o: any) => <span className="font-extrabold text-[#FF6014]">#{o.id}</span>,
+      render: (o: any) => <span className="font-extrabold text-[#1E4E8C]">#{o.id}</span>,
     },
     {
       key: "user",
       header: lang === "bn" ? "গ্রাহকের নাম" : "Client Name",
       render: (o: any) => (
         <span className="font-bold text-slate-800 flex items-center gap-1.5">
-          <User size={12} className="text-[#FF6014]" />
+          <User size={12} className="text-[#1E4E8C]" />
           {o.user?.name || "—"}
         </span>
       ),
@@ -154,19 +154,19 @@ export default function AgentOverview() {
       <motion.div
         variants={itemVariants}
         whileHover={{ y: -2 }}
-        className="relative overflow-hidden bg-white/90 backdrop-blur-xl rounded-[28px] border border-orange-100/90 shadow-sm p-6 md:p-7 group hover:shadow-xl hover:shadow-[#FF6014]/5 transition-all duration-300"
+        className="relative overflow-hidden bg-white/90 backdrop-blur-xl rounded-[28px] border border-orange-100/90 shadow-sm p-6 md:p-7 group hover:shadow-xl hover:shadow-[#1E4E8C]/5 transition-all duration-300"
       >
-        <div className="absolute -top-10 -right-10 w-48 h-48 bg-gradient-to-br from-[#FF6014]/15 to-[#FFB3AD]/10 rounded-full blur-3xl pointer-events-none group-hover:scale-110 transition-transform duration-500" />
+        <div className="absolute -top-10 -right-10 w-48 h-48 bg-gradient-to-br from-[#1E4E8C]/15 to-[#FFB3AD]/10 rounded-full blur-3xl pointer-events-none group-hover:scale-110 transition-transform duration-500" />
         <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-gradient-to-tr from-amber-100/40 to-transparent rounded-full blur-2xl pointer-events-none" />
 
         <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
           <div className="flex items-center gap-3.5">
-            <div className="p-3 bg-orange-50 border border-orange-200/60 text-[#FF6014] rounded-2xl shadow-2xs">
+            <div className="p-3 bg-orange-50 border border-orange-200/60 text-[#1E4E8C] rounded-2xl shadow-2xs">
               <Sparkles className="w-6 h-6" />
             </div>
             <div>
-              <div className="inline-flex items-center gap-1.5 bg-orange-50 border border-orange-200/60 text-[#FF6014] text-[10px] font-black uppercase tracking-widest px-2.5 py-0.5 rounded-full mb-1.5 shadow-2xs">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#FF6014] animate-ping inline-block" />
+              <div className="inline-flex items-center gap-1.5 bg-orange-50 border border-orange-200/60 text-[#1E4E8C] text-[10px] font-black uppercase tracking-widest px-2.5 py-0.5 rounded-full mb-1.5 shadow-2xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#1E4E8C] animate-ping inline-block" />
                 Agent Panel
               </div>
               <h1 className="text-2xl font-black text-slate-900 tracking-tight">
@@ -181,7 +181,7 @@ export default function AgentOverview() {
           </div>
           <Link
             href="/dashbord/quick-booking"
-            className="bg-gradient-to-r from-[#FF6014] to-[#E0530A] hover:opacity-95 text-white font-extrabold px-6 py-3 rounded-2xl shadow-lg shadow-[#FF6014]/20 text-xs transition-all active:scale-[0.985] text-center flex items-center justify-center gap-1.5 shrink-0"
+            className="bg-gradient-to-r from-[#1E4E8C] to-[#123C73] hover:opacity-95 text-white font-extrabold px-6 py-3 rounded-2xl shadow-lg shadow-[#1E4E8C]/20 text-xs transition-all active:scale-[0.985] text-center flex items-center justify-center gap-1.5 shrink-0"
           >
             <Zap size={15} />
             <span>{lang === "bn" ? "নতুন লিড বুক করুন" : "Book a New Lead"}</span>
@@ -197,7 +197,7 @@ export default function AgentOverview() {
             <motion.div
               key={i}
               whileHover={{ y: -3, scale: 1.015 }}
-              className="bg-white/90 backdrop-blur-xl p-5 sm:p-6 rounded-2xl border border-slate-100/90 shadow-sm flex items-start gap-4 hover:shadow-xl hover:shadow-[#FF6014]/5 hover:border-[#FF6014]/20 transition-all duration-300 cursor-pointer"
+              className="bg-white/90 backdrop-blur-xl p-5 sm:p-6 rounded-2xl border border-slate-100/90 shadow-sm flex items-start gap-4 hover:shadow-xl hover:shadow-[#1E4E8C]/5 hover:border-[#1E4E8C]/20 transition-all duration-300 cursor-pointer"
             >
               <div className={`p-3 rounded-xl border ${stat.color} shrink-0`}>
                 <Icon size={22} />
@@ -216,17 +216,17 @@ export default function AgentOverview() {
       <motion.div variants={itemVariants} className="space-y-4">
         <div className="flex justify-between items-center bg-white/90 backdrop-blur-xl p-4 rounded-2xl border border-slate-100/90 shadow-sm">
           <h3 className="text-lg font-black text-slate-900 flex items-center gap-2">
-            <Briefcase size={18} className="text-[#FF6014]" />
+            <Briefcase size={18} className="text-[#1E4E8C]" />
             {lang === "bn" ? "সাম্প্রতিক লিড অর্ডার" : "Recent Lead Orders"}
           </h3>
-          <Link href="/dashbord/orders" className="text-xs font-extrabold text-[#FF6014] hover:underline flex items-center gap-1 bg-orange-50 px-3 py-1.5 rounded-xl border border-orange-100">
+          <Link href="/dashbord/orders" className="text-xs font-extrabold text-[#1E4E8C] hover:underline flex items-center gap-1 bg-orange-50 px-3 py-1.5 rounded-xl border border-orange-100">
             {lang === "bn" ? "সব দেখুন" : "View All"} <ArrowUpRight size={14} />
           </Link>
         </div>
 
         {isLoading ? (
           <div className="flex items-center justify-center h-32 bg-white/50 rounded-2xl">
-            <Loader2 size={32} className="animate-spin text-[#FF6014]" />
+            <Loader2 size={32} className="animate-spin text-[#1E4E8C]" />
           </div>
         ) : (
           <CustomTable

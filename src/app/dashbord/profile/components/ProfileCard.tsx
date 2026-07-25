@@ -29,9 +29,9 @@ export default function ProfileCard({
 }: ProfileCardProps) {
   return (
     <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col items-center text-center space-y-4">
-      <div className="w-24 h-24 bg-[#FFF0EB] text-[#E0530A] rounded-full flex items-center justify-center font-black text-3xl shadow-inner relative overflow-hidden group/avatar">
+      <div className="w-24 h-24 bg-[#FFF0EB] text-[#123C73] rounded-full flex items-center justify-center font-black text-3xl shadow-inner relative overflow-hidden group/avatar">
         {isUploadingAvatar ? (
-          <Loader2 className="w-8 h-8 animate-spin text-[#FF6014]" />
+          <Loader2 className="w-8 h-8 animate-spin text-[#1E4E8C]" />
         ) : avatarUrl ? (
           <img src={avatarUrl} alt={name} className="w-full h-full object-cover" />
         ) : (
@@ -62,7 +62,7 @@ export default function ProfileCard({
       </p>
       <div>
         <h3 className="text-lg font-bold text-slate-800">{name}</h3>
-        <span className="text-xs font-semibold text-[#FF6014] bg-[#FFF8F4] px-2.5 py-0.5 rounded-lg mt-1 inline-block capitalize">
+        <span className="text-xs font-semibold text-[#1E4E8C] bg-[#E6F0FA] px-2.5 py-0.5 rounded-lg mt-1 inline-block capitalize">
           {getRoleName(role)}
         </span>
       </div>

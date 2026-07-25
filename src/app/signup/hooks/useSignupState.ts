@@ -53,7 +53,7 @@ export function useSignupState() {
         
         const date = new Date();
         date.setTime(date.getTime() + 30 * 24 * 60 * 60 * 1000);
-        document.cookie = `rajseba_user_role=${roleString}; expires=${date.toUTCString()}; path=/; SameSite=Lax`;
+        document.cookie = `jevxo_user_role=${roleString}; expires=${date.toUTCString()}; path=/; SameSite=Lax`;
         
         toast.success("Account created & logged in successfully!");
         if (redirectUrl) router.push(redirectUrl);

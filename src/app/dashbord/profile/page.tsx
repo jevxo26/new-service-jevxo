@@ -36,19 +36,19 @@ export default function ProfilePage() {
       {/* ── Premium Light Glassmorphic Header ── */}
       <motion.div
         whileHover={{ y: -2 }}
-        className="relative overflow-hidden rounded-[28px] sm:rounded-[32px] bg-white/90 backdrop-blur-xl border border-orange-100/90 p-5 sm:p-6 md:p-8 shadow-sm group hover:shadow-xl hover:shadow-[#FF6014]/5 transition-all duration-300"
+        className="relative overflow-hidden rounded-[28px] sm:rounded-[32px] bg-white/90 backdrop-blur-xl border border-orange-100/90 p-5 sm:p-6 md:p-8 shadow-sm group hover:shadow-xl hover:shadow-[#1E4E8C]/5 transition-all duration-300"
       >
-        <div className="absolute -right-16 -top-16 w-56 h-56 rounded-full bg-gradient-to-br from-[#FF6014]/15 to-[#FFB3AD]/10 blur-3xl pointer-events-none group-hover:scale-110 transition-transform duration-500" />
+        <div className="absolute -right-16 -top-16 w-56 h-56 rounded-full bg-gradient-to-br from-[#1E4E8C]/15 to-[#FFB3AD]/10 blur-3xl pointer-events-none group-hover:scale-110 transition-transform duration-500" />
         <div className="absolute -left-16 -bottom-16 w-48 h-48 rounded-full bg-orange-100/40 blur-3xl pointer-events-none" />
 
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="flex items-center gap-4">
-            <div className="p-3 bg-orange-50 border border-orange-200/60 text-[#FF6014] rounded-2xl shadow-2xs">
+            <div className="p-3 bg-orange-50 border border-orange-200/60 text-[#1E4E8C] rounded-2xl shadow-2xs">
               <UserIcon className="w-6 h-6" />
             </div>
             <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50/90 border border-orange-200/60 text-[10px] font-black text-[#FF6014] uppercase tracking-widest shadow-2xs mb-1.5">
-                <ShieldCheck size={11} className="text-[#FF6014]" />
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50/90 border border-orange-200/60 text-[10px] font-black text-[#1E4E8C] uppercase tracking-widest shadow-2xs mb-1.5">
+                <ShieldCheck size={11} className="text-[#1E4E8C]" />
                 <span>{lang === "bn" ? "ইউজার প্রোফাইল" : "User Profile"}</span>
               </div>
               <h1 className="text-xl md:text-2xl font-black tracking-tight text-slate-900">
@@ -94,7 +94,7 @@ export default function ProfilePage() {
                   name="name"
                   type="text"
                   defaultValue={state.name !== "Unknown User" ? state.name : ""}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#FF6014]/40 focus:ring-2 focus:ring-rose-100 transition-all font-semibold"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#1E4E8C]/40 focus:ring-2 focus:ring-rose-100 transition-all font-semibold"
                   required
                 />
               </div>
@@ -107,7 +107,7 @@ export default function ProfilePage() {
                   name="phone"
                   type="tel"
                   defaultValue={state.phone !== "No Phone" ? state.phone : ""}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#FF6014]/40 focus:ring-2 focus:ring-rose-100 transition-all font-semibold"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#1E4E8C]/40 focus:ring-2 focus:ring-rose-100 transition-all font-semibold"
                 />
               </div>
 
@@ -119,7 +119,7 @@ export default function ProfilePage() {
                   name="address"
                   type="text"
                   defaultValue={state.address !== "No Address Provided" ? state.address : ""}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#FF6014]/40 focus:ring-2 focus:ring-rose-100 transition-all font-semibold"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#1E4E8C]/40 focus:ring-2 focus:ring-rose-100 transition-all font-semibold"
                   required
                 />
               </div>
@@ -191,7 +191,7 @@ export default function ProfilePage() {
                   name="company_name"
                   type="text"
                   defaultValue={state.profile?.company_name || ""}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#FF6014]/40 focus:ring-2 focus:ring-rose-100 transition-all font-medium"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#1E4E8C]/40 focus:ring-2 focus:ring-rose-100 transition-all font-medium"
                   placeholder={lang === "bn" ? "ব্যক্তিগত হলে খালি রাখুন" : "Leave blank if personal"}
                 />
               </div>
@@ -215,7 +215,7 @@ export default function ProfilePage() {
                   name="location"
                   type="text"
                   defaultValue={state.profile?.location || ""}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#FF6014]/40 focus:ring-2 focus:ring-rose-100 transition-all font-medium"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#1E4E8C]/40 focus:ring-2 focus:ring-rose-100 transition-all font-medium"
                   placeholder={lang === "bn" ? "যেমন: ব্লক সি, বাড়ি ১২" : "e.g. Block C, House 12"}
                 />
               </div>
@@ -228,7 +228,7 @@ export default function ProfilePage() {
                   name="description"
                   rows={4}
                   defaultValue={state.profile?.description || ""}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#FF6014]/40 focus:ring-2 focus:ring-rose-100 transition-all resize-none font-medium"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#1E4E8C]/40 focus:ring-2 focus:ring-rose-100 transition-all resize-none font-medium"
                   placeholder={
                     lang === "bn"
                       ? "সার্ভিস এবং দক্ষতা সম্পর্কে লিখুন..."
@@ -246,7 +246,7 @@ export default function ProfilePage() {
                   type="number"
                   step="0.01"
                   defaultValue={state.profile?.min_starting_price || ""}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#FF6014]/40 focus:ring-2 focus:ring-rose-100 transition-all font-medium"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#1E4E8C]/40 focus:ring-2 focus:ring-rose-100 transition-all font-medium"
                   placeholder="0.00"
                 />
               </div>
@@ -259,7 +259,7 @@ export default function ProfilePage() {
                   name="google_map_link"
                   type="url"
                   defaultValue={state.profile?.google_map_link || ""}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#FF6014]/40 focus:ring-2 focus:ring-rose-100 transition-all font-medium"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#1E4E8C]/40 focus:ring-2 focus:ring-rose-100 transition-all font-medium"
                   placeholder="https://maps.app.goo.gl/..."
                 />
               </div>
@@ -269,7 +269,7 @@ export default function ProfilePage() {
               <button
                 type="submit"
                 disabled={state.isSaving}
-                className="w-full sm:w-auto bg-[#FF6014] hover:bg-[#E0530A] text-white font-bold px-6 py-3 sm:py-2.5 rounded-xl text-sm flex items-center justify-center gap-1.5 transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full sm:w-auto bg-[#1E4E8C] hover:bg-[#123C73] text-white font-bold px-6 py-3 sm:py-2.5 rounded-xl text-sm flex items-center justify-center gap-1.5 transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Save size={16} />{" "}
                 {state.isSaving

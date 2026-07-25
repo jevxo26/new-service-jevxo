@@ -59,9 +59,9 @@ export default function StatsGrid({ overview }: StatsGridProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: i * 0.06 }}
             whileHover={{ y: -4, scale: 1.015 }}
-            className="group bg-white p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl border border-slate-100/90 hover:border-[#FF6014]/30 hover:shadow-xl hover:shadow-[#FF6014]/10 transition-all duration-300 flex items-center gap-2.5 sm:gap-4 relative overflow-hidden cursor-pointer"
+            className="group bg-white p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl border border-slate-100/90 hover:border-[#1E4E8C]/30 hover:shadow-xl hover:shadow-[#1E4E8C]/10 transition-all duration-300 flex items-center gap-2.5 sm:gap-4 relative overflow-hidden cursor-pointer"
           >
-            <div className="absolute -right-6 -bottom-6 w-20 h-20 bg-gradient-to-br from-[#FF6014]/10 to-transparent rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+            <div className="absolute -right-6 -bottom-6 w-20 h-20 bg-gradient-to-br from-[#1E4E8C]/10 to-transparent rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
             <div
               className={`p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl border ${stat.color} shrink-0 transition-transform duration-300 group-hover:scale-110 shadow-xs`}
             >
@@ -71,7 +71,7 @@ export default function StatsGrid({ overview }: StatsGridProps) {
               <p className="text-[9px] sm:text-[11px] text-slate-400 font-extrabold uppercase tracking-wider truncate flex items-center gap-1">
                 {stat.label}
               </p>
-              <h4 className="text-sm xs:text-base sm:text-xl md:text-2xl font-black text-slate-800 mt-0.5 sm:mt-1 tracking-tight truncate group-hover:text-[#FF6014] transition-colors">
+              <h4 className="text-sm xs:text-base sm:text-xl md:text-2xl font-black text-slate-800 mt-0.5 sm:mt-1 tracking-tight truncate group-hover:text-[#1E4E8C] transition-colors">
                 {stat.value}
               </h4>
               <p className="text-[8px] sm:text-[10px] text-slate-400 mt-0.5 font-bold flex items-center gap-1">

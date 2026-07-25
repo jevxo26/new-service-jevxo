@@ -12,14 +12,14 @@ export async function generateMetadata({
       next: { revalidate: 3600 },
     });
     if (!allRes.ok) return {
-      title: "Category Details - Rajseba",
+      title: "Category Details - Jevxo Services",
       description: "Professional service category details.",
     };
     const allData = await allRes.json();
     const services = allData.data || (Array.isArray(allData) ? allData : []);
     const serviceObj = services.find((s: any) => s.slug === slug || String(s.id) === slug);
     if (!serviceObj) return {
-      title: "Category Details - Rajseba",
+      title: "Category Details - Jevxo Services",
       description: "Professional service category details.",
     };
 
@@ -31,26 +31,26 @@ export async function generateMetadata({
 
     if (!service) {
       return {
-        title: "Category Details - Rajseba",
+        title: "Category Details - Jevxo Services",
         description: "Professional service category details.",
       };
     }
 
     return {
-      title: `${service.name} - Expert Service Category | Rajseba`,
+      title: `${service.name} - Expert Service Category | Jevxo Services`,
       description: service.description || `Book expert ${service.name} services in Bangladesh. Professional and trusted technicians at your service.`,
       openGraph: {
-        title: `${service.name} - Rajseba`,
+        title: `${service.name} - Jevxo Services`,
         description: service.description || `Book expert ${service.name} services in Bangladesh.`,
-        url: `https://rajseba.com/categories/service/${slug}`,
-        siteName: "Rajseba",
+        url: `https://jevxo.com/categories/service/${slug}`,
+        siteName: "Jevxo Services",
         locale: "en_US",
         type: "website",
       },
     };
   } catch {
     return {
-      title: "Category Details - Rajseba",
+      title: "Category Details - Jevxo Services",
       description: "Professional service category details.",
     };
   }

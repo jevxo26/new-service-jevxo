@@ -21,7 +21,7 @@ export default function BookingPipeline({ bookings }: BookingPipelineProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: 0.1 }}
       whileHover={{ y: -3 }}
-      className="bg-white rounded-3xl border border-slate-100 hover:border-[#FF6014]/20 hover:shadow-xl hover:shadow-[#FF6014]/5 transition-all duration-300 p-6 flex flex-col justify-between"
+      className="bg-white rounded-3xl border border-slate-100 hover:border-[#1E4E8C]/20 hover:shadow-xl hover:shadow-[#1E4E8C]/5 transition-all duration-300 p-6 flex flex-col justify-between"
     >
       <div>
         <div className="flex justify-between items-center mb-5">

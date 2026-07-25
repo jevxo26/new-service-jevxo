@@ -31,7 +31,7 @@ export default function TermsClientPage() {
       {/* Ambient glows */}
       <motion.div
         style={{ y: glowY }}
-        className="pointer-events-none absolute top-[-5%] right-[-10%] w-[500px] h-[500px] rounded-full bg-[#FF6014]/4 blur-[130px] z-0"
+        className="pointer-events-none absolute top-[-5%] right-[-10%] w-[500px] h-[500px] rounded-full bg-[#1E4E8C]/4 blur-[130px] z-0"
       />
       <div className="pointer-events-none absolute bottom-[10%] left-[-5%] w-[400px] h-[400px] rounded-full bg-cyan-500/3 blur-[120px] z-0" />
 
@@ -40,13 +40,13 @@ export default function TermsClientPage() {
         <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 text-[10px] font-extrabold text-[#FF6014] uppercase tracking-[.12em] bg-[#FFF4EE] px-3 py-1.5 rounded-full border border-[#FF6014]/20 mb-3 hover:bg-[#FF6014]/5 transition-colors"
+            className="inline-flex items-center gap-1.5 text-[10px] font-extrabold text-[#1E4E8C] uppercase tracking-[.12em] bg-[#E6F0FA] px-3 py-1.5 rounded-full border border-[#1E4E8C]/20 mb-3 hover:bg-[#1E4E8C]/5 transition-colors"
           >
             <ArrowLeft className="w-3.5 h-3.5" /> Back to Home
           </Link>
 
           <h1 className="text-[clamp(24px,4vw,36px)] font-black text-slate-900 tracking-[-0.03em] leading-[1.1] mb-2.5">
-            Terms of <span className="text-[#FF6014]">Service</span>
+            Terms of <span className="text-[#1E4E8C]">Service</span>
           </h1>
 
           <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">
@@ -67,7 +67,7 @@ export default function TermsClientPage() {
                 onClick={() => setActiveTab(sec.id)}
                 className={`flex items-center gap-2 px-3.5 py-2 rounded-xl border text-[11px] font-extrabold transition-all shrink-0 snap-align-none ${
                   isActive
-                    ? "bg-[#FF6014] text-white border-[#FF6014] shadow-sm"
+                    ? "bg-[#1E4E8C] text-white border-[#1E4E8C] shadow-sm"
                     : "bg-white border-slate-200/60 text-slate-600"
                 }`}
               >
@@ -103,8 +103,8 @@ export default function TermsClientPage() {
                         onClick={() => setActiveTab(sec.id)}
                         className={`flex items-center gap-2.5 w-full text-left px-3 py-2.5 rounded-xl border text-[11px] font-bold transition-all ${
                           isActive
-                            ? "bg-[#FF6014] text-white border-[#FF6014] shadow-[0_4px_12px_rgba(255,96,20,0.12)] scale-[1.01]"
-                            : "bg-white/60 border-slate-100 text-slate-600 hover:border-[#FF6014]/20 hover:bg-white"
+                            ? "bg-[#1E4E8C] text-white border-[#1E4E8C] shadow-[0_4px_12px_rgba(30,78,140,0.12)] scale-[1.01]"
+                            : "bg-white/60 border-slate-100 text-slate-600 hover:border-[#1E4E8C]/20 hover:bg-white"
                         }`}
                       >
                         <div className={`p-1 rounded-lg ${isActive ? "bg-white/20 text-white" : "bg-slate-50 text-slate-500"}`}>
@@ -120,7 +120,7 @@ export default function TermsClientPage() {
               {/* Quick Warranty Note */}
               <div className="bg-gradient-to-br from-[#FFFDFB] to-[#FFF9F6] border border-rose-100/40 rounded-2xl p-4">
                 <div className="flex items-center gap-1.5 mb-2">
-                  <Sparkles className="w-3.5 h-3.5 text-[#FF6014]" />
+                  <Sparkles className="w-3.5 h-3.5 text-[#1E4E8C]" />
                   <h4 className="text-[10px] font-extrabold text-slate-800 uppercase tracking-wider">
                     Official Booking
                   </h4>
@@ -138,7 +138,7 @@ export default function TermsClientPage() {
               {activeTab === "acceptance" && (
                 <div className="bg-white border border-slate-100/80 rounded-2xl p-4 sm:p-5 md:p-6 shadow-[0_4px_20px_rgba(0,0,0,0.01)] space-y-4">
                   <div className="flex items-center gap-3 pb-3 border-b border-slate-100">
-                    <div className="w-9 h-9 rounded-xl bg-[#FFF8F4] border border-[#FF6014]/15 flex items-center justify-center text-[#FF6014] shrink-0">
+                    <div className="w-9 h-9 rounded-xl bg-[#E6F0FA] border border-[#1E4E8C]/15 flex items-center justify-center text-[#1E4E8C] shrink-0">
                       <Scale className="w-4.5 h-4.5" />
                     </div>
                     <div>
@@ -146,16 +146,16 @@ export default function TermsClientPage() {
                         1. Acceptance of Terms
                       </h2>
                       <p className="text-[10px] text-slate-400 font-medium">
-                        User agreements and binding rules of Rajseba.
+                        User agreements and binding rules of Jevxo Services.
                       </p>
                     </div>
                   </div>
                   <div className="text-[11px] md:text-xs text-slate-500 leading-relaxed font-medium space-y-3">
                     <p>
-                      Welcome to Rajseba, a premium home service marketplace operated by Rajseba IT Limited. By creating an account, browsing listings, scheduling jobs, or interacting with our mobile application, you explicitly agree to follow and be bound by these Terms of Service.
+                      Welcome to Jevxo Services, a premium home service marketplace operated by Jevxo Services IT Limited. By creating an account, browsing listings, scheduling jobs, or interacting with our mobile application, you explicitly agree to follow and be bound by these Terms of Service.
                     </p>
                     <p>
-                      These terms constitute a legally binding agreement between you ("Customer", "Client") and Rajseba. If you represent another individual or a corporate entity when booking, you warrant that you are legally authorized to sign agreements on their behalf.
+                      These terms constitute a legally binding agreement between you ("Customer", "Client") and Jevxo Services. If you represent another individual or a corporate entity when booking, you warrant that you are legally authorized to sign agreements on their behalf.
                     </p>
                     <p>
                       We reserve the right to modify, adjust, or replace these terms at any time. Changes will be posted immediately on this page with an updated "Last Updated" date. Continued use of the platform indicates acceptance of any new terms.
@@ -168,7 +168,7 @@ export default function TermsClientPage() {
               {activeTab === "booking" && (
                 <div className="bg-white border border-slate-100/80 rounded-2xl p-4 sm:p-5 md:p-6 shadow-[0_4px_20px_rgba(0,0,0,0.01)] space-y-4">
                   <div className="flex items-center gap-3 pb-3 border-b border-slate-100">
-                    <div className="w-9 h-9 rounded-xl bg-[#FFF8F4] border border-[#FF6014]/15 flex items-center justify-center text-[#FF6014] shrink-0">
+                    <div className="w-9 h-9 rounded-xl bg-[#E6F0FA] border border-[#1E4E8C]/15 flex items-center justify-center text-[#1E4E8C] shrink-0">
                       <Calendar className="w-4.5 h-4.5" />
                     </div>
                     <div>
@@ -206,7 +206,7 @@ export default function TermsClientPage() {
               {activeTab === "billing" && (
                 <div className="bg-white border border-slate-100/80 rounded-2xl p-4 sm:p-5 md:p-6 shadow-[0_4px_20px_rgba(0,0,0,0.01)] space-y-4">
                   <div className="flex items-center gap-3 pb-3 border-b border-slate-100">
-                    <div className="w-9 h-9 rounded-xl bg-[#FFF8F4] border border-[#FF6014]/15 flex items-center justify-center text-[#FF6014] shrink-0">
+                    <div className="w-9 h-9 rounded-xl bg-[#E6F0FA] border border-[#1E4E8C]/15 flex items-center justify-center text-[#1E4E8C] shrink-0">
                       <CreditCard className="w-4.5 h-4.5" />
                     </div>
                     <div>
@@ -220,11 +220,11 @@ export default function TermsClientPage() {
                   </div>
                   <div className="text-[11px] md:text-xs text-slate-500 leading-relaxed font-medium space-y-3">
                     <p>
-                      All standard pricing displayed on Rajseba is fixed and transparent. Here is how billing is regulated:
+                      All standard pricing displayed on Jevxo Services is fixed and transparent. Here is how billing is regulated:
                     </p>
                     <ul className="list-disc pl-4 space-y-2">
                       <li>
-                        <strong className="text-slate-700">Payment Gateways:</strong> We support payments via Cash on Delivery (COD), digital cards, MFS (bKash, Nagad), or deductions from your pre-loaded Rajseba Wallet.
+                        <strong className="text-slate-700">Payment Gateways:</strong> We support payments via Cash on Delivery (COD), digital cards, MFS (bKash, Nagad), or deductions from your pre-loaded Jevxo Services Wallet.
                       </li>
                       <li>
                         <strong className="text-slate-700">Inspection Charges:</strong> If a service requires physical diagnosis first, a minimal inspection fee of ৳150 applies. This fee is waived if you proceed with the suggested repair job.
@@ -233,23 +233,23 @@ export default function TermsClientPage() {
                         <strong className="text-slate-700">Additional Spare Parts:</strong> If the repair requires additional spare materials, the technician will present a cost estimate. Extra materials are only purchased and billed upon your explicit dashboard approval.
                       </li>
                       <li>
-                        <strong className="text-slate-700">Refunds:</strong> Cancelled bookings paid online are eligible for instant refunds to the Rajseba Wallet or within 3-5 business days to your original payment channel.
+                        <strong className="text-slate-700">Refunds:</strong> Cancelled bookings paid online are eligible for instant refunds to the Jevxo Services Wallet or within 3-5 business days to your original payment channel.
                       </li>
                     </ul>
                   </div>
                 </div>
               )}
 
-              {/* 4. Rajseba Service Warranty */}
+              {/* 4. Jevxo Services Service Warranty */}
               {activeTab === "warranty" && (
                 <div className="bg-white border border-slate-100/80 rounded-2xl p-4 sm:p-5 md:p-6 shadow-[0_4px_20px_rgba(0,0,0,0.01)] space-y-4">
                   <div className="flex items-center gap-3 pb-3 border-b border-slate-100">
-                    <div className="w-9 h-9 rounded-xl bg-[#FFF8F4] border border-[#FF6014]/15 flex items-center justify-center text-[#FF6014] shrink-0">
+                    <div className="w-9 h-9 rounded-xl bg-[#E6F0FA] border border-[#1E4E8C]/15 flex items-center justify-center text-[#1E4E8C] shrink-0">
                       <Award className="w-4.5 h-4.5" />
                     </div>
                     <div>
                       <h2 className="text-xs md:text-sm font-black text-slate-900">
-                        4. Rajseba Service Warranty
+                        4. Jevxo Services Service Warranty
                       </h2>
                       <p className="text-[10px] text-slate-400 font-medium">
                         Our quality trust policies for repairs.
@@ -265,10 +265,10 @@ export default function TermsClientPage() {
                         <strong className="text-slate-700">7-Day Warranty:</strong> We offer a 7-day service warranty on completed bookings. If the exact same issue reoccurs within 7 days, we will dispatch an expert to resolve it free of charge.
                       </li>
                       <li>
-                        <strong className="text-slate-700">Platform Strict Restriction:</strong> The warranty is ONLY valid if the booking, cost estimates, and payment transactions are officially tracked and recorded on the Rajseba platform.
+                        <strong className="text-slate-700">Platform Strict Restriction:</strong> The warranty is ONLY valid if the booking, cost estimates, and payment transactions are officially tracked and recorded on the Jevxo Services platform.
                       </li>
                       <li>
-                        <strong className="text-slate-700">Void Terms:</strong> If you contact or pay the technician directly off-platform, Rajseba is not responsible for any subsequent damages, and all warranty guarantees will be immediately voided.
+                        <strong className="text-slate-700">Void Terms:</strong> If you contact or pay the technician directly off-platform, Jevxo Services is not responsible for any subsequent damages, and all warranty guarantees will be immediately voided.
                       </li>
                       <li>
                         <strong className="text-slate-700">Parts Warranty:</strong> Warranty covers service labor. Spare parts purchased independently by the customer are subject to the manufacturer's warranty policies.
@@ -282,7 +282,7 @@ export default function TermsClientPage() {
               {activeTab === "liability" && (
                 <div className="bg-white border border-slate-100/80 rounded-2xl p-4 sm:p-5 md:p-6 shadow-[0_4px_20px_rgba(0,0,0,0.01)] space-y-4">
                   <div className="flex items-center gap-3 pb-3 border-b border-slate-100">
-                    <div className="w-9 h-9 rounded-xl bg-[#FFF8F4] border border-[#FF6014]/15 flex items-center justify-center text-[#FF6014] shrink-0">
+                    <div className="w-9 h-9 rounded-xl bg-[#E6F0FA] border border-[#1E4E8C]/15 flex items-center justify-center text-[#1E4E8C] shrink-0">
                       <ShieldAlert className="w-4.5 h-4.5" />
                     </div>
                     <div>
@@ -300,13 +300,13 @@ export default function TermsClientPage() {
                     </p>
                     <ul className="list-disc pl-4 space-y-2">
                       <li>
-                        <strong className="text-slate-700">Damage Protection:</strong> Rajseba offers coverage up to <strong className="text-slate-700">৳10,000</strong> in case of accidental property damage caused directly by technician negligence during service delivery.
+                        <strong className="text-slate-700">Damage Protection:</strong> Jevxo Services offers coverage up to <strong className="text-slate-700">৳10,000</strong> in case of accidental property damage caused directly by technician negligence during service delivery.
                       </li>
                       <li>
                         <strong className="text-slate-700">Exclusions:</strong> We are not liable for pre-existing structural issues, appliance wear-and-tear (e.g. old corroded copper lines breaking during basic AC servicing), or issues caused by cheap/faulty parts supplied directly by the client.
                       </li>
                       <li>
-                        <strong className="text-slate-700">Indirect Losses:</strong> Under no circumstances is Rajseba liable for business losses, data recovery costs, or indirect/consequential damages.
+                        <strong className="text-slate-700">Indirect Losses:</strong> Under no circumstances is Jevxo Services liable for business losses, data recovery costs, or indirect/consequential damages.
                       </li>
                     </ul>
                   </div>
@@ -317,7 +317,7 @@ export default function TermsClientPage() {
               {activeTab === "conduct" && (
                 <div className="bg-white border border-slate-100/80 rounded-2xl p-4 sm:p-5 md:p-6 shadow-[0_4px_20px_rgba(0,0,0,0.01)] space-y-4">
                   <div className="flex items-center gap-3 pb-3 border-b border-slate-100">
-                    <div className="w-9 h-9 rounded-xl bg-[#FFF8F4] border border-[#FF6014]/15 flex items-center justify-center text-[#FF6014] shrink-0">
+                    <div className="w-9 h-9 rounded-xl bg-[#E6F0FA] border border-[#1E4E8C]/15 flex items-center justify-center text-[#1E4E8C] shrink-0">
                       <FileText className="w-4.5 h-4.5" />
                     </div>
                     <div>
@@ -344,7 +344,7 @@ export default function TermsClientPage() {
                         <strong className="text-slate-700">Payment Bypassing:</strong> Attempting to negotiate off-platform services with technicians to evade commission and platform fees will result in account closure.
                       </li>
                       <li>
-                        <strong className="text-slate-700">Account Closure:</strong> Rajseba reserves the right to suspend or permanently delete any user profile that violates our terms, without prior warning.
+                        <strong className="text-slate-700">Account Closure:</strong> Jevxo Services reserves the right to suspend or permanently delete any user profile that violates our terms, without prior warning.
                       </li>
                     </ul>
                   </div>

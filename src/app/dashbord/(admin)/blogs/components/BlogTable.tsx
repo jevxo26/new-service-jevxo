@@ -103,9 +103,9 @@ export default function BlogTable({ blogs, openEditModal, openDeleteModal }: Blo
           </button>
           <button
             onClick={() => openDeleteModal(blog)}
-            className="bg-[#FFF8F4] hover:bg-[#FFF0EB] text-[#E0530A] text-xs font-bold px-3 py-2 rounded-xl flex items-center gap-1.5 border border-[#FF6014]/15 transition-all active:scale-[0.97]"
+            className="bg-[#E6F0FA] hover:bg-[#FFF0EB] text-[#123C73] text-xs font-bold px-3 py-2 rounded-xl flex items-center gap-1.5 border border-[#1E4E8C]/15 transition-all active:scale-[0.97]"
           >
-            <Trash2 size={12} className="text-[#FF6014]" />
+            <Trash2 size={12} className="text-[#1E4E8C]" />
             <span>Delete</span>
           </button>
         </div>

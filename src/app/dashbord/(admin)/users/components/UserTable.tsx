@@ -90,7 +90,7 @@ export default function UserTable({
             user.status === "active"
               ? "bg-emerald-50 text-emerald-700"
               : user.status === "blocked"
-              ? "bg-[#FFF8F4] text-[#E0530A]"
+              ? "bg-[#E6F0FA] text-[#123C73]"
               : "bg-slate-100 text-slate-600"
           }`}
         >
@@ -135,7 +135,7 @@ export default function UserTable({
             <button
               onClick={() => handleBlock(user.id)}
               title="ব্লক করুন"
-              className="p-1.5 text-slate-400 hover:text-[#E0530A] hover:bg-[#FFF8F4] rounded-lg transition-colors"
+              className="p-1.5 text-slate-400 hover:text-[#123C73] hover:bg-[#E6F0FA] rounded-lg transition-colors"
             >
               <XCircle size={16} />
             </button>

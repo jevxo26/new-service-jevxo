@@ -38,7 +38,7 @@ export default function SettingsSidebar({ activeTab, handleTabClick, router, lan
               onClick={() => handleTabClick(tab.id)}
               className={`flex items-center gap-3 px-5 py-3 rounded-2xl text-left transition-all ${
                 isActive
-                  ? "bg-[#FFF8F4] text-[#FF6014] font-bold"
+                  ? "bg-[#E6F0FA] text-[#1E4E8C] font-bold"
                   : "text-slate-500 hover:bg-slate-50 hover:text-slate-800 font-semibold"
               }`}
             >
@@ -53,7 +53,7 @@ export default function SettingsSidebar({ activeTab, handleTabClick, router, lan
       <div className="hidden lg:block pt-6 border-t border-slate-100 mt-6">
         <button
           onClick={() => router.push("/login")}
-          className="w-full flex items-center gap-3 px-5 py-3 rounded-2xl text-left text-slate-500 hover:bg-[#FFF8F4] hover:text-[#E0530A] transition-all font-semibold"
+          className="w-full flex items-center gap-3 px-5 py-3 rounded-2xl text-left text-slate-500 hover:bg-[#E6F0FA] hover:text-[#123C73] transition-all font-semibold"
         >
           <LogOut size={18} />
           <span className="text-sm">{lang === "bn" ? "লগআউট" : "Logout"}</span>

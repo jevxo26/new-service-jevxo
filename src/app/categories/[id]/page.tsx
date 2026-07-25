@@ -18,12 +18,12 @@ export async function generateMetadata({
     const cat = json?.data || json;
     const name = cat?.name || "Category";
     return {
-      title: `${name} Services - Rajseba`,
+      title: `${name} Services - Jevxo Services`,
       description: cat?.description || `Browse and book expert ${name} services in Bangladesh.`,
     };
   } catch {
     return {
-      title: "Category Services - Rajseba",
+      title: "Category Services - Jevxo Services",
       description: "Browse professional home services.",
     };
   }
@@ -39,7 +39,7 @@ export default async function Page({
     <Suspense
       fallback={
         <div className="min-h-screen flex items-center justify-center">
-          <Loader2 className="w-10 h-10 animate-spin text-[#FF6014]" />
+          <Loader2 className="w-10 h-10 animate-spin text-[#1E4E8C]" />
         </div>
       }
     >

@@ -82,7 +82,7 @@ export default function InvoiceTemplate1({ invoice }: InvoiceTemplateProps) {
         >
           <div>
             <img
-              src="/rajshiblogo.png"
+              src="/services.png"
               alt="Rajseba Logo"
               style={{ height: "52px", width: "auto", objectFit: "contain" }}
             />
@@ -98,7 +98,7 @@ export default function InvoiceTemplate1({ invoice }: InvoiceTemplateProps) {
               lineHeight: "1.6",
               width: "280px",
               position: "relative",
-              boxShadow: "0 4px 12px rgba(255,96,20,0.2)",
+              boxShadow: "0 4px 12px rgba(30,78,140,0.2)",
               boxSizing: "border-box",
             }}
           >

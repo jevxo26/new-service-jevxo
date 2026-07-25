@@ -397,7 +397,7 @@ export default function ServiceListing({
               <span className="text-slate-500 font-semibold">
                 {filteredListings.length} results found for{" "}
               </span>
-              <span className="text-[#FF6014]">{categoryName}</span>
+              <span className="text-[#1E4E8C]">{categoryName}</span>
             </p>
             <p className="text-xs text-slate-400 font-medium mt-1">
               Verified professionals ready to serve you in Dhaka, Bangladesh.
@@ -411,7 +411,7 @@ export default function ServiceListing({
               <span className="text-slate-500 font-semibold">
                 {filteredListings.length} service{filteredListings.length === 1 ? "" : "s"} from{" "}
               </span>
-              <span className="text-[#FF6014]">{vendorName}</span>
+              <span className="text-[#1E4E8C]">{vendorName}</span>
             </p>
             <p className="text-xs text-slate-400 font-medium mt-1">
               Book directly from this verified vendor on Rajseba.
@@ -433,7 +433,7 @@ export default function ServiceListing({
               placeholder="Search for services, repairs..."
               value={searchQuery}
               onChange={(e) => setFilters({ searchQuery: e.target.value, currentPage: 1 })}
-              className="w-full pl-11 pr-4 py-3 bg-slate-50/70 border border-slate-200/80 hover:border-slate-300 focus:bg-white rounded-2xl text-xs sm:text-sm font-bold placeholder-slate-400 text-slate-700 focus:outline-none focus:border-[#FF6014] focus:ring-4 focus:ring-[#FF6014]/5 transition-all shadow-[inset_0_1px_2px_rgba(0,0,0,0.02)]"
+              className="w-full pl-11 pr-4 py-3 bg-slate-50/70 border border-slate-200/80 hover:border-slate-300 focus:bg-white rounded-2xl text-xs sm:text-sm font-bold placeholder-slate-400 text-slate-700 focus:outline-none focus:border-[#1E4E8C] focus:ring-4 focus:ring-[#1E4E8C]/5 transition-all shadow-[inset_0_1px_2px_rgba(0,0,0,0.02)]"
               suppressHydrationWarning
             />
           </div>
@@ -446,7 +446,7 @@ export default function ServiceListing({
                 value={selectedRating || "all"}
                 onChange={(val) => setFilters({ selectedRating: val === "all" ? "" : val, currentPage: 1 })}
                 placeholder="Min Rating (All)"
-                triggerClassName="bg-slate-50/70 border border-slate-200/80 hover:border-slate-300 rounded-2xl px-4 py-2.5 text-xs font-extrabold text-slate-700 focus:outline-none focus:border-[#FF6014] focus-visible:ring-0 focus:ring-0 transition-all cursor-pointer h-[46px] shadow-none w-full"
+                triggerClassName="bg-slate-50/70 border border-slate-200/80 hover:border-slate-300 rounded-2xl px-4 py-2.5 text-xs font-extrabold text-slate-700 focus:outline-none focus:border-[#1E4E8C] focus-visible:ring-0 focus:ring-0 transition-all cursor-pointer h-[46px] shadow-none w-full"
               />
             </div>
 
@@ -457,7 +457,7 @@ export default function ServiceListing({
                 value={sortBy}
                 onChange={(val) => setFilters({ sortBy: val, currentPage: 1 })}
                 placeholder="Sort: Popularity"
-                triggerClassName="bg-slate-50/70 border border-[#e5e7eb] hover:border-slate-300 rounded-2xl px-4 py-2.5 text-xs font-extrabold text-slate-700 focus:outline-none focus:border-[#FF6014] focus-visible:ring-0 focus:ring-0 transition-all cursor-pointer h-[46px] shadow-none w-full"
+                triggerClassName="bg-slate-50/70 border border-[#e5e7eb] hover:border-slate-300 rounded-2xl px-4 py-2.5 text-xs font-extrabold text-slate-700 focus:outline-none focus:border-[#1E4E8C] focus-visible:ring-0 focus:ring-0 transition-all cursor-pointer h-[46px] shadow-none w-full"
               />
             </div>
 
@@ -467,10 +467,10 @@ export default function ServiceListing({
               onClick={() => setIsFilterOpen(true)}
               className="flex md:hidden items-center gap-2 px-4 py-3 rounded-2xl border border-slate-200 bg-white text-xs font-black text-slate-700 hover:bg-slate-50 shadow-sm active:scale-98 transition-all cursor-pointer h-[46px] flex-shrink-0"
             >
-              <SlidersHorizontal size={14} className="text-[#FF6014]" strokeWidth={2.5} />
+              <SlidersHorizontal size={14} className="text-[#1E4E8C]" strokeWidth={2.5} />
               Filters
               {activeFilterCount > 0 && (
-                <span className="flex items-center justify-center min-w-[18px] h-4.5 px-1.5 rounded-full bg-[#FF6014] text-white text-[9px] font-black">
+                <span className="flex items-center justify-center min-w-[18px] h-4.5 px-1.5 rounded-full bg-[#1E4E8C] text-white text-[9px] font-black">
                   {activeFilterCount}
                 </span>
               )}
@@ -536,7 +536,7 @@ export default function ServiceListing({
             {/* Empty state */}
             {pagedItems.length === 0 && (
               <div className="flex flex-col items-center justify-center text-center py-20 px-6 bg-white rounded-2xl border border-slate-100 shadow-sm mt-6">
-                <div className="w-12 h-12 rounded-full bg-[#FFF8F4] flex items-center justify-center text-[#FF6014] mb-4">
+                <div className="w-12 h-12 rounded-full bg-[#E6F0FA] flex items-center justify-center text-[#1E4E8C] mb-4">
                   <SlidersHorizontal size={20} strokeWidth={2.5} />
                 </div>
                 <h3 className="text-base font-medium text-slate-800 mb-1">
@@ -548,7 +548,7 @@ export default function ServiceListing({
                 <button
                   type="button"
                   onClick={onClearAll}
-                  className="px-6 py-2.5 rounded-xl bg-[#FF6014] text-white text-sm font-bold hover:bg-[#E0530A] transition-all shadow-md cursor-pointer"
+                  className="px-6 py-2.5 rounded-xl bg-[#1E4E8C] text-white text-sm font-bold hover:bg-[#123C73] transition-all shadow-md cursor-pointer"
                 >
                   Clear filters
                 </button>
@@ -559,7 +559,7 @@ export default function ServiceListing({
             {totalPages > 1 && (
               <div className="flex justify-center items-center gap-2 mt-10">
                 <button
-                  className="w-10 h-10 flex items-center justify-center rounded-full border border-slate-100 bg-white text-slate-600 disabled:opacity-40 hover:border-[#FF6014] hover:text-[#FF6014] transition-all shadow-sm cursor-pointer"
+                  className="w-10 h-10 flex items-center justify-center rounded-full border border-slate-100 bg-white text-slate-600 disabled:opacity-40 hover:border-[#1E4E8C] hover:text-[#1E4E8C] transition-all shadow-sm cursor-pointer"
                   disabled={currentPage === 1}
                   onClick={() =>
                     setFilters({ currentPage: Math.max(1, currentPage - 1) })
@@ -574,8 +574,8 @@ export default function ServiceListing({
                       key={page}
                       onClick={() => setFilters({ currentPage: page })}
                       className={`w-10 h-10 flex items-center justify-center rounded-full text-sm font-semibold transition-all shadow-sm cursor-pointer ${currentPage === page
-                        ? "bg-[#FF6014] text-white border-[#FF6014]"
-                        : "border border-slate-100 bg-white text-slate-600 hover:border-[#FF6014] hover:text-[#FF6014]"
+                        ? "bg-[#1E4E8C] text-white border-[#1E4E8C]"
+                        : "border border-slate-100 bg-white text-slate-600 hover:border-[#1E4E8C] hover:text-[#1E4E8C]"
                         }`}
                     >
                       {page}
@@ -584,7 +584,7 @@ export default function ServiceListing({
                 )}
 
                 <button
-                  className="w-10 h-10 flex items-center justify-center rounded-full border border-slate-100 bg-white text-slate-600 disabled:opacity-40 hover:border-[#FF6014] hover:text-[#FF6014] transition-all shadow-sm cursor-pointer"
+                  className="w-10 h-10 flex items-center justify-center rounded-full border border-slate-100 bg-white text-slate-600 disabled:opacity-40 hover:border-[#1E4E8C] hover:text-[#1E4E8C] transition-all shadow-sm cursor-pointer"
                   disabled={currentPage === totalPages}
                   onClick={() =>
                     setFilters({

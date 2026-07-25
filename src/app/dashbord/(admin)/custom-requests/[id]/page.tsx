@@ -101,7 +101,7 @@ export default function CustomRequestDetailsPage({
   if (isLoading) {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center space-y-3 font-sans">
-        <Loader2 size={36} className="animate-spin text-[#FF6014]" />
+        <Loader2 size={36} className="animate-spin text-[#1E4E8C]" />
         <p className="text-slate-400 text-xs font-bold">Loading request details...</p>
       </div>
     );
@@ -117,7 +117,7 @@ export default function CustomRequestDetailsPage({
         </p>
         <Link
           href="/dashbord/custom-requests"
-          className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#FF6014] text-white text-xs font-bold rounded-xl shadow-md shadow-[#FF6014]/20"
+          className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#1E4E8C] text-white text-xs font-bold rounded-xl shadow-md shadow-[#1E4E8C]/20"
         >
           <ArrowLeft size={15} /> Back to Custom Requests
         </Link>
@@ -131,7 +131,7 @@ export default function CustomRequestDetailsPage({
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <Link
           href="/dashbord/custom-requests"
-          className="inline-flex items-center gap-2 text-xs font-extrabold text-slate-600 hover:text-[#FF6014] bg-white border border-slate-200/80 px-4 py-2 rounded-xl transition-all shadow-sm w-fit"
+          className="inline-flex items-center gap-2 text-xs font-extrabold text-slate-600 hover:text-[#1E4E8C] bg-white border border-slate-200/80 px-4 py-2 rounded-xl transition-all shadow-sm w-fit"
         >
           <ArrowLeft size={16} /> Back to Requests List
         </Link>
@@ -149,12 +149,12 @@ export default function CustomRequestDetailsPage({
 
       {/* Main Header Banner */}
       <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 p-6 md:p-8 rounded-3xl text-white shadow-lg relative overflow-hidden">
-        <div className="absolute right-0 top-0 translate-x-8 -translate-y-8 w-64 h-64 bg-[#FF6014]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute right-0 top-0 translate-x-8 -translate-y-8 w-64 h-64 bg-[#1E4E8C]/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <span className="px-3 py-1 rounded-full bg-[#FF6014]/20 border border-[#FF6014]/40 text-[#FF7A3D] text-[11px] font-black uppercase tracking-wider flex items-center gap-1.5">
+              <span className="px-3 py-1 rounded-full bg-[#1E4E8C]/20 border border-[#1E4E8C]/40 text-[#FF7A3D] text-[11px] font-black uppercase tracking-wider flex items-center gap-1.5">
                 <Sparkles size={13} /> Custom Request Details
               </span>
               <span className="text-slate-400 text-xs font-bold">
@@ -189,7 +189,7 @@ export default function CustomRequestDetailsPage({
                 value={request.status || "pending"}
                 onChange={(e) => handleStatusChange(e.target.value)}
                 disabled={isUpdating}
-                className="bg-slate-800 border border-slate-700 text-white rounded-xl text-xs font-bold py-1.5 px-3 outline-none focus:border-[#FF6014] cursor-pointer"
+                className="bg-slate-800 border border-slate-700 text-white rounded-xl text-xs font-bold py-1.5 px-3 outline-none focus:border-[#1E4E8C] cursor-pointer"
               >
                 <option value="pending">Pending</option>
                 <option value="contacted">Contacted</option>
@@ -208,7 +208,7 @@ export default function CustomRequestDetailsPage({
           {/* Customer Details Card */}
           <div className="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm space-y-5">
             <div className="flex items-center gap-3 pb-4 border-b border-slate-100">
-              <div className="w-12 h-12 rounded-2xl bg-[#FFF4EE] text-[#FF6014] flex items-center justify-center font-black text-lg">
+              <div className="w-12 h-12 rounded-2xl bg-[#E6F0FA] text-[#1E4E8C] flex items-center justify-center font-black text-lg">
                 {request.name ? request.name.charAt(0).toUpperCase() : "U"}
               </div>
               <div>
@@ -221,18 +221,18 @@ export default function CustomRequestDetailsPage({
               {/* Phone */}
               <div className="p-3.5 bg-slate-50/70 rounded-2xl space-y-1">
                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-                  <Phone size={13} className="text-[#FF6014]" /> Phone Number
+                  <Phone size={13} className="text-[#1E4E8C]" /> Phone Number
                 </span>
                 <div className="flex items-center justify-between">
                   <a
                     href={`tel:${request.phone}`}
-                    className="text-sm font-extrabold text-[#FF6014] hover:underline"
+                    className="text-sm font-extrabold text-[#1E4E8C] hover:underline"
                   >
                     {request.phone}
                   </a>
                   <a
                     href={`tel:${request.phone}`}
-                    className="px-3 py-1 rounded-lg bg-[#FF6014] text-white text-[11px] font-bold hover:bg-[#E0530A] transition-all flex items-center gap-1"
+                    className="px-3 py-1 rounded-lg bg-[#1E4E8C] text-white text-[11px] font-bold hover:bg-[#123C73] transition-all flex items-center gap-1"
                   >
                     <PhoneCall size={12} /> Call
                   </a>
@@ -243,7 +243,7 @@ export default function CustomRequestDetailsPage({
               {request.email ? (
                 <div className="p-3.5 bg-slate-50/70 rounded-2xl space-y-1">
                   <span className="text-[10px] font-black text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-                    <Mail size={13} className="text-[#FF6014]" /> Email Address
+                    <Mail size={13} className="text-[#1E4E8C]" /> Email Address
                   </span>
                   <div className="flex items-center justify-between">
                     <p className="text-xs font-bold text-slate-800 truncate max-w-[200px]">
@@ -266,7 +266,7 @@ export default function CustomRequestDetailsPage({
               {/* Account linkage */}
               <div className="p-3.5 bg-slate-50/70 rounded-2xl space-y-1">
                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-                  <ShieldCheck size={13} className="text-[#FF6014]" /> Account Status
+                  <ShieldCheck size={13} className="text-[#1E4E8C]" /> Account Status
                 </span>
                 <p className="text-xs font-bold text-slate-800">
                   {request.user_id ? (
@@ -288,7 +288,7 @@ export default function CustomRequestDetailsPage({
           <div className="bg-white p-6 md:p-8 rounded-3xl border border-slate-100 shadow-sm space-y-6">
             <div className="flex items-center justify-between pb-4 border-b border-slate-100">
               <div className="flex items-center gap-2">
-                <div className="w-10 h-10 rounded-2xl bg-[#FFF4EE] text-[#FF6014] flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-2xl bg-[#E6F0FA] text-[#1E4E8C] flex items-center justify-center font-bold">
                   <Wrench size={18} />
                 </div>
                 <div>
@@ -303,8 +303,8 @@ export default function CustomRequestDetailsPage({
             </div>
 
             {/* Requested Title */}
-            <div className="p-4 bg-[#FFF8F4] border border-[#FF6014]/15 rounded-2xl space-y-1">
-              <span className="text-[10px] font-black text-[#FF6014] uppercase tracking-wider">
+            <div className="p-4 bg-[#E6F0FA] border border-[#1E4E8C]/15 rounded-2xl space-y-1">
+              <span className="text-[10px] font-black text-[#1E4E8C] uppercase tracking-wider">
                 Category / Service Requested
               </span>
               <p className="text-sm font-black text-slate-900">
@@ -315,7 +315,7 @@ export default function CustomRequestDetailsPage({
             {/* Full Requirement Description */}
             <div className="space-y-2">
               <label className="text-[11px] font-black text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-                <FileText size={14} className="text-[#FF6014]" /> Custom Description
+                <FileText size={14} className="text-[#1E4E8C]" /> Custom Description
               </label>
               <div className="p-5 bg-slate-50/80 rounded-2xl border border-slate-200/60 text-slate-800 text-xs md:text-sm font-medium leading-relaxed whitespace-pre-line min-h-[160px]">
                 {request.description}

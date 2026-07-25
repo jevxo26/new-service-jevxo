@@ -24,7 +24,7 @@ export default function ServicesPage() {
   const [success, setSuccess] = useState("");
 
   const authHeader = () => {
-    const token = typeof window !== "undefined" ? localStorage.getItem("rajseba_access_token") || localStorage.getItem("token") || "" : "";
+    const token = typeof window !== "undefined" ? localStorage.getItem("jevxo_access_token") || localStorage.getItem("token") || "" : "";
     return { Authorization: `Bearer ${token}`, "Content-Type": "application/json" };
   };
 
@@ -88,7 +88,7 @@ export default function ServicesPage() {
     <div className="w-full space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-300 pb-16">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-6">
         <div className="flex items-center gap-3.5">
-          <div className="p-3 bg-[#FFF8F4] text-[#FF6014] rounded-2xl border border-[#FF6014]/15 shadow-xs">
+          <div className="p-3 bg-[#E6F0FA] text-[#1E4E8C] rounded-2xl border border-[#1E4E8C]/15 shadow-xs">
             <FolderOpen className="w-6 h-6" />
           </div>
           <div>
@@ -98,7 +98,7 @@ export default function ServicesPage() {
         </div>
         <Link
           href="/dashbord/manual-invoice"
-          className="flex items-center gap-2 bg-[#FFF8F4] border border-[#FF6014]/20 hover:bg-[#FF6014] hover:text-white text-[#FF6014] font-bold px-4 py-2.5 rounded-xl text-sm transition-all shadow-xs cursor-pointer active:scale-[0.98]"
+          className="flex items-center gap-2 bg-[#E6F0FA] border border-[#1E4E8C]/20 hover:bg-[#1E4E8C] hover:text-white text-[#1E4E8C] font-bold px-4 py-2.5 rounded-xl text-sm transition-all shadow-xs cursor-pointer active:scale-[0.98]"
         >
           <Plus size={18} /> Dashboard
         </Link>
@@ -118,9 +118,9 @@ export default function ServicesPage() {
       {/* Tabs */}
       <div className="flex gap-2.5 border-b border-slate-100 pb-3">
         <button
-          className={`px-4 py-2 rounded-xl text-xs font-bold transition-all border cursor-pointer hover:bg-[#FFF8F4] hover:text-[#FF6014] flex items-center gap-1.5 ${
+          className={`px-4 py-2 rounded-xl text-xs font-bold transition-all border cursor-pointer hover:bg-[#E6F0FA] hover:text-[#1E4E8C] flex items-center gap-1.5 ${
             tab === "directory"
-              ? "bg-[#FF6014] text-white border-[#FF6014] hover:bg-[#e0530a] hover:text-white shadow-sm"
+              ? "bg-[#1E4E8C] text-white border-[#1E4E8C] hover:bg-[#e0530a] hover:text-white shadow-sm"
               : "bg-white text-slate-550 border-slate-200"
           }`}
           onClick={() => setTab("directory")}
@@ -128,9 +128,9 @@ export default function ServicesPage() {
           <FolderOpen size={15} /> Catalog Services
         </button>
         <button
-          className={`px-4 py-2 rounded-xl text-xs font-bold transition-all border cursor-pointer hover:bg-[#FFF8F4] hover:text-[#FF6014] flex items-center gap-1.5 ${
+          className={`px-4 py-2 rounded-xl text-xs font-bold transition-all border cursor-pointer hover:bg-[#E6F0FA] hover:text-[#1E4E8C] flex items-center gap-1.5 ${
             tab === "register"
-              ? "bg-[#FF6014] text-white border-[#FF6014] hover:bg-[#e0530a] hover:text-white shadow-sm"
+              ? "bg-[#1E4E8C] text-white border-[#1E4E8C] hover:bg-[#e0530a] hover:text-white shadow-sm"
               : "bg-white text-slate-550 border-slate-200"
           }`}
           onClick={() => setTab("register")}
@@ -145,7 +145,7 @@ export default function ServicesPage() {
             <div className="relative flex-1 max-w-md">
               <Search size={18} className="absolute left-3.5 top-1/2 transform -translate-y-1/2 text-slate-400" />
               <input
-                className="w-full bg-white border border-slate-200 rounded-xl text-xs font-medium text-slate-700 pl-10 pr-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#FF6014]/20 focus:border-[#FF6014]/40 transition-all"
+                className="w-full bg-white border border-slate-200 rounded-xl text-xs font-medium text-slate-700 pl-10 pr-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#1E4E8C]/20 focus:border-[#1E4E8C]/40 transition-all"
                 placeholder="Search by service name..."
                 value={search}
                 onChange={e => setSearch(e.target.value)}
@@ -155,7 +155,7 @@ export default function ServicesPage() {
 
           {loading ? (
             <div className="flex flex-col items-center justify-center p-20 text-slate-400 text-xs font-medium">
-              <div className="w-8 h-8 border-4 border-[#FF6014] border-t-transparent rounded-full animate-spin mb-4"></div>
+              <div className="w-8 h-8 border-4 border-[#1E4E8C] border-t-transparent rounded-full animate-spin mb-4"></div>
               <p>Loading services...</p>
             </div>
           ) : filtered.length === 0 ? (
@@ -182,11 +182,11 @@ export default function ServicesPage() {
                     <tr key={s.id} className="hover:bg-slate-50/50 transition-colors">
                       <td className="px-6 py-4">
                         <div className="w-9 h-9 rounded-full bg-orange-50 border border-orange-100 flex items-center justify-center">
-                          <Settings size={18} className="text-[#FF6014]" />
+                          <Settings size={18} className="text-[#1E4E8C]" />
                         </div>
                       </td>
                       <td className="px-6 py-4 font-bold text-slate-800">{s.name}</td>
-                      <td className="px-6 py-4 font-bold text-[#FF6014]">
+                      <td className="px-6 py-4 font-bold text-[#1E4E8C]">
                         {Number(s.rate).toLocaleString("en-US", { minimumFractionDigits: 2 })}{" "}
                         <span className="font-medium text-[10px] text-slate-400">BDT</span>
                       </td>
@@ -224,7 +224,7 @@ export default function ServicesPage() {
               <div className="space-y-1.5">
                 <label className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider">Service Name / Description *</label>
                 <textarea
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium text-slate-700 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#FF6014]/20 focus:border-[#FF6014]/40 min-h-[90px] resize-y"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium text-slate-700 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#1E4E8C]/20 focus:border-[#1E4E8C]/40 min-h-[90px] resize-y"
                   value={name}
                   onChange={e => setName(e.target.value)}
                   placeholder="e.g. Logo Design for Brand Identity"
@@ -234,7 +234,7 @@ export default function ServicesPage() {
               <div className="space-y-1.5">
                 <label className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider">Default Billing Rate (BDT) *</label>
                 <input
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium text-slate-700 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#FF6014]/20 focus:border-[#FF6014]/40"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium text-slate-700 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#1E4E8C]/20 focus:border-[#1E4E8C]/40"
                   type="number"
                   value={rate}
                   onChange={e => setRate(e.target.value)}
@@ -246,7 +246,7 @@ export default function ServicesPage() {
               </div>
               <button
                 type="submit"
-                className="w-full py-3 bg-[#FF6014] hover:bg-[#e0530a] text-white text-xs font-extrabold rounded-xl transition-all hover:scale-[1.01] active:scale-[0.99] shadow-sm shadow-orange-500/10 cursor-pointer disabled:opacity-50"
+                className="w-full py-3 bg-[#1E4E8C] hover:bg-[#e0530a] text-white text-xs font-extrabold rounded-xl transition-all hover:scale-[1.01] active:scale-[0.99] shadow-sm shadow-orange-500/10 cursor-pointer disabled:opacity-50"
                 disabled={saving}
               >
                 {saving ? "Saving..." : "Save Catalog Item"}

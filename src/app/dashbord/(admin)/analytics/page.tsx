@@ -86,7 +86,7 @@ export default function AnalyticsPage() {
   if (role !== "superadmin") {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center p-8 bg-white/80 backdrop-blur-xl border border-orange-100 rounded-3xl shadow-sm text-center animate-in fade-in duration-200">
-        <div className="p-4 bg-[#FFF8F4] rounded-2xl text-[#FF6014] mb-4">
+        <div className="p-4 bg-[#E6F0FA] rounded-2xl text-[#1E4E8C] mb-4">
           <ShieldAlert size={48} />
         </div>
         <h3 className="text-xl font-bold text-slate-800">
@@ -104,7 +104,7 @@ export default function AnalyticsPage() {
   if (isStatsLoading) {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center space-y-4">
-        <div className="w-10 h-10 border-4 border-[#FF6014] border-t-transparent rounded-full animate-spin" />
+        <div className="w-10 h-10 border-4 border-[#1E4E8C] border-t-transparent rounded-full animate-spin" />
         <p className="text-sm font-semibold text-slate-500 animate-pulse">
           {lang === "bn" ? "অ্যানালিটিক্স লোড হচ্ছে..." : "Loading live SaaS analytics metrics..."}
         </p>
@@ -129,7 +129,7 @@ export default function AnalyticsPage() {
         </p>
         <button
           onClick={() => refetchStats()}
-          className="px-4 py-2 bg-[#FF6014] text-white text-xs font-bold rounded-full hover:bg-orange-600 shadow-md transition-all cursor-pointer"
+          className="px-4 py-2 bg-[#1E4E8C] text-white text-xs font-bold rounded-full hover:bg-orange-600 shadow-md transition-all cursor-pointer"
         >
           {lang === "bn" ? "আবার চেষ্টা করুন" : "Try Again"}
         </button>
@@ -195,7 +195,7 @@ export default function AnalyticsPage() {
         className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-orange-100/80 pb-5"
       >
         <div className="flex items-center gap-3">
-          <div className="p-3 bg-gradient-to-br from-[#FFF8F4] to-orange-100/60 text-[#FF6014] rounded-2xl shadow-sm border border-orange-200/80">
+          <div className="p-3 bg-gradient-to-br from-[#E6F0FA] to-orange-100/60 text-[#1E4E8C] rounded-2xl shadow-sm border border-orange-200/80">
             <BarChart3 className="w-6 h-6" />
           </div>
           <div>
@@ -203,8 +203,8 @@ export default function AnalyticsPage() {
               <h1 className="text-xl font-extrabold text-slate-900">
                 {lang === "bn" ? "প্ল্যাটফর্ম অ্যানালিটিক্স ও বিআই ড্যাশবোর্ড" : "Real-Time SaaS Analytics & Business Intelligence"}
               </h1>
-              <span className="flex items-center gap-1 text-[10px] font-black bg-orange-100/80 text-[#FF6014] px-2.5 py-0.5 rounded-full uppercase tracking-wider border border-orange-200">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#FF6014] animate-ping" />
+              <span className="flex items-center gap-1 text-[10px] font-black bg-orange-100/80 text-[#1E4E8C] px-2.5 py-0.5 rounded-full uppercase tracking-wider border border-orange-200">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#1E4E8C] animate-ping" />
                 Live Feed
               </span>
             </div>
@@ -224,7 +224,7 @@ export default function AnalyticsPage() {
             }}
             className="flex items-center gap-1.5 px-3.5 py-2 bg-white/80 backdrop-blur-md border border-orange-200/80 hover:bg-orange-50/50 text-slate-700 rounded-2xl text-xs font-bold transition-all active:scale-[0.98] shadow-xs cursor-pointer"
           >
-            <RefreshCw size={14} className="text-[#FF6014]" />
+            <RefreshCw size={14} className="text-[#1E4E8C]" />
             {lang === "bn" ? "রিফ্রেশ" : "Refresh"}
           </button>
         </div>
@@ -236,7 +236,7 @@ export default function AnalyticsPage() {
         className="relative bg-gradient-to-r from-orange-500/10 via-white/80 to-orange-500/10 backdrop-blur-xl rounded-3xl p-3 border border-orange-200/80 shadow-lg shadow-orange-500/5 flex items-center gap-3 overflow-hidden"
       >
         {/* Ticker Badge */}
-        <div className="shrink-0 flex items-center gap-2 bg-gradient-to-r from-[#FF6014] to-orange-500 text-white text-[11px] font-black px-4 py-2.5 rounded-2xl shadow-md shadow-orange-500/20 z-10">
+        <div className="shrink-0 flex items-center gap-2 bg-gradient-to-r from-[#1E4E8C] to-orange-500 text-white text-[11px] font-black px-4 py-2.5 rounded-2xl shadow-md shadow-orange-500/20 z-10">
           <Activity size={14} className="animate-pulse" />
           <span className="uppercase tracking-wider">
             {lang === "bn" ? "লাইভ সার্ভিস ফিড" : "Live Service Stream"}
@@ -257,15 +257,15 @@ export default function AnalyticsPage() {
             {tickerItems.map((item: any, idx: number) => (
               <div
                 key={idx}
-                className="flex items-center gap-2.5 bg-white/90 backdrop-blur-md border border-orange-200/60 px-4 py-2 rounded-2xl text-xs shrink-0 shadow-xs hover:border-[#FF6014]/50 transition-colors"
+                className="flex items-center gap-2.5 bg-white/90 backdrop-blur-md border border-orange-200/60 px-4 py-2 rounded-2xl text-xs shrink-0 shadow-xs hover:border-[#1E4E8C]/50 transition-colors"
               >
-                <span className="w-2 h-2 rounded-full bg-[#FF6014] animate-ping" />
+                <span className="w-2 h-2 rounded-full bg-[#1E4E8C] animate-ping" />
                 <span className="font-black text-slate-800">{item.customerName || "Customer"}</span>
                 <span className="text-slate-400 font-medium">booked</span>
-                <span className="font-bold text-[#FF6014] line-clamp-1 max-w-[220px]">
+                <span className="font-bold text-[#1E4E8C] line-clamp-1 max-w-[220px]">
                   {item.serviceTitle}
                 </span>
-                <span className="bg-orange-100/80 text-[#FF6014] font-black px-2.5 py-0.5 rounded-lg text-[11px] border border-orange-200/60">
+                <span className="bg-orange-100/80 text-[#1E4E8C] font-black px-2.5 py-0.5 rounded-lg text-[11px] border border-orange-200/60">
                   ৳{Number(item.amount || 2500).toLocaleString()}
                 </span>
                 <span className="text-slate-400 text-[10px] font-medium">{item.timeAgo || "2 mins ago"}</span>
@@ -286,7 +286,7 @@ export default function AnalyticsPage() {
             <span className="text-[11px] font-black text-slate-400 uppercase tracking-wider">
               {lang === "bn" ? "মোট আয়" : "Total Revenue"}
             </span>
-            <div className="p-2.5 bg-[#FFF8F4] text-[#FF6014] rounded-2xl border border-orange-100">
+            <div className="p-2.5 bg-[#E6F0FA] text-[#1E4E8C] rounded-2xl border border-orange-100">
               <TrendingUp size={20} />
             </div>
           </div>
@@ -311,14 +311,14 @@ export default function AnalyticsPage() {
             <span className="text-[11px] font-black text-slate-400 uppercase tracking-wider">
               {lang === "bn" ? "সম্পন্ন বুকিং" : "Completed Orders"}
             </span>
-            <div className="p-2.5 bg-orange-50 text-[#FF6014] rounded-2xl border border-orange-100">
+            <div className="p-2.5 bg-orange-50 text-[#1E4E8C] rounded-2xl border border-orange-100">
               <ShoppingBag size={20} />
             </div>
           </div>
           <h2 className="text-2xl font-black text-slate-900 mt-2">
             {(totalBookingsCount || 824).toLocaleString()}
           </h2>
-          <div className="flex items-center gap-1 text-[11px] font-bold text-[#FF6014] mt-1">
+          <div className="flex items-center gap-1 text-[11px] font-bold text-[#1E4E8C] mt-1">
             <CheckCircle2 size={14} />
             <span>Fulfill Rate {conversionRate}%</span>
           </div>
@@ -355,14 +355,14 @@ export default function AnalyticsPage() {
             <span className="text-[11px] font-black text-slate-400 uppercase tracking-wider">
               {lang === "bn" ? "প্রোভাইডার অন-টাইম SLA" : "Provider SLA Rating"}
             </span>
-            <div className="p-2.5 bg-orange-50 text-[#FF6014] rounded-2xl border border-orange-100">
+            <div className="p-2.5 bg-orange-50 text-[#1E4E8C] rounded-2xl border border-orange-100">
               <Zap size={20} />
             </div>
           </div>
           <h2 className="text-2xl font-black text-slate-900 mt-2">
             {slaMetrics?.onTimeArrival || "96.8%"}
           </h2>
-          <div className="flex items-center gap-1 text-[11px] font-bold text-[#FF6014] mt-1">
+          <div className="flex items-center gap-1 text-[11px] font-bold text-[#1E4E8C] mt-1">
             <Timer size={14} />
             <span>Avg Dispatch: {slaMetrics?.avgFulfillmentTime || "11.4 Mins"}</span>
           </div>
@@ -402,8 +402,8 @@ export default function AnalyticsPage() {
                   onClick={() => setChartMode("area")}
                   className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all cursor-pointer ${
                     chartMode === "area"
-                      ? "bg-gradient-to-r from-[#FF6014] to-orange-500 text-white shadow-md font-black"
-                      : "text-slate-600 hover:text-[#FF6014]"
+                      ? "bg-gradient-to-r from-[#1E4E8C] to-orange-500 text-white shadow-md font-black"
+                      : "text-slate-600 hover:text-[#1E4E8C]"
                   }`}
                 >
                   <Activity size={13} />
@@ -413,8 +413,8 @@ export default function AnalyticsPage() {
                   onClick={() => setChartMode("bar")}
                   className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all cursor-pointer ${
                     chartMode === "bar"
-                      ? "bg-gradient-to-r from-[#FF6014] to-orange-500 text-white shadow-md font-black"
-                      : "text-slate-600 hover:text-[#FF6014]"
+                      ? "bg-gradient-to-r from-[#1E4E8C] to-orange-500 text-white shadow-md font-black"
+                      : "text-slate-600 hover:text-[#1E4E8C]"
                   }`}
                 >
                   <BarChart3 size={13} />
@@ -426,8 +426,8 @@ export default function AnalyticsPage() {
 
           {/* Quick Metrics Badges Bar */}
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            <div className="bg-[#FFF8F4] p-3 rounded-2xl border border-orange-200/60 flex items-center gap-2.5">
-              <div className="p-2 bg-[#FF6014] text-white rounded-xl shadow-xs">
+            <div className="bg-[#E6F0FA] p-3 rounded-2xl border border-orange-200/60 flex items-center gap-2.5">
+              <div className="p-2 bg-[#1E4E8C] text-white rounded-xl shadow-xs">
                 <TrendingUp size={16} />
               </div>
               <div>
@@ -436,7 +436,7 @@ export default function AnalyticsPage() {
               </div>
             </div>
 
-            <div className="bg-[#FFF8F4] p-3 rounded-2xl border border-orange-200/60 flex items-center gap-2.5">
+            <div className="bg-[#E6F0FA] p-3 rounded-2xl border border-orange-200/60 flex items-center gap-2.5">
               <div className="p-2 bg-amber-500 text-white rounded-xl shadow-xs">
                 <Zap size={16} />
               </div>
@@ -448,7 +448,7 @@ export default function AnalyticsPage() {
               </div>
             </div>
 
-            <div className="col-span-2 sm:col-span-1 bg-[#FFF8F4] p-3 rounded-2xl border border-orange-200/60 flex items-center gap-2.5">
+            <div className="col-span-2 sm:col-span-1 bg-[#E6F0FA] p-3 rounded-2xl border border-orange-200/60 flex items-center gap-2.5">
               <div className="p-2 bg-emerald-500 text-white rounded-xl shadow-xs">
                 <Flame size={16} />
               </div>
@@ -484,12 +484,12 @@ export default function AnalyticsPage() {
                 <svg className="w-full h-full overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none">
                   <defs>
                     <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#FF6014" stopOpacity="0.45" />
-                      <stop offset="70%" stopColor="#FF6014" stopOpacity="0.08" />
-                      <stop offset="100%" stopColor="#FF6014" stopOpacity="0.0" />
+                      <stop offset="0%" stopColor="#1E4E8C" stopOpacity="0.45" />
+                      <stop offset="70%" stopColor="#1E4E8C" stopOpacity="0.08" />
+                      <stop offset="100%" stopColor="#1E4E8C" stopOpacity="0.0" />
                     </linearGradient>
                     <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-                      <feDropShadow dx="0" dy="4" stdDeviation="4" floodColor="#FF6014" floodOpacity="0.35" />
+                      <feDropShadow dx="0" dy="4" stdDeviation="4" floodColor="#1E4E8C" floodOpacity="0.35" />
                     </filter>
                   </defs>
 
@@ -549,7 +549,7 @@ export default function AnalyticsPage() {
                         return d;
                       })()}
                       fill="none"
-                      stroke="#FF6014"
+                      stroke="#1E4E8C"
                       strokeWidth="3"
                       filter="url(#glow)"
                       strokeLinecap="round"
@@ -572,7 +572,7 @@ export default function AnalyticsPage() {
                       >
                         {/* Hover Laser Vertical Line */}
                         {isHovered && (
-                          <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 border-r-2 border-dashed border-[#FF6014]/60 pointer-events-none z-10 animate-in fade-in duration-200" />
+                          <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 border-r-2 border-dashed border-[#1E4E8C]/60 pointer-events-none z-10 animate-in fade-in duration-200" />
                         )}
 
                         {/* Floating Tooltip */}
@@ -592,8 +592,8 @@ export default function AnalyticsPage() {
                           style={{ bottom: `${heightPercent}%` }}
                           className={`absolute left-1/2 -translate-x-1/2 translate-y-1/2 rounded-full transition-all duration-300 z-20 ${
                             isHovered
-                              ? "w-4 h-4 bg-[#FF6014] border-2 border-white shadow-lg shadow-orange-500/60 scale-125"
-                              : "w-2.5 h-2.5 bg-white border-2 border-[#FF6014] shadow-xs"
+                              ? "w-4 h-4 bg-[#1E4E8C] border-2 border-white shadow-lg shadow-orange-500/60 scale-125"
+                              : "w-2.5 h-2.5 bg-white border-2 border-[#1E4E8C] shadow-xs"
                           }`}
                         />
 
@@ -641,8 +641,8 @@ export default function AnalyticsPage() {
                         transition={{ duration: 0.6, delay: idx * 0.03 }}
                         className={`w-full max-w-[28px] rounded-t-2xl relative overflow-hidden transition-all duration-300 ${
                           isHovered
-                            ? "bg-gradient-to-t from-orange-600 via-[#FF6014] to-amber-400 shadow-xl shadow-orange-500/40 scale-105"
-                            : "bg-gradient-to-t from-orange-500/80 to-[#FF6014] border-t border-orange-300"
+                            ? "bg-gradient-to-t from-orange-600 via-[#1E4E8C] to-amber-400 shadow-xl shadow-orange-500/40 scale-105"
+                            : "bg-gradient-to-t from-orange-500/80 to-[#1E4E8C] border-t border-orange-300"
                         }`}
                       >
                         {/* Top Gloss Cap */}
@@ -661,22 +661,22 @@ export default function AnalyticsPage() {
         </div>
 
         {/* AI Business Intelligence Panel - PRIMARY ORANGE GLASSMORPHISM (No Dark Black) */}
-        <div className="bg-gradient-to-br from-[#FFF8F4] via-white/90 to-orange-50/70 backdrop-blur-xl p-6 rounded-3xl border border-orange-200/80 shadow-xl shadow-orange-500/5 relative overflow-hidden flex flex-col justify-between group">
-          <div className="absolute -right-20 -top-20 w-72 h-72 rounded-full bg-[#FF6014]/10 blur-3xl group-hover:bg-[#FF6014]/20 transition-all duration-700 pointer-events-none" />
+        <div className="bg-gradient-to-br from-[#E6F0FA] via-white/90 to-orange-50/70 backdrop-blur-xl p-6 rounded-3xl border border-orange-200/80 shadow-xl shadow-orange-500/5 relative overflow-hidden flex flex-col justify-between group">
+          <div className="absolute -right-20 -top-20 w-72 h-72 rounded-full bg-[#1E4E8C]/10 blur-3xl group-hover:bg-[#1E4E8C]/20 transition-all duration-700 pointer-events-none" />
 
           <div className="space-y-4 relative z-10">
             <div className="flex items-center justify-between">
-              <div className="p-3 bg-gradient-to-br from-[#FF6014] to-orange-500 text-white rounded-2xl shadow-md shadow-orange-500/25">
+              <div className="p-3 bg-gradient-to-br from-[#1E4E8C] to-orange-500 text-white rounded-2xl shadow-md shadow-orange-500/25">
                 <Sparkles className="w-5 h-5 animate-pulse" />
               </div>
-              <span className="text-[9px] font-black bg-orange-100/80 text-[#FF6014] px-2.5 py-1 rounded-full uppercase tracking-wider border border-orange-200/80">
+              <span className="text-[9px] font-black bg-orange-100/80 text-[#1E4E8C] px-2.5 py-1 rounded-full uppercase tracking-wider border border-orange-200/80">
                 Live AI Consultant
               </span>
             </div>
 
             <div>
               <h4 className="text-sm font-black text-slate-900 uppercase tracking-wider">
-                {lang === "bn" ? "রাজসেবা এআই কনসালট্যান্ট" : "Rajseba AI Business Advisor"}
+                {lang === "bn" ? "রাজসেবা এআই কনসালট্যান্ট" : "Jevxo Services AI Business Advisor"}
               </h4>
               <p className="text-[11px] text-slate-500 mt-0.5 font-medium">
                 {lang === "bn" ? "ডেটা ভিত্তিক পারফরম্যান্স ইনসাইট" : "Data-driven growth strategies"}
@@ -698,8 +698,8 @@ export default function AnalyticsPage() {
 
           <div className="pt-4 border-t border-orange-200/60 flex items-center justify-between text-[11px] text-slate-500 relative z-10 mt-4">
             <span className="font-semibold">Engine: Gemini / OpenRouter</span>
-            <span className="text-[#FF6014] font-extrabold flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#FF6014] animate-ping" />
+            <span className="text-[#1E4E8C] font-extrabold flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#1E4E8C] animate-ping" />
               Auto-Synced
             </span>
           </div>
@@ -715,15 +715,15 @@ export default function AnalyticsPage() {
         >
           <div className="flex items-center justify-between border-b border-orange-100/80 pb-3">
             <div className="flex items-center gap-2">
-              <div className="p-2 bg-orange-100/80 text-[#FF6014] rounded-xl shadow-xs">
+              <div className="p-2 bg-orange-100/80 text-[#1E4E8C] rounded-xl shadow-xs">
                 <UserCheck size={18} />
               </div>
               <h3 className="text-base font-extrabold text-slate-900">
                 {lang === "bn" ? "সেরা ভেন্ডর তালিকা (Top 5)" : "Top Vendors Leaderboard"}
               </h3>
             </div>
-            <span className="text-[10px] font-black uppercase tracking-wider bg-orange-50 text-[#FF6014] px-3 py-1 rounded-full border border-orange-200/60 shadow-2xs flex items-center gap-1">
-              <BadgeCheck size={13} className="text-[#FF6014]" />
+            <span className="text-[10px] font-black uppercase tracking-wider bg-orange-50 text-[#1E4E8C] px-3 py-1 rounded-full border border-orange-200/60 shadow-2xs flex items-center gap-1">
+              <BadgeCheck size={13} className="text-[#1E4E8C]" />
               Verified Partners
             </span>
           </div>
@@ -736,7 +736,7 @@ export default function AnalyticsPage() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3, delay: idx * 0.05 }}
                 whileHover={{ x: 6, scale: 1.01 }}
-                className="flex items-center justify-between p-3.5 rounded-2xl border border-orange-100/80 bg-white/70 hover:border-[#FF6014]/50 hover:bg-orange-50/50 hover:shadow-md hover:shadow-orange-500/5 transition-all cursor-pointer shadow-2xs"
+                className="flex items-center justify-between p-3.5 rounded-2xl border border-orange-100/80 bg-white/70 hover:border-[#1E4E8C]/50 hover:bg-orange-50/50 hover:shadow-md hover:shadow-orange-500/5 transition-all cursor-pointer shadow-2xs"
               >
                 <div className="flex items-center gap-3">
                   <span
@@ -753,8 +753,8 @@ export default function AnalyticsPage() {
                     #{idx + 1}
                   </span>
                   <div>
-                    <h4 className="text-xs font-extrabold text-slate-800 group-hover:text-[#FF6014] transition-colors flex items-center gap-1.5">
-                      <User size={12} className="text-[#FF6014]" />
+                    <h4 className="text-xs font-extrabold text-slate-800 group-hover:text-[#1E4E8C] transition-colors flex items-center gap-1.5">
+                      <User size={12} className="text-[#1E4E8C]" />
                       {vendor.name}
                     </h4>
                     <p className="text-[11px] text-slate-400 font-medium flex items-center gap-1">
@@ -765,8 +765,8 @@ export default function AnalyticsPage() {
                 </div>
 
                 <div className="text-right">
-                  <span className="text-xs font-black text-[#FF6014] flex items-center justify-end gap-0.5">
-                    <Wallet size={12} className="text-[#FF6014]" />
+                  <span className="text-xs font-black text-[#1E4E8C] flex items-center justify-end gap-0.5">
+                    <Wallet size={12} className="text-[#1E4E8C]" />
                     ৳{vendor.totalEarned ? vendor.totalEarned.toLocaleString() : "45,000"}
                   </span>
                   <span className="text-[10px] text-slate-400 font-semibold block flex items-center justify-end gap-1.5 mt-0.5">
@@ -793,15 +793,15 @@ export default function AnalyticsPage() {
         >
           <div className="flex items-center justify-between border-b border-orange-100/80 pb-3">
             <div className="flex items-center gap-2">
-              <div className="p-2 bg-orange-100/80 text-[#FF6014] rounded-xl shadow-xs">
+              <div className="p-2 bg-orange-100/80 text-[#1E4E8C] rounded-xl shadow-xs">
                 <Users size={18} />
               </div>
               <h3 className="text-base font-extrabold text-slate-900">
                 {lang === "bn" ? "সেরা এজেন্ট তালিকা (Top 5)" : "Top Agents Leaderboard"}
               </h3>
             </div>
-            <span className="text-[10px] font-black uppercase tracking-wider bg-orange-50 text-[#FF6014] px-3 py-1 rounded-full border border-orange-200/60 shadow-2xs flex items-center gap-1">
-              <Award size={13} className="text-[#FF6014]" />
+            <span className="text-[10px] font-black uppercase tracking-wider bg-orange-50 text-[#1E4E8C] px-3 py-1 rounded-full border border-orange-200/60 shadow-2xs flex items-center gap-1">
+              <Award size={13} className="text-[#1E4E8C]" />
               Field Officers
             </span>
           </div>
@@ -814,7 +814,7 @@ export default function AnalyticsPage() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3, delay: idx * 0.05 }}
                 whileHover={{ x: 6, scale: 1.01 }}
-                className="flex items-center justify-between p-3.5 rounded-2xl border border-orange-100/80 bg-white/70 hover:border-[#FF6014]/50 hover:bg-orange-50/50 hover:shadow-md hover:shadow-orange-500/5 transition-all cursor-pointer shadow-2xs"
+                className="flex items-center justify-between p-3.5 rounded-2xl border border-orange-100/80 bg-white/70 hover:border-[#1E4E8C]/50 hover:bg-orange-50/50 hover:shadow-md hover:shadow-orange-500/5 transition-all cursor-pointer shadow-2xs"
               >
                 <div className="flex items-center gap-3">
                   <span
@@ -831,8 +831,8 @@ export default function AnalyticsPage() {
                     #{idx + 1}
                   </span>
                   <div>
-                    <h4 className="text-xs font-extrabold text-slate-800 group-hover:text-[#FF6014] transition-colors flex items-center gap-1.5">
-                      <User size={12} className="text-[#FF6014]" />
+                    <h4 className="text-xs font-extrabold text-slate-800 group-hover:text-[#1E4E8C] transition-colors flex items-center gap-1.5">
+                      <User size={12} className="text-[#1E4E8C]" />
                       {agent.name}
                     </h4>
                     <p className="text-[11px] text-slate-400 font-medium flex items-center gap-1">
@@ -843,8 +843,8 @@ export default function AnalyticsPage() {
                 </div>
 
                 <div className="text-right">
-                  <span className="text-xs font-black text-[#FF6014] flex items-center justify-end gap-1">
-                    <ShoppingBag size={12} className="text-[#FF6014]" />
+                  <span className="text-xs font-black text-[#1E4E8C] flex items-center justify-end gap-1">
+                    <ShoppingBag size={12} className="text-[#1E4E8C]" />
                     {agent.bookingsCount} {lang === "bn" ? "বুকিং" : "Bookings"}
                   </span>
                   <span className="text-[10px] text-slate-400 font-semibold block flex items-center justify-end gap-1 mt-0.5">
@@ -867,15 +867,15 @@ export default function AnalyticsPage() {
         >
           <div className="flex items-center justify-between border-b border-orange-100/80 pb-3">
             <div className="flex items-center gap-2">
-              <div className="p-2 bg-orange-100/80 text-[#FF6014] rounded-xl shadow-xs">
+              <div className="p-2 bg-orange-100/80 text-[#1E4E8C] rounded-xl shadow-xs">
                 <Briefcase size={18} />
               </div>
               <h3 className="text-base font-extrabold text-slate-900">
                 {lang === "bn" ? "সেরা আয়ের সার্ভিস গিগ (Top 5)" : "Top 5 Revenue Generating Services"}
               </h3>
             </div>
-            <span className="text-[10px] font-black uppercase tracking-wider bg-orange-50 text-[#FF6014] px-3 py-1 rounded-full border border-orange-200/60 shadow-2xs flex items-center gap-1">
-              <Flame size={13} className="text-[#FF6014]" />
+            <span className="text-[10px] font-black uppercase tracking-wider bg-orange-50 text-[#1E4E8C] px-3 py-1 rounded-full border border-orange-200/60 shadow-2xs flex items-center gap-1">
+              <Flame size={13} className="text-[#1E4E8C]" />
               Highest Demand
             </span>
           </div>
@@ -891,12 +891,12 @@ export default function AnalyticsPage() {
                 className="flex items-center justify-between p-3.5 rounded-2xl border border-orange-100/80 bg-white/70 hover:bg-orange-50/50 hover:border-orange-300 transition-all shadow-2xs cursor-pointer"
               >
                 <div className="flex items-center gap-3">
-                  <div className="p-2 bg-gradient-to-br from-[#FF6014] to-orange-500 text-white rounded-xl text-xs font-black shadow-xs">
+                  <div className="p-2 bg-gradient-to-br from-[#1E4E8C] to-orange-500 text-white rounded-xl text-xs font-black shadow-xs">
                     #{idx + 1}
                   </div>
                   <div>
                     <h4 className="text-xs font-extrabold text-slate-800 line-clamp-1 flex items-center gap-1.5">
-                      <Layers size={12} className="text-[#FF6014]" />
+                      <Layers size={12} className="text-[#1E4E8C]" />
                       {svc.name}
                     </h4>
                     <span className="text-[10px] text-slate-400 font-semibold bg-slate-100 px-2 py-0.5 rounded-full inline-flex items-center gap-1 mt-0.5">
@@ -954,7 +954,7 @@ export default function AnalyticsPage() {
                 <div className="space-y-0.5">
                   <div className="flex items-center gap-2">
                     <span className="text-xs font-extrabold text-slate-800 flex items-center gap-1">
-                      <User size={12} className="text-[#FF6014]" />
+                      <User size={12} className="text-[#1E4E8C]" />
                       {b.customerName}
                     </span>
                     <span
@@ -962,7 +962,7 @@ export default function AnalyticsPage() {
                         b.status === "COMPLETED"
                           ? "bg-emerald-50 text-emerald-600 border border-emerald-200/50"
                           : b.status === "ASSIGNED"
-                          ? "bg-orange-50 text-[#FF6014] border border-orange-200/50"
+                          ? "bg-orange-50 text-[#1E4E8C] border border-orange-200/50"
                           : "bg-amber-50 text-amber-600 border border-amber-200/50"
                       }`}
                     >
@@ -977,8 +977,8 @@ export default function AnalyticsPage() {
                 </div>
 
                 <div className="text-right shrink-0">
-                  <span className="text-xs font-black text-[#FF6014] flex items-center justify-end gap-0.5">
-                    <Wallet size={12} className="text-[#FF6014]" />
+                  <span className="text-xs font-black text-[#1E4E8C] flex items-center justify-end gap-0.5">
+                    <Wallet size={12} className="text-[#1E4E8C]" />
                     ৳{Number(b.totalPrice || 0).toLocaleString()}
                   </span>
                   <span className="text-[10px] text-slate-400 font-medium block flex items-center justify-end gap-1 mt-0.5">
@@ -1004,7 +1004,7 @@ export default function AnalyticsPage() {
         >
           <div className="flex items-center justify-between border-b border-orange-100/80 pb-3">
             <div className="flex items-center gap-2">
-              <div className="p-2 bg-orange-100/80 text-[#FF6014] rounded-xl shadow-xs">
+              <div className="p-2 bg-orange-100/80 text-[#1E4E8C] rounded-xl shadow-xs">
                 <PieChart size={18} />
               </div>
               <div>
@@ -1025,7 +1025,7 @@ export default function AnalyticsPage() {
               <motion.div key={i} className="space-y-1.5">
                 <div className="flex justify-between items-center text-xs font-semibold text-slate-700">
                   <span className="text-slate-800 font-bold flex items-center gap-1.5">
-                    <FolderTree size={13} className="text-[#FF6014]" />
+                    <FolderTree size={13} className="text-[#1E4E8C]" />
                     {cat.name}
                   </span>
                   <div className="flex gap-2.5 items-center">
@@ -1033,8 +1033,8 @@ export default function AnalyticsPage() {
                       <Hash size={10} className="text-slate-400" />
                       {cat.count}
                     </span>
-                    <span className="text-[#FF6014] font-black flex items-center gap-0.5">
-                      <Percent size={11} className="text-[#FF6014]" />
+                    <span className="text-[#1E4E8C] font-black flex items-center gap-0.5">
+                      <Percent size={11} className="text-[#1E4E8C]" />
                       {cat.percentage}%
                     </span>
                   </div>
@@ -1044,7 +1044,7 @@ export default function AnalyticsPage() {
                     initial={{ width: 0 }}
                     animate={{ width: `${cat.percentage}%` }}
                     transition={{ duration: 0.8, delay: i * 0.08, ease: "easeOut" }}
-                    className={`h-full ${cat.color || "bg-[#FF6014]"} rounded-full shadow-xs`}
+                    className={`h-full ${cat.color || "bg-[#1E4E8C]"} rounded-full shadow-xs`}
                   />
                 </div>
               </motion.div>
@@ -1059,7 +1059,7 @@ export default function AnalyticsPage() {
         >
           <div className="flex items-center justify-between border-b border-orange-100/80 pb-3">
             <div className="flex items-center gap-2">
-              <div className="p-2 bg-orange-100/80 text-[#FF6014] rounded-xl shadow-xs">
+              <div className="p-2 bg-orange-100/80 text-[#1E4E8C] rounded-xl shadow-xs">
                 <Globe size={18} />
               </div>
               <div>
@@ -1087,12 +1087,12 @@ export default function AnalyticsPage() {
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="p-2.5 bg-[#FFF8F4] text-[#FF6014] rounded-xl border border-orange-100 shadow-xs">
+                    <div className="p-2.5 bg-[#E6F0FA] text-[#1E4E8C] rounded-xl border border-orange-100 shadow-xs">
                       <MapPin size={18} />
                     </div>
                     <div>
                       <h5 className="text-xs font-extrabold text-slate-800 flex items-center gap-1.5">
-                        <Compass size={12} className="text-[#FF6014]" />
+                        <Compass size={12} className="text-[#1E4E8C]" />
                         {region.name}
                       </h5>
                       <span className="text-[11px] text-slate-400 font-medium flex items-center gap-1 mt-0.5">
@@ -1120,7 +1120,7 @@ export default function AnalyticsPage() {
                     initial={{ width: 0 }}
                     animate={{ width: `${region.percentage}%` }}
                     transition={{ duration: 0.6, delay: i * 0.05 }}
-                    className="h-full bg-gradient-to-r from-[#FF6014] to-orange-400 rounded-full"
+                    className="h-full bg-gradient-to-r from-[#1E4E8C] to-orange-400 rounded-full"
                   />
                 </div>
               </motion.div>

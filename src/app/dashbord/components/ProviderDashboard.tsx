@@ -337,31 +337,31 @@ export default function ProviderDashboard() {
       {/* ── Light Primary Glassmorphism Header ── */}
       <motion.div
         whileHover={{ y: -2 }}
-        className="relative overflow-hidden bg-white/90 backdrop-blur-xl rounded-3xl border border-orange-100/90 shadow-sm px-7 py-6.5 group hover:shadow-xl hover:shadow-[#FF6014]/5 transition-all duration-300"
+        className="relative overflow-hidden bg-white/90 backdrop-blur-xl rounded-3xl border border-orange-100/90 shadow-sm px-7 py-6.5 group hover:shadow-xl hover:shadow-[#1E4E8C]/5 transition-all duration-300"
       >
         {/* Language Toggle */}
         <div className="absolute top-6 right-7 z-20 flex items-center gap-3">
           <button
             onClick={() => setLang(lang === "bn" ? "en" : "bn")}
-            className="flex items-center gap-1.5 bg-orange-50/80 hover:bg-orange-100/80 text-[#FF6014] px-3.5 py-1.5 rounded-full text-xs font-black border border-orange-200/60 shadow-2xs transition-colors cursor-pointer"
+            className="flex items-center gap-1.5 bg-orange-50/80 hover:bg-orange-100/80 text-[#1E4E8C] px-3.5 py-1.5 rounded-full text-xs font-black border border-orange-200/60 shadow-2xs transition-colors cursor-pointer"
           >
-            <Languages className="w-3.5 h-3.5 text-[#FF6014]" />
+            <Languages className="w-3.5 h-3.5 text-[#1E4E8C]" />
             {lang === "bn" ? "English" : "বাংলা"}
           </button>
         </div>
 
-        <div className="absolute -top-10 -right-10 w-52 h-52 bg-gradient-to-br from-[#FF6014]/15 to-[#FFB3AD]/10 rounded-full blur-3xl pointer-events-none group-hover:scale-110 transition-transform duration-500" />
+        <div className="absolute -top-10 -right-10 w-52 h-52 bg-gradient-to-br from-[#1E4E8C]/15 to-[#FFB3AD]/10 rounded-full blur-3xl pointer-events-none group-hover:scale-110 transition-transform duration-500" />
         <div className="absolute -bottom-10 -left-10 w-44 h-44 bg-gradient-to-tr from-amber-100/40 to-transparent rounded-full blur-2xl pointer-events-none" />
 
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="max-w-[70%] space-y-2">
-            <div className="inline-flex items-center gap-1.5 bg-orange-50/90 border border-orange-200/60 text-[#FF6014] text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-2xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#FF6014] animate-ping inline-block" />
+            <div className="inline-flex items-center gap-1.5 bg-orange-50/90 border border-orange-200/60 text-[#1E4E8C] text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-2xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#1E4E8C] animate-ping inline-block" />
               {t.providerMode}
             </div>
             <h1 className="text-3xl font-black text-slate-900 tracking-tight">{t.dashboardTitle}</h1>
             <p className="text-slate-500 text-sm font-semibold flex items-center gap-1.5">
-              <Briefcase size={14} className="text-[#FF6014]" />
+              <Briefcase size={14} className="text-[#1E4E8C]" />
               {t.hello}{" "}
               <span className="text-slate-900 font-extrabold text-wrap">
                 {authUser?.name || myProfile?.company_name || "Provider"}
@@ -374,7 +374,7 @@ export default function ProviderDashboard() {
           <div className="flex items-center gap-3 bg-white/90 backdrop-blur-md border border-slate-100 p-3 rounded-2xl shadow-2xs shrink-0 md:mt-10 lg:mt-0 lg:mr-28">
             <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
             <span className="text-xs font-black text-slate-800">{t.online}</span>
-            <button className="text-xs font-extrabold text-[#FF6014] bg-[#FFF8F4] hover:bg-[#FFF0EB] px-3 py-1.5 rounded-xl border border-orange-100 transition-all cursor-pointer">
+            <button className="text-xs font-extrabold text-[#1E4E8C] bg-[#E6F0FA] hover:bg-[#FFF0EB] px-3 py-1.5 rounded-xl border border-orange-100 transition-all cursor-pointer">
               {t.toggleOffline}
             </button>
           </div>
@@ -389,7 +389,7 @@ export default function ProviderDashboard() {
             <motion.div
               key={i}
               whileHover={{ y: -3, scale: 1.015 }}
-              className="group bg-white/90 backdrop-blur-xl p-5 sm:p-6 rounded-2xl border border-slate-100/90 shadow-sm flex items-start gap-3 sm:gap-4 hover:shadow-xl hover:shadow-[#FF6014]/5 hover:border-[#FF6014]/20 transition-all duration-300 cursor-pointer"
+              className="group bg-white/90 backdrop-blur-xl p-5 sm:p-6 rounded-2xl border border-slate-100/90 shadow-sm flex items-start gap-3 sm:gap-4 hover:shadow-xl hover:shadow-[#1E4E8C]/5 hover:border-[#1E4E8C]/20 transition-all duration-300 cursor-pointer"
             >
               <div
                 className={`p-2.5 sm:p-3 rounded-xl border ${stat.color} group-hover:scale-110 transition-transform duration-200 shrink-0`}
@@ -424,12 +424,12 @@ export default function ProviderDashboard() {
                   key={job.id}
                   onClick={() => setActiveJob(job.id)}
                   className={`p-4 border rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-4 hover:shadow-md cursor-pointer transition-all ${
-                    activeJob === job.id ? "border-[#FF6014]/40 bg-[#FFF8F4]/20" : "border-slate-100"
+                    activeJob === job.id ? "border-[#1E4E8C]/40 bg-[#E6F0FA]/20" : "border-slate-100"
                   }`}
                 >
                   <div className="space-y-2">
                     <div className="flex items-center gap-2">
-                      <span className="text-sm font-bold text-[#FF6014]">#{job.id}</span>
+                      <span className="text-sm font-bold text-[#1E4E8C]">#{job.id}</span>
                       <span
                         className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full ${
                           currentStatus === "completed"
@@ -502,7 +502,7 @@ export default function ProviderDashboard() {
                 <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-2">
                   <p className="text-xs text-slate-400 uppercase tracking-wider font-semibold">{t.clientContact}</p>
                   <h5 className="text-sm font-bold text-slate-850">{activeJobDetails.customer}</h5>
-                  <p className="text-xs font-semibold text-[#FF6014] flex items-center gap-1">
+                  <p className="text-xs font-semibold text-[#1E4E8C] flex items-center gap-1">
                     <Phone size={12} /> {activeJobDetails.phone}
                   </p>
                 </div>
@@ -527,7 +527,7 @@ export default function ProviderDashboard() {
                   {activeJobDetails.status !== "completed" && activeJobDetails.status !== "cancelled" && (
                     <button
                       onClick={() => setIsEmployeeModalOpen(true)}
-                      className="w-full py-2 bg-white border border-slate-200 hover:border-[#FF6014]/50 rounded-lg text-xs font-semibold text-slate-700 hover:text-[#FF6014] transition-all flex justify-center items-center gap-1.5"
+                      className="w-full py-2 bg-white border border-slate-200 hover:border-[#1E4E8C]/50 rounded-lg text-xs font-semibold text-slate-700 hover:text-[#1E4E8C] transition-all flex justify-center items-center gap-1.5"
                     >
                       <Users size={14} /> {t.assignEmployee}
                     </button>
@@ -581,7 +581,7 @@ export default function ProviderDashboard() {
               {!isEditingProfile && !isCreatingProfile && myProfile && (
                 <button
                   onClick={() => setIsEditingProfile(true)}
-                  className="text-xs font-semibold text-[#FF6014] hover:text-[#E0530A] px-3 py-1.5 rounded-lg border border-slate-100 bg-slate-50/50 hover:bg-slate-100/50 transition-colors"
+                  className="text-xs font-semibold text-[#1E4E8C] hover:text-[#123C73] px-3 py-1.5 rounded-lg border border-slate-100 bg-slate-50/50 hover:bg-slate-100/50 transition-colors"
                 >
                   {t.edit}
                 </button>
@@ -615,7 +615,7 @@ export default function ProviderDashboard() {
                         <select
                           name="type"
                           defaultValue={myProfile?.type || "personal"}
-                          className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-850 focus:outline-none focus:border-[#FF6014]/40"
+                          className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-850 focus:outline-none focus:border-[#1E4E8C]/40"
                           required
                         >
                           <option value="personal">{t.personal}</option>
@@ -631,7 +631,7 @@ export default function ProviderDashboard() {
                           type="number"
                           placeholder="800"
                           defaultValue={myProfile?.min_starting_price}
-                          className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-850 focus:outline-none focus:border-[#FF6014]/40"
+                          className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-850 focus:outline-none focus:border-[#1E4E8C]/40"
                           required
                         />
                       </div>
@@ -646,7 +646,7 @@ export default function ProviderDashboard() {
                         type="text"
                         placeholder="e.g. Rana AC Services"
                         defaultValue={myProfile?.company_name}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-850 focus:outline-none focus:border-[#FF6014]/40"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-850 focus:outline-none focus:border-[#1E4E8C]/40"
                         required
                       />
                     </div>
@@ -658,7 +658,7 @@ export default function ProviderDashboard() {
                       <select
                         name="category_id"
                         defaultValue={myProfile?.category?.id || ""}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-850 focus:outline-none focus:border-[#FF6014]/40"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-850 focus:outline-none focus:border-[#1E4E8C]/40"
                       >
                         <option value="">{t.selectCategory}</option>
                         {categoriesRes?.data?.map((cat: any) => (
@@ -678,7 +678,7 @@ export default function ProviderDashboard() {
                         type="text"
                         placeholder="e.g. Mirpur, Dhaka"
                         defaultValue={myProfile?.location}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-850 focus:outline-none focus:border-[#FF6014]/40"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-850 focus:outline-none focus:border-[#1E4E8C]/40"
                         required
                       />
                     </div>
@@ -692,7 +692,7 @@ export default function ProviderDashboard() {
                         rows={3}
                         placeholder="Describe your expertise and service quality..."
                         defaultValue={myProfile?.description}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-850 focus:outline-none focus:border-[#FF6014]/40"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-850 focus:outline-none focus:border-[#1E4E8C]/40"
                         required
                       />
                     </div>
@@ -706,7 +706,7 @@ export default function ProviderDashboard() {
                         type="url"
                         placeholder="https://maps.google.com/..."
                         defaultValue={myProfile?.google_map_link}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-850 focus:outline-none focus:border-[#FF6014]/40"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-850 focus:outline-none focus:border-[#1E4E8C]/40"
                       />
                     </div>
 
@@ -714,7 +714,7 @@ export default function ProviderDashboard() {
                       <button
                         type="submit"
                         disabled={isCreating || isUpdating}
-                        className="flex-1 py-2 bg-[#FF6014] hover:bg-[#E0530A] text-white rounded-xl text-xs font-semibold shadow-sm transition-all"
+                        className="flex-1 py-2 bg-[#1E4E8C] hover:bg-[#123C73] text-white rounded-xl text-xs font-semibold shadow-sm transition-all"
                       >
                         {isCreating || isUpdating ? "Saving..." : t.saveDetails}
                       </button>
@@ -735,7 +735,7 @@ export default function ProviderDashboard() {
             ) : (
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-[#FFF8F4] rounded-xl flex items-center justify-center text-[#FF6014] font-bold shrink-0">
+                  <div className="w-12 h-12 bg-[#E6F0FA] rounded-xl flex items-center justify-center text-[#1E4E8C] font-bold shrink-0">
                     <Building size={20} />
                   </div>
                   <div>
@@ -790,7 +790,7 @@ export default function ProviderDashboard() {
                           href={myProfile.google_map_link}
                           target="_blank"
                           rel="noreferrer"
-                          className="text-[#FF6014] hover:underline font-semibold"
+                          className="text-[#1E4E8C] hover:underline font-semibold"
                         >
                           View on Google Maps
                         </a>
@@ -810,7 +810,7 @@ export default function ProviderDashboard() {
           <div className="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden animate-in zoom-in-95 duration-200">
             <div className="flex items-center justify-between p-4 border-b border-slate-100 bg-slate-50">
               <h3 className="font-bold text-slate-800 flex items-center gap-2">
-                <Users size={18} className="text-[#FF6014]" />
+                <Users size={18} className="text-[#1E4E8C]" />
                 {t.assignEmployee}
               </h3>
               <button 
@@ -844,7 +844,7 @@ export default function ProviderDashboard() {
                         }}
                         className={`p-3 rounded-xl border cursor-pointer transition-all flex items-center gap-3 ${
                           isSelected 
-                            ? "border-[#FF6014] bg-[#FFF8F4] shadow-sm" 
+                            ? "border-[#1E4E8C] bg-[#E6F0FA] shadow-sm" 
                             : "border-slate-100 hover:border-slate-200 hover:bg-slate-50"
                         }`}
                       >
@@ -856,7 +856,7 @@ export default function ProviderDashboard() {
                           <p className="text-xs text-slate-500">{emp.email || "No email"}</p>
                         </div>
                         {isSelected && (
-                          <div className="ml-auto text-[#FF6014]">
+                          <div className="ml-auto text-[#1E4E8C]">
                             <CheckCircle2 size={18} />
                           </div>
                         )}
@@ -887,7 +887,7 @@ export default function ProviderDashboard() {
               <button
                 onClick={handleAssignEmployee}
                 disabled={selectedEmployeeIds.length === 0 || isAssigning}
-                className="px-6 py-2 text-sm font-bold text-white bg-[#FF6014] hover:bg-[#E0530A] rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                className="px-6 py-2 text-sm font-bold text-white bg-[#1E4E8C] hover:bg-[#123C73] rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
               >
                 {isAssigning ? "..." : t.assign}
               </button>

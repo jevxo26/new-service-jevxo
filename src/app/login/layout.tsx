@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Login — Rajseba",
-  description: "Sign in to your Rajseba account to manage bookings, track services, and access your dashboard. Secure OTP-based authentication.",
-  keywords: ["rajseba login", "sign in rajseba", "home service account login", "OTP login Bangladesh"],
-  alternates: { canonical: "https://rajseba.com/login" },
+  title: "Login — Jevxo Services",
+  description: "Sign in to your Jevxo Services account to manage bookings, track services, and access your dashboard. Secure OTP-based authentication.",
+  keywords: ["jevxo login", "sign in jevxo", "home service account login", "OTP login Bangladesh"],
+  alternates: { canonical: "https://jevxo.com/login" },
   openGraph: {
-    title: "Login — Rajseba",
-    description: "Sign in to your Rajseba account securely with OTP authentication.",
-    url: "https://rajseba.com/login",
+    title: "Login — Jevxo Services",
+    description: "Sign in to your Jevxo Services account securely with OTP authentication.",
+    url: "https://jevxo.com/login",
     type: "website",
   },
   robots: { index: false, follow: false },

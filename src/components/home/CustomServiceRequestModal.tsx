@@ -88,7 +88,7 @@ export default function CustomServiceRequestModal({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="bg-gradient-to-r from-[#FF6014] to-[#FF7A3D] p-4 sm:p-6 text-white relative shrink-0">
+        <div className="bg-gradient-to-r from-[#1E4E8C] to-[#FF7A3D] p-4 sm:p-6 text-white relative shrink-0">
           <div className="flex items-center gap-2 mb-1">
             <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
               <Sparkles size={16} />
@@ -113,7 +113,7 @@ export default function CustomServiceRequestModal({
         {/* Form Body */}
         <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-3.5 sm:space-y-4 overflow-y-auto flex-1">
           {authUser && (
-            <div className="flex items-center gap-2 bg-[#FFF4EE] border border-[#FF6014]/20 rounded-xl px-3 py-2 text-[11px] sm:text-xs font-bold text-[#FF6014]">
+            <div className="flex items-center gap-2 bg-[#E6F0FA] border border-[#1E4E8C]/20 rounded-xl px-3 py-2 text-[11px] sm:text-xs font-bold text-[#1E4E8C]">
               <CheckCircle2 size={14} className="shrink-0" />
               <span>Logged in as {authUser.name || authUser.email || "User"}. Details auto-filled!</span>
             </div>
@@ -122,7 +122,7 @@ export default function CustomServiceRequestModal({
           {/* Name Field */}
           <div className="space-y-1">
             <label className="text-[10px] sm:text-[11px] font-black text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
-              <User size={13} className="text-[#FF6014]" /> Full Name <span className="text-red-500">*</span>
+              <User size={13} className="text-[#1E4E8C]" /> Full Name <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
@@ -130,14 +130,14 @@ export default function CustomServiceRequestModal({
               placeholder="e.g. Tanvir Ahmed"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full px-3.5 py-2.5 sm:py-3 rounded-xl border border-slate-200 text-xs font-bold text-slate-800 placeholder:text-slate-400 outline-none focus:border-[#FF6014] focus:ring-2 focus:ring-[#FF6014]/10 transition-all bg-slate-50/50 focus:bg-white"
+              className="w-full px-3.5 py-2.5 sm:py-3 rounded-xl border border-slate-200 text-xs font-bold text-slate-800 placeholder:text-slate-400 outline-none focus:border-[#1E4E8C] focus:ring-2 focus:ring-[#1E4E8C]/10 transition-all bg-slate-50/50 focus:bg-white"
             />
           </div>
 
           {/* Phone Field */}
           <div className="space-y-1">
             <label className="text-[10px] sm:text-[11px] font-black text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
-              <Phone size={13} className="text-[#FF6014]" /> Phone Number <span className="text-red-500">*</span>
+              <Phone size={13} className="text-[#1E4E8C]" /> Phone Number <span className="text-red-500">*</span>
             </label>
             <input
               type="tel"
@@ -145,42 +145,42 @@ export default function CustomServiceRequestModal({
               placeholder="e.g. 01700000000"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              className="w-full px-3.5 py-2.5 sm:py-3 rounded-xl border border-slate-200 text-xs font-bold text-slate-800 placeholder:text-slate-400 outline-none focus:border-[#FF6014] focus:ring-2 focus:ring-[#FF6014]/10 transition-all bg-slate-50/50 focus:bg-white"
+              className="w-full px-3.5 py-2.5 sm:py-3 rounded-xl border border-slate-200 text-xs font-bold text-slate-800 placeholder:text-slate-400 outline-none focus:border-[#1E4E8C] focus:ring-2 focus:ring-[#1E4E8C]/10 transition-all bg-slate-50/50 focus:bg-white"
             />
           </div>
 
           {/* Email Field */}
           <div className="space-y-1">
             <label className="text-[10px] sm:text-[11px] font-black text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
-              <Mail size={13} className="text-[#FF6014]" /> Email Address <span className="text-slate-400 font-normal text-[10px]">(Optional)</span>
+              <Mail size={13} className="text-[#1E4E8C]" /> Email Address <span className="text-slate-400 font-normal text-[10px]">(Optional)</span>
             </label>
             <input
               type="email"
               placeholder="e.g. user@example.com"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full px-3.5 py-2.5 sm:py-3 rounded-xl border border-slate-200 text-xs font-bold text-slate-800 placeholder:text-slate-400 outline-none focus:border-[#FF6014] focus:ring-2 focus:ring-[#FF6014]/10 transition-all bg-slate-50/50 focus:bg-white"
+              className="w-full px-3.5 py-2.5 sm:py-3 rounded-xl border border-slate-200 text-xs font-bold text-slate-800 placeholder:text-slate-400 outline-none focus:border-[#1E4E8C] focus:ring-2 focus:ring-[#1E4E8C]/10 transition-all bg-slate-50/50 focus:bg-white"
             />
           </div>
 
           {/* Title / Category Context */}
           <div className="space-y-1">
             <label className="text-[10px] sm:text-[11px] font-black text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
-              <Wrench size={13} className="text-[#FF6014]" /> Requested Service Title / Category
+              <Wrench size={13} className="text-[#1E4E8C]" /> Requested Service Title / Category
             </label>
             <input
               type="text"
               placeholder="e.g. Custom AC Installation & Wiring"
               value={formData.title}
               onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-              className="w-full px-3.5 py-2.5 sm:py-3 rounded-xl border border-slate-200 text-xs font-bold text-slate-800 placeholder:text-slate-400 outline-none focus:border-[#FF6014] focus:ring-2 focus:ring-[#FF6014]/10 transition-all bg-slate-50/50 focus:bg-white"
+              className="w-full px-3.5 py-2.5 sm:py-3 rounded-xl border border-slate-200 text-xs font-bold text-slate-800 placeholder:text-slate-400 outline-none focus:border-[#1E4E8C] focus:ring-2 focus:ring-[#1E4E8C]/10 transition-all bg-slate-50/50 focus:bg-white"
             />
           </div>
 
           {/* Description / Requirements */}
           <div className="space-y-1">
             <label className="text-[10px] sm:text-[11px] font-black text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
-              <FileText size={13} className="text-[#FF6014]" /> Custom Service Description & Requirements <span className="text-red-500">*</span>
+              <FileText size={13} className="text-[#1E4E8C]" /> Custom Service Description & Requirements <span className="text-red-500">*</span>
             </label>
             <textarea
               required
@@ -188,7 +188,7 @@ export default function CustomServiceRequestModal({
               placeholder="Please describe what specific custom service or setup you require in detail..."
               value={formData.description}
               onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-              className="w-full px-3.5 py-2.5 sm:py-3 rounded-xl border border-slate-200 text-xs font-bold text-slate-800 placeholder:text-slate-400 outline-none focus:border-[#FF6014] focus:ring-2 focus:ring-[#FF6014]/10 transition-all bg-slate-50/50 focus:bg-white resize-none"
+              className="w-full px-3.5 py-2.5 sm:py-3 rounded-xl border border-slate-200 text-xs font-bold text-slate-800 placeholder:text-slate-400 outline-none focus:border-[#1E4E8C] focus:ring-2 focus:ring-[#1E4E8C]/10 transition-all bg-slate-50/50 focus:bg-white resize-none"
             />
           </div>
 
@@ -204,7 +204,7 @@ export default function CustomServiceRequestModal({
             <button
               type="submit"
               disabled={isLoading}
-              className="flex-1 py-3 px-4 rounded-xl bg-[#FF6014] hover:bg-[#E0530A] text-white text-xs font-extrabold flex items-center justify-center gap-2 shadow-lg shadow-[#FF6014]/25 hover:shadow-none transition-all disabled:opacity-60 active:scale-[0.98] cursor-pointer"
+              className="flex-1 py-3 px-4 rounded-xl bg-[#1E4E8C] hover:bg-[#123C73] text-white text-xs font-extrabold flex items-center justify-center gap-2 shadow-lg shadow-[#1E4E8C]/25 hover:shadow-none transition-all disabled:opacity-60 active:scale-[0.98] cursor-pointer"
             >
               {isLoading ? (
                 <>

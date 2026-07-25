@@ -116,7 +116,7 @@ const ExploreCategories = () => {
             exit={{ opacity: 0 }}
             className="flex justify-center items-center py-16"
           >
-            <Loader2 className="w-8 h-8 animate-spin text-[#FF6014]" />
+            <Loader2 className="w-8 h-8 animate-spin text-[#1E4E8C]" />
           </motion.div>
         ) : isError ? (
           <motion.p
@@ -191,7 +191,7 @@ const ExploreCategories = () => {
                           group-hover:scale-105
                           group-hover:from-[#ff8a5c] group-hover:via-[#ff6014] group-hover:to-[#e5392f]
                           group-hover:ring-[#ff6014]/30
-                          group-hover:shadow-[0_8px_20px_-4px_rgba(229,57,53,0.45),0_0_0_5px_rgba(255,96,20,0.06)]
+                          group-hover:shadow-[0_8px_20px_-4px_rgba(229,57,53,0.45),0_0_0_5px_rgba(30,78,140,0.06)]
                         "
                       >
                         {/* Gloss sheen */}
@@ -275,7 +275,7 @@ const ExploreCategories = () => {
                         group-hover:scale-105
                         group-hover:from-[#ff8a5c] group-hover:via-[#ff6014] group-hover:to-[#e5392f]
                         group-hover:ring-[#ff6014]/30
-                        group-hover:shadow-[0_8px_20px_-4px_rgba(229,57,53,0.45),0_0_0_5px_rgba(255,96,20,0.06)]
+                        group-hover:shadow-[0_8px_20px_-4px_rgba(229,57,53,0.45),0_0_0_5px_rgba(30,78,140,0.06)]
                       "
                     >
                       <span
@@ -347,7 +347,7 @@ const ExploreCategories = () => {
                         group-hover:scale-105
                         group-hover:from-[#ff8a5c] group-hover:via-[#ff6014] group-hover:to-[#e5392f]
                         group-hover:ring-[#ff6014]/30
-                        group-hover:shadow-[0_8px_20px_-4px_rgba(229,57,53,0.45),0_0_0_5px_rgba(255,96,20,0.06)]
+                        group-hover:shadow-[0_8px_20px_-4px_rgba(229,57,53,0.45),0_0_0_5px_rgba(30,78,140,0.06)]
                       "
                     >
                       <span
