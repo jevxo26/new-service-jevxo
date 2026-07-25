@@ -12,21 +12,118 @@ import ServiceAreas from "@/components/home/sections/home/ServiceAreas";
 import FAQ from "@/components/home/sections/home/FAQ";
 import HomeMotionWrapper from "@/components/home/HomeMotionWrapper";
 import ScrollToTop from "@/components/home/ScrollToTop";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Rajseba - Expert Care for Your Premium Home",
-  description: "Professional home services in Bangladesh with verified experts. Book top-rated cleaning, AC repair, plumbing, electrical, and other home services today.",
-  keywords: ["home services", "AC repair", "cleaning", "plumbing", "electrical", "Bangladesh", "Dhaka", "Rajseba"],
-  openGraph: {
-    title: "Rajseba - Expert Care for Your Premium Home",
-    description: "Professional home services in Bangladesh with verified experts.",
-    url: "https://rajseba.com",
-    siteName: "Rajseba",
-    locale: "en_US",
-    type: "website",
-  },
-};
+const SITE_URL = "https://rajseba.com";
+const SITE_NAME = "Rajseba";
+const SITE_TAGLINE = "Expert Care for Your Premium Home";
+const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
+
+// Fetch live categories from the backend at build/request time
+async function getCategories(): Promise<string[]> {
+  try {
+    const res = await fetch("https://api.rajseba.com/category", {
+      next: { revalidate: 3600 }, // ISR — re-fetch every 1 hour
+    });
+    if (!res.ok) return [];
+    const data = await res.json();
+    const list: any[] = data?.data || (Array.isArray(data) ? data : []);
+    return list
+      .map((c: any) => c?.name || c?.title || "")
+      .filter(Boolean)
+      .slice(0, 12); // top 12 categories for keywords
+  } catch {
+    return [];
+  }
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const categories = await getCategories();
+
+  // Build rich keyword list: brand + category names + location terms
+  const categoryKeywords = categories.map((c) => c);
+  const baseKeywords = [
+    "home services Bangladesh",
+    "home services Rajshahi",
+    "AC repair Bangladesh",
+    "cleaning service Dhaka",
+    "plumbing service Bangladesh",
+    "electrical repair Bangladesh",
+    "professional home care",
+    "verified home experts",
+    "book home services online",
+    "Rajseba",
+  ];
+  const allKeywords = [
+    ...categoryKeywords,
+    ...baseKeywords,
+  ];
+
+  // Build dynamic description with category names
+  const categoryList =
+    categories.length > 0
+      ? categories.slice(0, 5).join(", ")
+      : "AC repair, cleaning, plumbing, electrical";
+
+  const description = `Book trusted home services in Bangladesh — ${categoryList}, and more. Verified experts, instant booking, guaranteed quality. Your home deserves the best.`;
+
+  const title = `${SITE_NAME} — ${SITE_TAGLINE}`;
+
+  return {
+    title,
+    description,
+    keywords: allKeywords,
+    authors: [{ name: SITE_NAME, url: SITE_URL }],
+    creator: SITE_NAME,
+    publisher: SITE_NAME,
+    metadataBase: new URL(SITE_URL),
+    alternates: {
+      canonical: SITE_URL,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url: SITE_URL,
+      siteName: SITE_NAME,
+      locale: "en_US",
+      type: "website",
+      images: [
+        {
+          url: OG_IMAGE,
+          width: 1200,
+          height: 630,
+          alt: `${SITE_NAME} — Professional Home Services in Bangladesh`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      site: "@rajseba",
+      creator: "@rajseba",
+      images: [OG_IMAGE],
+    },
+    verification: {
+      google: "", // add Google Search Console verification code here
+    },
+    category: "Home Services",
+    other: {
+      "application-name": SITE_NAME,
+    },
+  };
+}
+
 
 export default function Home() {
   return (

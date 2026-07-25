@@ -13,12 +13,46 @@ const baiJamjuree = Bai_Jamjuree({
 });
 
 export const metadata: Metadata = {
-  title: "Rajseba - Expert Care for Your Premium Home",
+  metadataBase: new URL("https://rajseba.com"),
+  title: {
+    default: "Rajseba — Expert Care for Your Premium Home",
+    template: "%s | Rajseba",
+  },
   description:
-    "Professional home services in Bangladesh with verified experts.",
+    "Book trusted home services in Bangladesh — AC repair, cleaning, plumbing, electrical, and more. Verified experts, instant booking, guaranteed quality.",
+  keywords: [
+    "Rajseba", "home services Bangladesh", "AC repair", "home cleaning",
+    "plumbing Bangladesh", "electrical repair", "professional home care",
+    "verified home experts", "book home services online",
+  ],
+  authors: [{ name: "Rajseba", url: "https://rajseba.com" }],
+  creator: "Rajseba",
+  publisher: "Rajseba",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://rajseba.com",
+    siteName: "Rajseba",
+    title: "Rajseba — Expert Care for Your Premium Home",
+    description: "Book trusted home services in Bangladesh with verified experts.",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Rajseba — Professional Home Services" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@rajseba",
+    creator: "@rajseba",
+    images: ["/og-image.jpg"],
+  },
   icons: {
     icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
+  category: "Home Services",
 };
 
 export default function RootLayout({
