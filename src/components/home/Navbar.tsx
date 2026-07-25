@@ -45,6 +45,7 @@ import {
 import { MdOutlineCleaningServices, MdLocalLaundryService } from "react-icons/md";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { useGetPublicCategoriesQuery, useSearchPublicServicesQuery } from "@/redux/features/landing/landingApi";
+import { useGetSiteSettingsQuery } from "@/redux/features/admin/siteSettingsApi";
 import { useAppSelector, useAppDispatch } from "@/redux/hooks";
 import { logout as authLogout, getRoleName } from "@/redux/features/auth/authSlice";
 import { useGetSavedServicesQuery } from "@/redux/features/admin/user";
@@ -169,6 +170,11 @@ export function Navbar() {
   const { user, isAuthenticated, role, isLoading: authLoading } = useAppSelector((state) => state.auth);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
   const profileDropdownRef = useRef<HTMLDivElement>(null);
+
+  const { data: siteSettingsRes } = useGetSiteSettingsQuery();
+  const siteSettings = siteSettingsRes?.data;
+  const logoUrl = siteSettings?.logoUrl || "/services.png";
+  const companyName = siteSettings?.companyName || "Jevxo Services";
 
   const { data: categoriesRes } = useGetPublicCategoriesQuery();
   const apiCategories: any[] = categoriesRes?.data || (Array.isArray(categoriesRes) ? categoriesRes : []);
@@ -322,15 +328,12 @@ export function Navbar() {
               <Link
                 href="/"
                 className="relative group transition-all duration-300 transform active:scale-95 py-1"
-                aria-label="Jevxo Services — Home"
+                aria-label={`${companyName} — Home`}
               >
-                <Image
-                  src="/services.png"
-                  alt="Jevxo Services"
-                  width={160}
-                  height={50}
+                <img
+                  src={logoUrl}
+                  alt={companyName}
                   className="h-10 sm:h-12 w-auto object-contain"
-                  priority
                 />
               </Link>
 

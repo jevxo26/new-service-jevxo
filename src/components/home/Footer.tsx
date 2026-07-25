@@ -10,10 +10,13 @@ import {
   Mail,
   MapPin,
   ChevronRight,
+  Sparkles,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
 import { useState } from "react";
+import { useAppSelector } from "@/redux/hooks";
+import { useGetSiteSettingsQuery } from "@/redux/features/admin/siteSettingsApi";
 
 const QUICK_LINKS = [
   { label: "Home", href: "/" },
@@ -22,7 +25,6 @@ const QUICK_LINKS = [
   { label: "Opportunity", href: "/opportunity" },
   { label: "Custom Shifting", href: "/home-shifting" },
   { label: "Contact Us", href: "/contact" },
-
 ];
 
 const COMPANY_LINKS = [
@@ -31,12 +33,6 @@ const COMPANY_LINKS = [
   { label: "Privacy Policy", href: "/privacy" },
   { label: "Terms of Service", href: "/terms" },
   { label: "Blog", href: "/blog" },
-];
-
-const CONTACT_INFO = [
-  { icon: Phone, label: "01813-333373", href: "tel:01813333373" },
-  { icon: Mail, label: "info@rajseba.com", href: "mailto:info@rajseba.com" },
-  { icon: MapPin, label: "Rajshahi High-tech Park, Bangladesh", href: "https://maps.google.com/?q=Rajshahi+High-tech+Park" },
 ];
 
 const FacebookIcon = () => (
@@ -63,68 +59,132 @@ const YoutubeIcon = () => (
   </svg>
 );
 
-const SOCIALS = [
-  {
-    Icon: FacebookIcon,
-    label: "Facebook",
-    href: "https://facebook.com/rajseba",
-    hoverClass: "hover:text-[#1877F2] hover:border-[#1877F2]/40 hover:shadow-[0_4px_12px_rgba(24,119,242,0.15)]"
-  },
-  {
-    Icon: InstagramIcon,
-    label: "Instagram",
-    href: "https://instagram.com/rajseba",
-    hoverClass: "hover:text-[#E4405F] hover:border-[#E4405F]/40 hover:shadow-[0_4px_12px_rgba(228,64,95,0.15)]"
-  },
-  {
-    Icon: WhatsAppIcon,
-    label: "WhatsApp",
-    href: "https://wa.me/8801813333373",
-    hoverClass: "hover:text-[#25D366] hover:border-[#25D366]/40 hover:shadow-[0_4px_12px_rgba(37,211,102,0.15)]"
-  },
-  {
-    Icon: YoutubeIcon,
-    label: "YouTube",
-    href: "https://youtube.com/@rajseba",
-    hoverClass: "hover:text-[#FF0000] hover:border-[#FF0000]/40 hover:shadow-[0_4px_12px_rgba(255,0,0,0.15)]"
-  },
-];
-
+// Advanced Stagger & Smooth Spring Motion Animations
 const containerVariants: any = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.05 } }
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.05,
+    },
+  },
 };
 
 const itemVariants: any = {
-  hidden: { opacity: 0, y: 12 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } }
+  hidden: { opacity: 0, y: 28, scale: 0.96 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: "spring",
+      damping: 24,
+      stiffness: 140,
+    },
+  },
+};
+
+const listParentVariants: any = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.06,
+    },
+  },
+};
+
+const listItemVariants: any = {
+  hidden: { opacity: 0, x: -14 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: "spring",
+      damping: 20,
+      stiffness: 160,
+    },
+  },
 };
 
 function FooterLinkColumn({ title, links }: { title: string; links: { label: string; href: string }[] }) {
   return (
     <div className="space-y-4">
-      <h3 className="text-[13px] font-extrabold tracking-wider text-slate-800 uppercase flex items-center gap-1.5">
-        <span className="w-1.5 h-1.5 rounded-full bg-[#1E4E8C]" />
+      <h3 className="text-xs font-black tracking-widest text-slate-900 uppercase flex items-center gap-2">
+        <span className="w-2 h-2 rounded-full bg-[#1E4E8C] animate-pulse" />
         {title}
       </h3>
-      <ul className="space-y-2.5">
+      <motion.ul
+        variants={listParentVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="space-y-2.5"
+      >
         {links.map((l) => (
-          <li key={l.label}>
+          <motion.li key={l.label} variants={listItemVariants}>
             <Link
               href={l.href}
-              className="flex items-center gap-1.5 text-[13px] text-slate-600 hover:text-[#1E4E8C] transition-all duration-200 group/link"
+              className="text-sm font-semibold text-slate-800 hover:text-[#1E4E8C] transition-all duration-200 flex items-center gap-1.5 group/link"
             >
-              <ChevronRight className="w-4 h-4 text-[#1E4E8C] group-hover/link:translate-x-1 flex-shrink-0 transition-all duration-200" />
-              <span>{l.label}</span>
+              <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover/link:text-[#1E4E8C] group-hover/link:translate-x-1 transition-transform duration-200" />
+              <span className="group-hover/link:translate-x-0.5 transition-transform duration-200">{l.label}</span>
             </Link>
-          </li>
+          </motion.li>
         ))}
-      </ul>
+      </motion.ul>
     </div>
   );
 }
 
 export default function Footer() {
+  const { data: siteSettingsRes } = useGetSiteSettingsQuery();
+  const siteSettings = siteSettingsRes?.data;
+
+  const footerLogoUrl = siteSettings?.footerLogoUrl || siteSettings?.logoUrl || "/services.png";
+  const companyName = siteSettings?.companyName || "Jevxo Services";
+  const footerDescription = siteSettings?.footerDescription || "Your trusted partner for all home services. From AC repair to deep cleaning, we connect you with background-checked professionals.";
+  const emailVal = siteSettings?.email || "info@jevxo.com";
+  const phoneVal = siteSettings?.phone || "+880 1613-410880";
+  const whatsappVal = siteSettings?.whatsappNumber || siteSettings?.phone || "+8801613410880";
+  const addressVal = siteSettings?.address
+    ? `${siteSettings.address}${siteSettings.cityLocation ? `, ${siteSettings.cityLocation}` : ''}`
+    : "House #42, Road #11, Block-F, Banani, Dhaka-1213";
+
+  const socialsList = [
+    {
+      Icon: FacebookIcon,
+      label: "Facebook",
+      href: siteSettings?.facebookUrl || "https://facebook.com",
+      hoverClass: "hover:text-[#1877F2] hover:border-[#1877F2]/40 hover:bg-[#1877F2]/5 hover:shadow-[0_8px_20px_rgba(24,119,242,0.2)]"
+    },
+    {
+      Icon: InstagramIcon,
+      label: "Instagram",
+      href: siteSettings?.instagramUrl || "https://instagram.com",
+      hoverClass: "hover:text-[#E4405F] hover:border-[#E4405F]/40 hover:bg-[#E4405F]/5 hover:shadow-[0_8px_20px_rgba(228,64,95,0.2)]"
+    },
+    {
+      Icon: WhatsAppIcon,
+      label: "WhatsApp",
+      href: whatsappVal.startsWith("http") ? whatsappVal : `https://wa.me/${whatsappVal.replace(/[^0-9]/g, '')}`,
+      hoverClass: "hover:text-[#25D366] hover:border-[#25D366]/40 hover:bg-[#25D366]/5 hover:shadow-[0_8px_20px_rgba(37,211,102,0.2)]"
+    },
+    {
+      Icon: YoutubeIcon,
+      label: "YouTube",
+      href: siteSettings?.youtubeUrl || "https://youtube.com",
+      hoverClass: "hover:text-[#FF0000] hover:border-[#FF0000]/40 hover:bg-[#FF0000]/5 hover:shadow-[0_8px_20px_rgba(255,0,0,0.2)]"
+    },
+  ];
+
+  const contactList = [
+    { icon: Phone, label: phoneVal, href: `tel:${phoneVal.replace(/[^0-9+]/g, '')}` },
+    { icon: Mail, label: emailVal, href: `mailto:${emailVal}` },
+    { icon: MapPin, label: addressVal, href: `https://maps.google.com/?q=${encodeURIComponent(addressVal)}` },
+  ];
+
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
 
@@ -138,50 +198,78 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-gradient-to-b from-white/95 to-[#FFFDFB]/95 backdrop-blur-xl pt-5 md:pb-0 pb-[calc(env(safe-area-inset-bottom)+80px)] overflow-hidden text-[15px] leading-normal">
-      {/* Decorative top gradient line */}
-      <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#1E4E8C]/40 to-transparent" />
+    <footer className="relative bg-gradient-to-b from-white/95 via-[#FFFDFB]/95 to-[#F8FAFC]/95 backdrop-blur-xl pt-8 md:pb-0 pb-[calc(env(safe-area-inset-bottom)+80px)] overflow-hidden text-[15px] leading-normal">
+      {/* Dynamic Animated Ambient Background Spheres */}
+      <motion.div
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute top-10 left-10 w-96 h-96 bg-[#1E4E8C]/5 blur-[120px] rounded-full pointer-events-none"
+      />
+      <motion.div
+        animate={{
+          scale: [1.2, 1, 1.2],
+          opacity: [0.2, 0.4, 0.2],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute bottom-0 right-10 w-96 h-96 bg-purple-500/5 blur-[120px] rounded-full pointer-events-none"
+      />
 
-      {/* Ambient background glow */}
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#1E4E8C]/2 blur-[100px] rounded-full pointer-events-none" />
+      {/* Decorative Top Accent Line */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#1E4E8C]/50 to-transparent" />
 
-      {/* Main grid */}
+      {/* Main Container with Staggered Scroll Motion */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-50px" }}
-        className="w-full md:max-w-[92%] lg:max-w-[960px] xl:max-w-[1140px] min-[1440px]:max-w-[1280px] 2xl:max-w-[1400px] mx-auto px-4 md:px-6 pt-6 pb-8 md:pt-12 md:pb-16 relative z-10"
+        viewport={{ once: true, margin: "-60px" }}
+        className="w-full md:max-w-[92%] lg:max-w-[960px] xl:max-w-[1140px] min-[1440px]:max-w-[1280px] 2xl:max-w-[1400px] mx-auto px-4 md:px-6 pt-8 pb-10 md:pt-14 md:pb-16 relative z-10"
       >
         <div className="grid grid-cols-2 md:grid-cols-12 gap-x-6 gap-y-10 md:gap-x-8 lg:gap-x-10">
+          {/* Brand Card with Motion & Hover Float */}
           <motion.div variants={itemVariants} className="col-span-2 md:col-span-4 space-y-4">
-            <Link href="/" aria-label="Jevxo home" className="inline-block hover:opacity-90 transition-opacity">
-              <Image
-                src="/services.png"
-                alt="Jevxo"
-                width={160}
-                height={45}
-                style={{ width: "auto", height: "auto" }}
-                className="h-11 object-contain"
-                priority
-              />
-            </Link>
+            <motion.div whileHover={{ scale: 1.02 }} transition={{ type: "spring", stiffness: 300 }}>
+              <Link href="/" aria-label={`${companyName} home`} className="inline-block hover:opacity-95 transition-opacity">
+                <img
+                  src={footerLogoUrl}
+                  alt={companyName}
+                  className="h-12 w-auto object-contain drop-shadow-xs"
+                />
+              </Link>
+            </motion.div>
 
-            <p className="text-[13px] text-slate-600 leading-relaxed max-w-sm">
-              Your trusted partner for all home services. From AC repair to deep cleaning, we connect you with background-checked professionals.
+            <h4 className="text-base font-black text-slate-900 tracking-tight">
+              {companyName}
+            </h4>
+
+            <p className="text-sm font-medium text-slate-700 leading-relaxed max-w-sm">
+              {footerDescription}
             </p>
 
-            <div className="flex items-center gap-3 pt-1">
-              {SOCIALS.map(({ Icon, label, href, hoverClass }) => (
+            {/* Social Icons with Interactive Spring Bounce */}
+            <div className="flex items-center gap-3 pt-2">
+              {socialsList.map(({ Icon, label, href, hoverClass }) => (
                 <motion.a
                   key={label}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  whileHover={{ y: -4, scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`w-10 h-10 bg-white border border-slate-100 rounded-xl flex items-center justify-center text-slate-400 transition-all duration-300 shrink-0 ${hoverClass}`}
+                  whileHover={{ y: -6, scale: 1.15, rotate: [0, -5, 5, 0] }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: "spring", stiffness: 350, damping: 15 }}
+                  className={`w-10.5 h-10.5 bg-white border border-slate-200 rounded-2xl flex items-center justify-center text-slate-700 transition-all duration-300 shrink-0 shadow-xs ${hoverClass}`}
                 >
                   <Icon />
                 </motion.a>
@@ -189,86 +277,101 @@ export default function Footer() {
             </div>
           </motion.div>
 
-          {/* ── Quick Links (own title) ── */}
+          {/* ── Quick Links ── */}
           <motion.div variants={itemVariants} className="col-span-1 md:col-span-2">
             <FooterLinkColumn title="Quick Links" links={QUICK_LINKS} />
           </motion.div>
 
-          {/* ── Company (own title, previously untitled) ── */}
+          {/* ── Company Links ── */}
           <motion.div variants={itemVariants} className="col-span-1 md:col-span-2">
             <FooterLinkColumn title="Company" links={COMPANY_LINKS} />
           </motion.div>
 
           {/* ── Get in Touch ── */}
           <motion.div variants={itemVariants} className="col-span-2 md:col-span-2 space-y-4 max-w-sm">
-            <h3 className="text-[13px] font-extrabold tracking-wider text-slate-800 uppercase flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#1E4E8C]" />
+            <h3 className="text-xs font-black tracking-widest text-slate-900 uppercase flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#1E4E8C] animate-pulse" />
               Get in Touch
             </h3>
 
-            <ul className="space-y-2.5">
-              {CONTACT_INFO.map(({ icon: Icon, label, href }) => (
-                <li key={label}>
+            <motion.ul
+              variants={listParentVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="space-y-3"
+            >
+              {contactList.map(({ icon: Icon, label, href }) => (
+                <motion.li key={label} variants={listItemVariants}>
                   <a
                     href={href}
                     target={href.startsWith("http") ? "_blank" : undefined}
                     rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="flex items-center gap-3 text-[13px] text-slate-600 hover:text-[#1E4E8C] transition-all duration-200 group/item"
+                    className="flex items-center gap-3 text-sm font-semibold text-slate-800 hover:text-[#1E4E8C] transition-all duration-200 group/item"
                   >
                     <motion.span
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      className="w-9 h-9 rounded-xl bg-white border border-slate-100 flex items-center justify-center flex-shrink-0 group-hover/item:border-[#1E4E8C]/20 group-hover/item:bg-[#1E4E8C]/5 text-slate-400 group-hover/item:text-[#1E4E8C] transition-all duration-300"
+                      whileHover={{ scale: 1.15, rotate: 10 }}
+                      whileTap={{ scale: 0.9 }}
+                      transition={{ type: "spring", stiffness: 350 }}
+                      className="w-9.5 h-9.5 rounded-2xl bg-white border border-slate-200 flex items-center justify-center flex-shrink-0 group-hover/item:border-[#1E4E8C]/40 group-hover/item:bg-[#1E4E8C]/10 text-slate-700 group-hover/item:text-[#1E4E8C] transition-all duration-300 shadow-xs"
                     >
                       <Icon className="w-4 h-4" />
                     </motion.span>
-                    <span className="font-semibold">{label}</span>
+                    <span className="break-all group-hover/item:translate-x-0.5 transition-transform duration-200">{label}</span>
                   </a>
-                </li>
+                </motion.li>
               ))}
-            </ul>
+            </motion.ul>
           </motion.div>
 
-          {/* ── Newsletter (fills the previously empty space) ── */}
+          {/* ── Newsletter Form ── */}
           <motion.div variants={itemVariants} className="col-span-2 md:col-span-2 space-y-4 max-w-sm">
-            <h3 className="text-[13px] font-extrabold tracking-wider text-slate-800 uppercase flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#1E4E8C]" />
+            <h3 className="text-xs font-black tracking-widest text-slate-900 uppercase flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#1E4E8C] animate-pulse" />
               Newsletter
             </h3>
-            <p className="text-[13px] text-slate-600 leading-relaxed">
+            <p className="text-sm font-medium text-slate-700 leading-relaxed">
               Get updates on new services and offers.
             </p>
             {subscribed ? (
-              <div className="text-emerald-600 font-semibold bg-emerald-50/50 border border-emerald-100 rounded-xl px-4 py-3 text-[13px] flex items-center gap-2">
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                className="text-emerald-700 font-bold bg-emerald-50 border border-emerald-200 rounded-2xl px-4 py-3.5 text-xs flex items-center gap-2 shadow-xs"
+              >
                 <span>✅</span> Subscribed successfully!
-              </div>
+              </motion.div>
             ) : (
-              <form onSubmit={handleSubscribe} className="space-y-2.5">
+              <form onSubmit={handleSubscribe} className="space-y-3">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Your email address"
                   required
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-[13px] text-slate-700 placeholder-slate-400 focus:border-[#1E4E8C] focus:ring-2 focus:ring-[#1E4E8C]/10 focus:outline-none transition-all"
+                  className="w-full px-4 py-3.5 rounded-2xl border border-slate-200 bg-white text-sm font-medium text-slate-900 placeholder:text-slate-400 focus:border-[#1E4E8C] focus:ring-4 focus:ring-[#1E4E8C]/10 focus:outline-none transition-all shadow-xs"
                 />
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.97 }}
                   type="submit"
-                  className="w-full py-3 bg-[#1E4E8C] hover:bg-[#123C73] hover:shadow-[0_4px_12px_rgba(30,78,140,0.2)] text-white text-[13px] font-bold rounded-xl transition-all duration-300"
+                  className="w-full py-3.5 bg-[#1E4E8C] hover:bg-[#123C73] text-white text-xs font-black tracking-wider uppercase rounded-2xl transition-all duration-300 shadow-md shadow-[#1E4E8C]/20 cursor-pointer flex items-center justify-center gap-2"
                 >
-                  Subscribe
-                </button>
+                  <Sparkles className="w-4 h-4" />
+                  Subscribe Now
+                </motion.button>
               </form>
             )}
           </motion.div>
         </div>
       </motion.div>
 
-      {/* ── Bottom bar ── */}
-      <div className="border-t border-slate-200/50 bg-slate-50/40 backdrop-blur-md relative z-10">
+      {/* ── Bottom Bar ── */}
+      <div className="border-t border-slate-200/70 bg-white/60 backdrop-blur-md relative z-10">
         <div className="w-full md:max-w-[92%] lg:max-w-[960px] xl:max-w-[1140px] min-[1440px]:max-w-[1280px] 2xl:max-w-[1400px] mx-auto px-4 md:px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-1.5 text-[12px] text-slate-500 font-medium">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-1.5 text-xs text-slate-600 font-semibold">
             <span>
-              © {new Date().getFullYear()} Rajseba. All rights reserved.
+              © {new Date().getFullYear()} {companyName}. All rights reserved.
             </span>
             <span className="text-slate-300 hidden sm:inline">|</span>
             <span>
@@ -276,7 +379,7 @@ export default function Footer() {
               <Link
                 href="https://www.jevxo.com"
                 target="_blank"
-                className="text-[#1E4E8C] font-semibold hover:underline"
+                className="text-[#1E4E8C] font-black hover:underline"
               >
                 Jevxo
               </Link>
@@ -285,27 +388,31 @@ export default function Footer() {
             <Link href="/privacy" className="hover:text-[#1E4E8C] transition-colors">
               Privacy Policy
             </Link>
-            <span className="text-slate-200 hidden sm:inline">•</span>
+            <span className="text-slate-300 hidden sm:inline">•</span>
             <Link href="/terms" className="hover:text-[#1E4E8C] transition-colors">
               Terms of Service
             </Link>
           </div>
 
-          <div className="flex items-center gap-2">
-            <a
+          <div className="flex items-center gap-2.5">
+            <motion.a
+              whileHover={{ y: -2, scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
               href="https://rajseba.com"
               target="_blank"
               aria-label="Visit website"
-              className="w-8 h-8 bg-white border border-slate-100 rounded-xl flex items-center justify-center text-slate-400 hover:text-[#1E4E8C] hover:border-[#1E4E8C]/20 transition-all duration-200 shrink-0"
+              className="w-9 h-9 bg-white border border-slate-200 rounded-xl flex items-center justify-center text-slate-600 hover:text-[#1E4E8C] hover:border-[#1E4E8C]/30 transition-all duration-200 shrink-0 shadow-xs"
             >
-              <Globe size={14} />
-            </a>
-            <button
+              <Globe size={15} />
+            </motion.a>
+            <motion.button
+              whileHover={{ y: -2, scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
               onClick={() => {
                 if (navigator.share) {
                   navigator.share({
-                    title: "Rajseba",
-                    text: "Premium Home Services in Bangladesh",
+                    title: companyName,
+                    text: `Premium Home Services in Bangladesh`,
                     url: window.location.origin,
                   });
                 } else {
@@ -313,18 +420,20 @@ export default function Footer() {
                   toast.success("Link copied!");
                 }
               }}
-              className="w-8 h-8 bg-white border border-slate-100 rounded-xl flex items-center justify-center text-slate-400 hover:text-[#1E4E8C] hover:border-[#1E4E8C]/20 transition-all duration-200 shrink-0"
+              className="w-9 h-9 bg-white border border-slate-200 rounded-xl flex items-center justify-center text-slate-600 hover:text-[#1E4E8C] hover:border-[#1E4E8C]/30 transition-all duration-200 shrink-0 cursor-pointer shadow-xs"
               aria-label="Share"
             >
-              <Share2 size={14} />
-            </button>
-            <Link
-              href="/dashbord/live-chat"
-              aria-label="Live Chat"
-              className="w-8 h-8 bg-white border border-slate-100 rounded-xl flex items-center justify-center text-slate-400 hover:text-[#1E4E8C] hover:border-[#1E4E8C]/20 transition-all duration-200 shrink-0"
-            >
-              <MessageSquare size={14} />
-            </Link>
+              <Share2 size={15} />
+            </motion.button>
+            <motion.div whileHover={{ y: -2, scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              <Link
+                href="/dashbord/live-chat"
+                aria-label="Live Chat"
+                className="w-9 h-9 bg-white border border-slate-200 rounded-xl flex items-center justify-center text-slate-600 hover:text-[#1E4E8C] hover:border-[#1E4E8C]/30 transition-all duration-200 shrink-0 shadow-xs"
+              >
+                <MessageSquare size={15} />
+              </Link>
+            </motion.div>
           </div>
         </div>
       </div>
