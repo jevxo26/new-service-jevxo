@@ -154,14 +154,13 @@ export default function Footer() {
         className="w-full md:max-w-[92%] lg:max-w-[960px] xl:max-w-[1140px] min-[1440px]:max-w-[1280px] 2xl:max-w-[1400px] mx-auto px-4 md:px-6 pt-6 pb-8 md:pt-12 md:pb-16 relative z-10"
       >
         <div className="grid grid-cols-2 md:grid-cols-12 gap-x-6 gap-y-10 md:gap-x-8 lg:gap-x-10">
-          {/* ── Brand (4/12 columns on desktop, full width on mobile) ── */}
           <motion.div variants={itemVariants} className="col-span-2 md:col-span-4 space-y-4">
-            <Link href="/" aria-label="Rajseba home" className="inline-block hover:opacity-90 transition-opacity">
+            <Link href="/" aria-label="Jevxo home" className="inline-block hover:opacity-90 transition-opacity">
               <Image
                 src="/logo.png"
-                alt="Rajseba"
-                width={100}
-                height={48}
+                alt="Jevxo"
+                width={160}
+                height={45}
                 style={{ width: "auto", height: "auto" }}
                 className="h-11 object-contain"
                 priority
@@ -169,10 +168,9 @@ export default function Footer() {
             </Link>
 
             <p className="text-[13px] text-slate-600 leading-relaxed max-w-sm">
-              Bangladesh's leading service marketplace, connecting you with verified professionals for shifting, cleaning, and home maintenance. Fast, safe, and reliable.
+              Your trusted partner for all home services. From AC repair to deep cleaning, we connect you with background-checked professionals.
             </p>
 
-            {/* Socials */}
             <div className="flex items-center gap-3 pt-1">
               {SOCIALS.map(({ Icon, label, href, hoverClass }) => (
                 <motion.a

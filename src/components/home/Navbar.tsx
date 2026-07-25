@@ -321,12 +321,12 @@ export function Navbar() {
               {/* Brand */}
               <Link
                 href="/"
-                className="flex items-center hover:opacity-90 transition-opacity flex-shrink-0"
-                aria-label="Rajseba — Home"
+                className="relative group transition-all duration-300 transform active:scale-95 py-1"
+                aria-label="Jevxo Services — Home"
               >
                 <Image
                   src="/rajshiblogo.png"
-                  alt="Rajseba"
+                  alt="Jevxo Services"
                   width={70}
                   height={80}
                   className="h-9 sm:h-10 w-auto object-contain"

@@ -59,7 +59,7 @@ export function AiChatBot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "model",
-      text: "Hello! I am your Rajseba AI Assistant. How can I help you with our home services today? (আপনি বাংলায়ও কথা বলতে পারেন।)",
+      text: "Hello! I am your Jevxo AI Assistant. How can I help you with our home services today? (আপনি বাংলায়ও কথা বলতে পারেন।)",
     },
   ]);
   const [inputValue, setInputValue] = useState("");
@@ -290,7 +290,7 @@ export function AiChatBot() {
                 </div>
                 <div>
                   <h3 className="font-extrabold text-sm flex items-center gap-1.5">
-                    Rajseba AI Assistant
+                    Jevxo AI Assistant
                     <Sparkles size={12} className="text-amber-200 animate-pulse" />
                   </h3>
                   <p className="text-[10px] text-white/80 font-semibold flex items-center gap-1 mt-0.5">
