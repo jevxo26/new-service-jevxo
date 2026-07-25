@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useSubmitContactMutation } from "@/redux/features/landing/landingApi";
 import { useScroll, useTransform } from "framer-motion";
+import { useAppSelector } from "@/redux/hooks";
 
 interface FormState {
   name: string;
@@ -15,11 +16,24 @@ interface FormState {
 const INITIAL_FORM: FormState = { name: "", email: "", phone: "", subject: "", message: "" };
 
 export function useContactState() {
+  const { user, isAuthenticated } = useAppSelector((state) => state.auth);
   const [form, setForm] = useState<FormState>(INITIAL_FORM);
   const [errors, setErrors] = useState<Partial<FormState>>({});
   const [submitted, setSubmitted] = useState(false);
   const [activeFaq, setActiveFaq] = useState<number | null>(0);
   const [submitContact, { isLoading }] = useSubmitContactMutation();
+
+  // Auto-fill logged in user information (name, email, phone)
+  useEffect(() => {
+    if (isAuthenticated && user) {
+      setForm((prev) => ({
+        ...prev,
+        name: prev.name || user.name || user.fullName || "",
+        email: prev.email || user.email || "",
+        phone: prev.phone || user.phone || user.phoneNumber || "",
+      }));
+    }
+  }, [isAuthenticated, user]);
 
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
@@ -57,7 +71,7 @@ export function useContactState() {
 
   return {
     form, errors, submitted, setSubmitted, activeFaq, setActiveFaq,
-    isLoading, heroRef, glowY, glowY2,
+    isLoading, heroRef, glowY, glowY2, user, isAuthenticated,
     handleChange, handleSubmit,
   };
 }

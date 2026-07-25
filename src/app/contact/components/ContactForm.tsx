@@ -10,12 +10,14 @@ interface ContactFormProps {
   submitted: boolean;
   setSubmitted: (val: boolean) => void;
   isLoading: boolean;
+  user?: any;
+  isAuthenticated?: boolean;
   handleChange: (e: any) => void;
   handleSubmit: (e: any) => void;
 }
 
 export function ContactForm({
-  form, errors, submitted, setSubmitted, isLoading, handleChange, handleSubmit
+  form, errors, submitted, setSubmitted, isLoading, user, isAuthenticated, handleChange, handleSubmit
 }: ContactFormProps) {
   const inputBase = "w-full text-[12px] px-4 py-3 rounded-xl border bg-[#FAFAF9] text-slate-800 outline-none transition-all duration-200 placeholder:text-slate-350 font-semibold focus:bg-white focus:ring-2";
   const inputNormal = `${inputBase} border-[#E7E5E4] focus:border-[#1E4E8C] focus:ring-[#1E4E8C]/10`;
@@ -24,9 +26,16 @@ export function ContactForm({
   return (
     <div className="relative bg-white border border-slate-100 rounded-3xl p-6 md:p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.04)] overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#1E4E8C] via-[#FF8142] to-[#1E4E8C]/40 rounded-t-3xl" />
-      <div className="mb-6 pt-1">
-        <h2 className="text-[17px] font-black text-slate-900 tracking-tight mb-1">Send an inquiry</h2>
-        <p className="text-[12px] text-slate-400 font-medium">We typically respond within 4 hours on business days.</p>
+      <div className="mb-6 pt-1 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div>
+          <h2 className="text-[17px] font-black text-slate-900 tracking-tight mb-1">Send an inquiry</h2>
+          <p className="text-[12px] text-slate-400 font-medium">We typically respond within 4 hours on business days.</p>
+        </div>
+        {isAuthenticated && user && (
+          <div className="inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-[10px] font-bold px-3 py-1.5 rounded-xl self-start sm:self-auto">
+            <span>✨</span> Auto-filled from profile (editable)
+          </div>
+        )}
       </div>
       <AnimatePresence mode="wait">
         {!submitted ? (

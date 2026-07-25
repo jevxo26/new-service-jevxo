@@ -7,35 +7,44 @@ import {
 } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
-export const CONTACT_CHANNELS = [
-  { icon: Phone, label: "Call Support", primary: "01813-333373", href: "tel:01813333373", secondary: "Hotline: 01813-333373", badge: "24/7 Hotline" },
-  { icon: Mail, label: "Email Support", primary: "info@jevxo.com", href: "mailto:info@jevxo.com", secondary: "Support: info@jevxo.com", badge: "Replies in 4 hrs" },
-  { icon: MapPin, label: "Visit HQ", primary: "Rajshahi High-tech Park", href: "https://maps.google.com/?q=Rajshahi+High-tech+Park", secondary: "Rajshahi, Bangladesh", badge: "Sat – Thu (9AM-6PM)" },
-];
-
 export const TRUST_BARS = [
   { icon: Shield, text: "100% Encrypted Enquiry" },
-  { icon: Headphones, text: "Dedicated Customer Manager" },
+  { icon: Headphones, text: "Dedicated Support Specialist" },
   { icon: MessageSquare, text: "Response Within 4 Hours" },
 ];
 
 export const FAQS = [
-  { question: "How do I schedule a home service on Jevxo Services?", answer: "Browse our service directory, pick the task required, and choose your preferred date/time slot using our calendar. A verified Jevxo Services professional will be matched to your booking instantly." },
-  { question: "What verification procedures do professionals go through?", answer: "Every technician goes through a multi-tier vetting process, including biometric National ID verification, criminal background checks, and a practical skill examination at the Jevxo Services Academy." },
-  { question: "What happens if there is accidental damage during service?", answer: "Your satisfaction and safety are our priorities. All Jevxo Services appointments are protected under our service insurance, covering accidental damages up to ৳10,000." },
-  { question: "Can I cancel or change my booking slot?", answer: "Yes, you can reschedule or cancel any scheduled booking up to 2 hours before the service slot begins directly through your dashboard without any cancellation penalty fee." },
-];
-
-export const SOCIAL_LINKS = [
-  { icon: FaFacebookF, href: "https://facebook.com/jevxo", label: "Facebook" },
-  { icon: FaInstagram, href: "https://instagram.com/jevxo", label: "Instagram" },
-  { icon: FaLinkedinIn, href: "https://linkedin.com/company/jevxo", label: "LinkedIn" },
+  {
+    category: "Booking & Services",
+    question: "How do I schedule a service?",
+    answer: "Browse our verified service catalog, select your required package, and choose your convenient date/time slot. A background-checked professional will be dispatched to your location."
+  },
+  {
+    category: "Safety & Quality",
+    question: "What background checks do your service providers undergo?",
+    answer: "Every service professional undergoes mandatory NID/biometric verification, police background verification, and hands-on technical skill certification before joining our network."
+  },
+  {
+    category: "Pricing & Payments",
+    question: "Are there any hidden costs or cancellation fees?",
+    answer: "No. All prices are transparently displayed before booking. You can reschedule or cancel any booking free of charge up to 2 hours prior to your scheduled slot."
+  },
+  {
+    category: "Warranty & Guarantee",
+    question: "What protection guarantee do you provide for completed jobs?",
+    answer: "All services booked through our platform come with a 7-day service warranty and up to ৳10,000 protection coverage against accidental property damage."
+  },
+  {
+    category: "Customer Support",
+    question: "How can I reach support for an urgent issue during an active job?",
+    answer: "You can call our 24/7 hotline directly or use the instant Live Chat feature inside your dashboard for real-time priority assistance."
+  }
 ];
 
 export const OFFICE_HOURS = [
   ["Saturday – Thursday", "9:00 AM – 6:00 PM"],
   ["Friday Hotline Support", "10:00 AM – 2:00 PM"],
-  ["Urgent Appliance Repairs", "24/7 Dispatch"]
+  ["Urgent Appliance Repairs", "24/7 Priority Dispatch"]
 ];
 
 export function RevealSection({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
