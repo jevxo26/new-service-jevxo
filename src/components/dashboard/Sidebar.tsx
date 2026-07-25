@@ -41,6 +41,7 @@ import {
   PlusCircle,
   Trash2,
   Globe,
+  Image as ImageIcon,
   Sparkles,
   BookOpen,
   UserCheck,
@@ -136,7 +137,8 @@ export function Sidebar({ open, onClose }: { open?: boolean; onClose?: () => voi
             icon: Globe,
             children: [
               { label: lang === "bn" ? "হিরো ম্যানেজমেন্ট" : "Hero Management", href: "/dashbord/hero", icon: Sparkles },
-              { label: lang === "bn" ? "ব্লগ ম্যানেজমেন্ট" : "Blog Management", href: "/dashbord/blogs", icon: BookOpen }
+              { label: lang === "bn" ? "ব্লগ ম্যানেজমেন্ট" : "Blog Management", href: "/dashbord/blogs", icon: BookOpen },
+              { label: lang === "bn" ? "কোম্পানি ব্র্যান্ডিং" : "Company Branding", href: "/dashbord/logo", icon: ImageIcon }
             ]
           },
           {
