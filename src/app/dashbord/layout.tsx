@@ -120,7 +120,7 @@ export default function DashboardLayout({
           <TopNavbar onMenuClick={() => setSidebarOpen(true)} />
 
           {/* Page Content */}
-          <main className="flex-1 overflow-auto bg-transparent p-4 pb-8 sm:p-6 sm:pb-12 md:pb-12">
+          <main className="flex-1 overflow-auto bg-transparent px-3.5 pt-6 pb-24 sm:px-6 sm:pt-6 sm:pb-12 md:pb-12">
             {children}
           </main>
         </div>

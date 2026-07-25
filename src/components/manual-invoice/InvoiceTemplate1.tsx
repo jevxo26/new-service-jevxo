@@ -381,6 +381,46 @@ export default function InvoiceTemplate1({ invoice }: InvoiceTemplateProps) {
               marginBottom: "8px",
               fontSize: "12px",
               fontWeight: 600,
+              color: "#475569",
+            }}
+          >
+            <span style={{ marginRight: "8px", fontSize: "14px" }}>●</span>
+            <div style={{ flex: 1 }}>
+              Subtotal:{" "}
+              <span style={{ fontWeight: 800, color: "#0f172a" }}>
+                {fmt(invoice.totalAmount || (Number(invoice.totalPayableAmount) + Number(invoice.discount || 0)))} BDT
+              </span>
+            </div>
+          </div>
+
+          {Number(invoice.discount || 0) > 0 && (
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginBottom: "8px",
+                fontSize: "12px",
+                fontWeight: 600,
+                color: "#10b981",
+              }}
+            >
+              <span style={{ marginRight: "8px", fontSize: "14px" }}>●</span>
+              <div style={{ flex: 1 }}>
+                Discount:{" "}
+                <span style={{ fontWeight: 800, color: "#10b981" }}>
+                  - {fmt(invoice.discount || 0)} BDT
+                </span>
+              </div>
+            </div>
+          )}
+
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              marginBottom: "8px",
+              fontSize: "12px",
+              fontWeight: 600,
               color: "#2563eb",
             }}
           >

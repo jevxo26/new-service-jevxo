@@ -36,7 +36,7 @@ export default function ProfilePage() {
       {/* ── Premium Light Glassmorphic Header ── */}
       <motion.div
         whileHover={{ y: -2 }}
-        className="relative overflow-hidden rounded-[32px] bg-white/90 backdrop-blur-xl border border-orange-100/90 p-6 md:p-8 shadow-sm group hover:shadow-xl hover:shadow-[#FF6014]/5 transition-all duration-300"
+        className="relative overflow-hidden rounded-[28px] sm:rounded-[32px] bg-white/90 backdrop-blur-xl border border-orange-100/90 p-5 sm:p-6 md:p-8 shadow-sm group hover:shadow-xl hover:shadow-[#FF6014]/5 transition-all duration-300"
       >
         <div className="absolute -right-16 -top-16 w-56 h-56 rounded-full bg-gradient-to-br from-[#FF6014]/15 to-[#FFB3AD]/10 blur-3xl pointer-events-none group-hover:scale-110 transition-transform duration-500" />
         <div className="absolute -left-16 -bottom-16 w-48 h-48 rounded-full bg-orange-100/40 blur-3xl pointer-events-none" />

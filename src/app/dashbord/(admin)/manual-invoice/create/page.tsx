@@ -47,7 +47,7 @@ export default function CreateInvoicePage() {
   const [invoiceNumber, setInvoiceNumber] = useState("");
   const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
   const [templateName, setTemplateName] = useState<"template1" | "template2">("template1");
-  const [discount, setDiscount] = useState(0);
+  const [discount, setDiscount] = useState<number | string>("");
   const [signeeName, setSigneeName] = useState("Ariful Islam Arif");
   const [signeeRole, setSigneeRole] = useState("CEO, Rajseba Design Studio");
 
@@ -429,8 +429,9 @@ export default function CreateInvoicePage() {
                     className="w-full bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium text-slate-700 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#FF6014]/20 focus:border-[#FF6014]/40"
                     type="number"
                     min="0"
+                    placeholder="0"
                     value={discount}
-                    onChange={e => setDiscount(Number(e.target.value))}
+                    onChange={e => setDiscount(e.target.value === "" ? "" : Number(e.target.value))}
                   />
                 </div>
               </div>
