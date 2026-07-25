@@ -5,8 +5,8 @@ const BASE_URL = "https://rajseba.com";
 // Fetch all categories dynamically
 async function getCategories(): Promise<{ id: number; name: string; updatedAt?: string }[]> {
   try {
-    const res = await fetch(`${BASE_URL.replace("rajseba.com", "api.rajseba.com")}/category`, {
-      next: { revalidate: 3600 },
+    const res = await fetch(`https://service.api.jevxo.com/category`, {
+      next: { revalidate: 86400 },
     });
     if (!res.ok) return [];
     const data = await res.json();
@@ -19,7 +19,7 @@ async function getCategories(): Promise<{ id: number; name: string; updatedAt?: 
 // Fetch all public services
 async function getServices(): Promise<{ id: number; name: string; updatedAt?: string }[]> {
   try {
-    const res = await fetch(`https://api.rajseba.com/services`, {
+    const res = await fetch(`https://service.api.jevxo.com/services`, {
       next: { revalidate: 3600 },
     });
     if (!res.ok) return [];

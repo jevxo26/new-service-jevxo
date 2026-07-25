@@ -7,10 +7,10 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --brand-primary: #8b1a1a;
-  --brand-primary-light: #a52a2a;
-  --brand-primary-dark: #6b1414;
-  --brand-accent: #fff5f5;
+  --brand-primary: #1E4E8C;
+  --brand-primary-light: #5B92E5;
+  --brand-primary-dark: #03172E;
+  --brand-accent: #E6F0FA;
   --brand-hero-bg: #fef7f5;
   --text-primary: #1a1a1a;
   --text-secondary: #6b7280;
@@ -70,11 +70,23 @@
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
 
-  --color-brand-primary: #FF6014;
-  --color-brand-light: #FF9E96;
-  --color-brand-dark: #E0530A;
-  --color-brand-bg: #FFF8F4;
-  --color-brand-hover: #FFF0EB;
+  --color-brand-primary: #1E4E8C;
+  --color-brand-light: #5B92E5;
+  --color-brand-dark: #03172E;
+  --color-brand-bg: #E6F0FA;
+  --color-brand-hover: #D3E4F6;
+
+  --color-indigo-50: #F0F4FA;
+  --color-indigo-100: #E1EBF5;
+  --color-indigo-200: #C3D5EB;
+  --color-indigo-300: #9CBAE0;
+  --color-indigo-400: #6F9AD0;
+  --color-indigo-500: #4278BC;
+  --color-indigo-600: #1E4E8C;
+  --color-indigo-700: #123C73;
+  --color-indigo-800: #082C54;
+  --color-indigo-900: #04162B;
+  --color-indigo-950: #020B16;
 
   --color-premium-slate: #0F172A;
   --color-premium-gray: #64748B;
@@ -85,7 +97,7 @@
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
 
-  --primary: #FF6014;
+  --primary: #1E4E8C;
   --primary-foreground: oklch(0.985 0 0);
 
   --secondary: oklch(0.97 0 0);
@@ -94,12 +106,12 @@
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
 
-  --accent: #FF6014;
+  --accent: #1E4E8C;
   --accent-foreground: oklch(0.985 0 0);
 
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
-  --ring: #FF6014;
+  --ring: #1E4E8C;
 
   --radius: 0.625rem;
 
@@ -119,18 +131,18 @@
 
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: #FF6014;
+  --sidebar-primary: #1E4E8C;
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: #FF6014;
+  --sidebar-ring: #1E4E8C;
 }
 
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
-  --primary: #FF6014;
+  --primary: #1E4E8C;
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);
   --muted: oklch(0.269 0 0);
@@ -140,12 +152,12 @@
   --popover-foreground: oklch(0.985 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted-foreground: oklch(0.708 0 0);
-  --accent: #FF6014;
+  --accent: #1E4E8C;
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: #FF6014;
+  --ring: #1E4E8C;
 }
 
 /* ============== Bai Jamjuree Font ============== */
@@ -171,7 +183,7 @@ body {
     overflow-x: hidden;
     /* ✅ Scrollbar শুধু একবার html-এ */
     scrollbar-width: thin;
-    scrollbar-color: #FFD2D4 transparent;
+    scrollbar-color: #C7D2FE transparent;
   }
 
   /* ✅ Webkit scrollbar — একবারই */
@@ -185,22 +197,26 @@ body {
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #FFD2D4;
+    background: #C7D2FE;
     border-radius: 9999px;
     transition: background-color 0.2s ease;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #FF6014;
+    background: #1E4E8C;
   }
 }
 
 @utility bg-brand-gradient {
-  background: #FF6014;
+  background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%) !important;
 }
 
 @utility bg-brand-gradient-hover {
-  background: #E0530A;
+  background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%) !important;
+}
+
+.brand-logo-filter {
+  filter: hue-rotate(220deg) saturate(1.2) brightness(0.95);
 }
 
 @utility shadow-premium {
@@ -227,12 +243,12 @@ body {
   }
 
   &::-webkit-scrollbar-thumb {
-    background: #FFD2D4;
+    background: #C7D2FE;
     border-radius: 9999px;
   }
 
   &::-webkit-scrollbar-thumb:hover {
-    background: #FF6014;
+    background: #1E4E8C;
   }
 }
 
@@ -266,8 +282,8 @@ html.dashboard-html {
 
   &:hover {
     transform: translateY(-5px) scale(1.015);
-    box-shadow: 0 16px 28px -10px rgba(255, 124, 113, 0.25), 0 6px 16px rgba(0, 0, 0, 0.04);
-    border-color: rgba(255, 124, 113, 0.35);
+    box-shadow: 0 16px 28px -10px rgba(99, 102, 241, 0.25), 0 6px 16px rgba(0, 0, 0, 0.04);
+    border-color: rgba(99, 102, 241, 0.35);
   }
 }
 
@@ -389,45 +405,56 @@ html.dashboard-html {
   margin: 0 0 0.5em;
   line-height: 1.7;
 }
+
 .rich-content p:last-child {
   margin-bottom: 0;
 }
+
 .rich-content strong {
   font-weight: 700;
   color: inherit;
 }
+
 .rich-content em {
   font-style: italic;
 }
+
 .rich-content u {
   text-decoration: underline;
 }
+
 .rich-content ul {
   list-style-type: disc;
   padding-left: 1.4em;
   margin: 0.5em 0;
 }
+
 .rich-content ol {
   list-style-type: decimal;
   padding-left: 1.4em;
   margin: 0.5em 0;
 }
+
 .rich-content li {
   margin: 0.25em 0;
   line-height: 1.65;
 }
+
 .rich-content mark {
   border-radius: 2px;
   padding: 0 2px;
 }
+
 /* Font sizes set via inline style are respected by the browser automatically */
 /* Text alignment */
 .rich-content [style*="text-align: center"] {
   text-align: center;
 }
+
 .rich-content [style*="text-align: right"] {
   text-align: right;
 }
+
 .rich-content [style*="text-align: left"] {
   text-align: left;
 }
@@ -443,40 +470,15 @@ html.dashboard-html {
 }
 
 .custom-sidebar-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(255, 96, 20, 0.15) !important;
+  background: rgba(30, 78, 140, 0.15) !important;
   border-radius: 9999px !important;
 }
 
 .custom-sidebar-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 96, 20, 0.35) !important;
+  background: rgba(30, 78, 140, 0.35) !important;
 }
 
 .custom-sidebar-scrollbar {
   scrollbar-width: thin !important;
-  scrollbar-color: rgba(255, 96, 20, 0.15) transparent !important;
-}
-
-/* ============================================================
-   Print Styles for Manual Invoice
-   ============================================================ */
-@media print {
-  body * {
-    visibility: hidden;
-  }
-  #invoice-print-area, #invoice-print-area * {
-    visibility: visible;
-  }
-  #invoice-print-area {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  
-  * {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
+  scrollbar-color: rgba(30, 78, 140, 0.15) transparent !important;
 }

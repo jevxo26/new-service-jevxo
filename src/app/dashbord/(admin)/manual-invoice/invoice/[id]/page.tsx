@@ -7,7 +7,7 @@ import { toast } from "sonner";
 import InvoiceTemplate1 from "@/components/manual-invoice/InvoiceTemplate1";
 import InvoiceTemplate2 from "@/components/manual-invoice/InvoiceTemplate2";
 
-const API = "https://api.rajseba.com";
+const API = "https://service.api.jevxo.com";
 
 export default function InvoiceViewPage() {
   const { id } = useParams<{ id: string }>();

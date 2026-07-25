@@ -8,19 +8,22 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   try {
-    const allRes = await fetch("https://api.rajseba.com/services/public", {
+    const allRes = await fetch("https://service.api.jevxo.com/services/public", {
       next: { revalidate: 3600 },
     });
-    const allJson = await allRes.json();
-    const serviceObj = allJson?.data?.find((s: any) => s.slug === slug);
-    if (!serviceObj) {
-      return {
-        title: "Category Details - Rajseba",
-        description: "Professional service category details.",
-      };
-    }
+    if (!allRes.ok) return {
+      title: "Category Details - Rajseba",
+      description: "Professional service category details.",
+    };
+    const allData = await allRes.json();
+    const services = allData.data || (Array.isArray(allData) ? allData : []);
+    const serviceObj = services.find((s: any) => s.slug === slug || String(s.id) === slug);
+    if (!serviceObj) return {
+      title: "Category Details - Rajseba",
+      description: "Professional service category details.",
+    };
 
-    const res = await fetch(`https://api.rajseba.com/services/${serviceObj.id}`, {
+    const res = await fetch(`https://service.api.jevxo.com/services/${serviceObj.id}`, {
       next: { revalidate: 3600 },
     });
     const json = await res.json();
